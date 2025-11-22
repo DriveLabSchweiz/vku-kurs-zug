@@ -1,0 +1,90 @@
+{
+  "site": {
+    "title": "VKU Zug – Verkehrskundeunterricht im Kanton Zug",
+    "description": "Jetzt Ihren VKU Zug Kurs in Zug buchen: 8 Stunden Verkehrskunde, zentrale Lage, inkl. Material. Plätze sichern!",
+    "lang": "de-CH",
+    "domain": "vku-kurs-zug.ch"
+  },
+  "course": {
+    "name": "Verkehrskundeunterricht (VKU) Zug",
+    "price": "CHF 230.-",
+    "duration": "8 Stunden",
+    "duration_days": "2 Tage",
+    "location_main": "Industriestrasse 50, Zug",
+    "location_detail": "Ca. 9 Minuten zu Fuss vom Zug Bahnhof.",
+    "inclusions": ["Lernmaterial", "Zertifikat", "Getränke", "Früchte"],
+    "modules": [
+      {
+        "title": "Verkehrssehen",
+        "description": "Training, um Verkehrssituationen frühzeitig zu erkennen und richtig zu reagieren. Fokus auf Sensomotorik und Methoden für eine erfolgreiche Fahrausbildung."
+      },
+      {
+        "title": "Verkehrsumwelt",
+        "description": "Anpassung der Geschwindigkeit an die aktuelle Situation. Nutzung von 360-Grad-Videos aus Zug zur Vermittlung einer angemessenen Fahrweise. Einschätzung von Fussgänger:innen, Strassen und Sichtverhältnissen."
+      },
+      {
+        "title": "Verkehrsdynamik",
+        "description": "Grundlegende Regeln zur Fahrphysik. Behandlung von elektronischen Assistenzsystemen und Fahrzeugunterhalt (am Beispiel von Tesla und Verbrenner)."
+      },
+      {
+        "title": "Verkehrstaktik",
+        "description": "Strategien für sicheres Fahren. Untersuchung der Einflüsse von Müdigkeit, Ablenkung, Drogen und Medikamenten. Prävention von Risiken steht im Vordergrund."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Wann sollte ich die Verkehrskunde besuchen?",
+        "answer": "Direkt nach der bestandenen Theorieprüfung. Der VKU ist unbeschränkt gültig und ermöglicht die Anmeldung zur praktischen Führerprüfung (falls keine Jahresfrist besteht)."
+      },
+      {
+        "question": "Was ist Verkehrskundeunterricht?",
+        "answer": "Der VKU ist ein zweitägiger Kurs, der die Brücke zwischen Theorie und den praktischen Fahrstunden schlägt, um die Verkehrssicherheit zu erhöhen. Er widmet sich der Entwicklung des Verkehrssinnes und der Fahrschuldidaktik."
+      },
+      {
+        "question": "Wann muss ich den VKU besuchen?",
+        "answer": "Der VKU ist obligatorisch für alle, die zum ersten Mal einen Führerschein der Kategorie B (Auto) oder Kategorie A1/A (Motorrad) machen. Ein gültiger Lernfahrausweis ist zur Anmeldung erforderlich."
+      },
+      {
+        "question": "Wie lange dauert der VKU?",
+        "answer": "Der VKU dauert 8 Stunden, bei DriveLab intensiv an zwei Tagen."
+      },
+      {
+        "question": "Wie teuer ist ein VKU?",
+        "answer": "Der VKU kostet in Zug CHF 230.-. Das beinhaltet alle Kosten wie Lernmaterial, Zertifikat, Getränke und Früchte."
+      },
+      {
+        "question": "Wie lange ist die Verkehrskunde gültig?",
+        "answer": "Für immer. Ein abgeschlossener VKU bleibt gültig."
+      },
+      {
+        "question": "Was muss man beim VKU mitnehmen?",
+        "answer": "Nur das Handy, da einige Inhalte online abrufbar sind. Lehrmittel, Getränke, Früchte, Schreibzeug und Notizmaterial werden gestellt und sind im Preis inbegriffen."
+      }
+    ]
+  },
+  "locations": [
+    {
+      "slug": "zug-hauptbahnhof",
+      "name": "Zug Hauptbahnhof",
+      "description": "Beschreibung VKU Kursraum Zug HB, Anreise ÖV, Besonderheiten."
+    },
+    {
+      "slug": "baar",
+      "name": "Baar (Kanton Zug)",
+      "description": "VKU in Baar im Kanton Zug."
+    },
+    {
+      "slug": "steinhausen",
+      "name": "Steinhausen",
+      "description": "VKU in Steinhausen (Kanton Zug)."
+    }
+  ],
+  "external_links": [
+    {"text": "Bundesamt für Strassen (ASTRA)", "url": "https://www.astra.admin.ch/astra/de/home.html"},
+    {"text": "Kantonales Strassenverkehrsamt Zug", "url": "https://www.zg.ch/behoerden/sicherheitsdirektion/strassenverkehrsamt"},
+    {"text": "DriveLab Fahrstunden", "url": "https://drivelab.ch/fahrstunden"},
+    {"text": "DriveLab Intensivkurs", "url": "https://drivelab.ch/intensivkurs"},
+    {"text": "DriveLab Motorrad", "url": "https://drivelab.ch/motorrad"},
+    {"text": "Nothelferkurs Zürich", "url": "https://www.nothelferkurs-zuerich.ch/"}
+  ]
+}

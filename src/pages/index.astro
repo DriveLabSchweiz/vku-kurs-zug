@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import vkuData from '../data/vku_data.json';
+
+const { course, locations } = vkuData;
+---
+
+<BaseLayout
+  title="VKU Zug – Verkehrskundeunterricht im Kanton Zug"
+  description="Jetzt Ihren VKU Zug Kurs in Zug buchen: 8 Stunden Verkehrskunde, zentrale Lage, inkl. Material. Plätze sichern!"
+  canonical="https://vku-kurs-zug.ch/"
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">VKU Zug – Verkehrskundeunterricht</h1>
+      <p class="text-xl md:text-2xl mb-8">8 Stunden intensive Verkehrskunde im Zentrum von Zug</p>
+      <a href="#booking" class="bg-white text-blue-600 px-8 py-3 rounded font-bold hover:bg-gray-100 inline-block">Platz sichern</a>
+    </div>
+  </section>
+
+  <!-- Table of Contents -->
+  <nav class="bg-gray-50 py-4 sticky top-20 z-40">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="text-sm font-semibold text-gray-600 mb-2">Auf dieser Seite:</p>
+      <ul class="flex flex-wrap gap-4 text-sm">
+        <li><a href="#was-ist-vku" class="text-blue-600 hover:underline">Was ist VKU?</a></li>
+        <li><a href="#fakten" class="text-blue-600 hover:underline">Fakten</a></li>
+        <li><a href="#module" class="text-blue-600 hover:underline">Module</a></li>
+        <li><a href="#standorte" class="text-blue-600 hover:underline">Standorte</a></li>
+        <li><a href="#booking" class="text-blue-600 hover:underline">Anmeldung</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Was ist VKU? -->
+  <section id="was-ist-vku" class="py-12 max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-6">Was ist Verkehrskundeunterricht (VKU)?</h2>
+    <p class="text-lg text-gray-700 mb-4">
+      Der VKU ist ein zweitägiger Kurs, der die Brücke zwischen Theorie und den praktischen Fahrstunden schlägt. Er ist obligatorisch für alle, die zum ersten Mal einen Führerschein der Kategorie B (Auto) oder Kategorie A1/A (Motorrad) machen.
+    </p>
+    <p class="text-lg text-gray-700 mb-4">
+      Mit unserem Verkehrskundeunterricht im Zentrum von Zug lernst du auf unterhaltsame Art die wichtigsten Dinge, um sicher durch den Verkehr zu kommen. Wir verwenden modernes Schulungsmaterial, das wir zum grössten Teil selbst produziert haben.
+    </p>
+    <p class="text-lg text-gray-700">
+      Die Preise verstehen sich all inclusive. Du kannst dein Portemonnaie für den VKU also zu Hause lassen. Auch Getränke und Früchte gehen auf unsere Kosten.
+    </p>
+  </section>
+
+  <!-- Fakten Box -->
+  <section id="fakten" class="bg-blue-50 py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8 text-center">VKU Zug auf einen Blick</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded shadow text-center">
+          <p class="text-4xl font-bold text-blue-600 mb-2">{course.price}</p>
+          <p class="text-gray-700">Gesamtpreis</p>
+          <p class="text-sm text-gray-500 mt-2">Inkl. Material, Zertifikat, Getränke, Früchte</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow text-center">
+          <p class="text-4xl font-bold text-blue-600 mb-2">{course.duration}</p>
+          <p class="text-gray-700">Kursdauer</p>
+          <p class="text-sm text-gray-500 mt-2">{course.duration_days}</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow text-center">
+          <p class="text-4xl font-bold text-blue-600 mb-2">4</p>
+          <p class="text-gray-700">Module</p>
+          <p class="text-sm text-gray-500 mt-2">Verkehrssehen, -umwelt, -dynamik, -taktik</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow text-center">
+          <p class="text-4xl font-bold text-blue-600 mb-2">9 Min</p>
+          <p class="text-gray-700">Zu Fuss vom Bahnhof</p>
+          <p class="text-sm text-gray-500 mt-2">{course.location_main}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module -->
+  <section id="module" class="py-12 max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-8">Die 4 Kursmodule</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {course.modules.map((module) => (
+        <div class="border-l-4 border-blue-600 pl-6">
+          <h3 class="text-2xl font-bold mb-3">{module.title}</h3>
+          <p class="text-gray-700">{module.description}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-8 p-6 bg-gray-50 rounded">
+      <p class="text-gray-700">
+        <strong>Mehr Details:</strong> Besuche unsere <a href="/kursinhalt" class="text-blue-600 hover:underline">Kursinhalt-Seite</a> für eine ausführliche Beschreibung aller Module.
+      </p>
+    </div>
+  </section>
+
+  <!-- Standorte -->
+  <section id="standorte" class="bg-gray-50 py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8 text-center">VKU Standorte in Zug</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {locations.map((location) => (
+          <div class="bg-white p-6 rounded shadow hover:shadow-lg transition">
+            <h3 class="text-xl font-bold mb-3">{location.name}</h3>
+            <p class="text-gray-700 mb-4">{location.description}</p>
+            <a href={`/ort/${location.slug}`} class="text-blue-600 hover:underline font-semibold">Mehr erfahren →</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking CTA -->
+  <section id="booking" class="bg-blue-600 text-white py-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Bereit für deinen VKU?</h2>
+      <p class="text-xl mb-8">Sichere dir deinen Platz im nächsten Kurs!</p>
+      <a href="/kontakt" class="bg-white text-blue-600 px-8 py-3 rounded font-bold hover:bg-gray-100 inline-block">Jetzt anmelden</a>
+    </div>
+  </section>
+
+  <!-- FAQ Preview -->
+  <section class="py-12 max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-8">Häufig gestellte Fragen</h2>
+    <div class="space-y-4">
+      {course.faq.slice(0, 3).map((item) => (
+        <details class="border rounded p-4 hover:bg-gray-50">
+          <summary class="font-semibold cursor-pointer text-lg">{item.question}</summary>
+          <p class="mt-4 text-gray-700">{item.answer}</p>
+        </details>
+      ))}
+    </div>
+    <div class="mt-8 text-center">
+      <a href="/faq" class="text-blue-600 hover:underline font-semibold text-lg">Alle FAQs anschauen →</a>
+    </div>
+  </section>
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://vku-kurs-zug.ch/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Course Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Verkehrskundeunterricht (VKU) Zug",
+    "description": "8-stündiger Verkehrskundeunterricht im Zentrum von Zug",
+    "duration": "PT8H",
+    "offers": {
+      "@type": "Offer",
+      "price": "230",
+      "priceCurrency": "CHF"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "VKU Zug"
+    }
+  }
+  </script>
+</BaseLayout>

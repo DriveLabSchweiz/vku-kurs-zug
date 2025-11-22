@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Kontakt – VKU Zug"
+  description="Kontaktiere uns für Fragen zum VKU Zug oder zur Kursanmeldung."
+  canonical="https://vku-kurs-zug.ch/kontakt"
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">Kontakt</h1>
+      <p class="text-xl">Schreib uns eine Nachricht oder ruf uns an</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav class="bg-gray-50 py-4">
+    <div class="max-w-6xl mx-auto px-4">
+      <a href="/" class="text-blue-600 hover:underline">Home</a> > <span class="text-gray-600">Kontakt</span>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <section class="py-12 max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <!-- Contact Info -->
+      <div>
+        <h2 class="text-2xl font-bold mb-6">Kontaktinformationen</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-bold text-lg mb-2">Adresse</h3>
+            <p class="text-gray-700">
+              Industriestrasse 50<br />
+              6900 Zug<br />
+              Schweiz
+            </p>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Telefon</h3>
+            <p class="text-gray-700">
+              <a href="tel:+41412193660" class="text-blue-600 hover:underline">+41 41 219 36 60</a>
+            </p>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Öffnungszeiten</h3>
+            <p class="text-gray-700">
+              Montag – Freitag: 08:00 – 18:00<br />
+              Samstag: 09:00 – 12:00<br />
+              Sonntag: Geschlossen
+            </p>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Anreise</h3>
+            <p class="text-gray-700">
+              Ca. 9 Minuten zu Fuss vom Bahnhof Zug<br />
+              oder mit dem Bus Nr. 4 bis Zug, Göbli
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div>
+        <h2 class="text-2xl font-bold mb-6">Kontaktformular</h2>
+        <form id="contactForm" class="space-y-4">
+          <div>
+            <label for="vorname" class="block font-semibold mb-2">Vorname *</label>
+            <input
+              type="text"
+              id="vorname"
+              name="vorname"
+              required
+              class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-600"
+            />
+          </div>
+          <div>
+            <label for="nachname" class="block font-semibold mb-2">Nachname *</label>
+            <input
+              type="text"
+              id="nachname"
+              name="nachname"
+              required
+              class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-600"
+            />
+          </div>
+          <div>
+            <label for="email" class="block font-semibold mb-2">E-Mail *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-600"
+            />
+          </div>
+          <div>
+            <label for="telefon" class="block font-semibold mb-2">Telefon (optional)</label>
+            <input
+              type="tel"
+              id="telefon"
+              name="telefon"
+              class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-600"
+            />
+          </div>
+          <div>
+            <label for="nachricht" class="block font-semibold mb-2">Nachricht *</label>
+            <textarea
+              id="nachricht"
+              name="nachricht"
+              rows="5"
+              required
+              class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-600"
+            ></textarea>
+          </div>
+          <div class="flex items-start">
+            <input
+              type="checkbox"
+              id="datenschutz"
+              name="datenschutz"
+              required
+              class="mt-1 mr-3"
+            />
+            <label for="datenschutz" class="text-sm text-gray-700">
+              Ich stimme der Datenverarbeitung gemäss <a href="/datenschutz" class="text-blue-600 hover:underline">Datenschutzerklärung</a> zu. *
+            </label>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-blue-600 text-white px-6 py-3 rounded font-bold hover:bg-blue-700 transition"
+          >
+            Nachricht senden
+          </button>
+          <p id="formMessage" class="text-sm text-gray-600 hidden"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://vku-kurs-zug.ch/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Kontakt",
+        "item": "https://vku-kurs-zug.ch/kontakt"
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData);
+      
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        
+        const message = document.getElementById('formMessage');
+        if (response.ok) {
+          message.textContent = 'Vielen Dank! Deine Nachricht wurde versendet.';
+          message.className = 'text-sm text-green-600 block';
+          e.target.reset();
+        } else {
+          message.textContent = 'Es gab einen Fehler. Bitte versuche es später erneut.';
+          message.className = 'text-sm text-red-600 block';
+        }
+      } catch (error) {
+        document.getElementById('formMessage').textContent = 'Fehler beim Senden der Nachricht.';
+        document.getElementById('formMessage').className = 'text-sm text-red-600 block';
+      }
+    });
+  </script>
+</BaseLayout>

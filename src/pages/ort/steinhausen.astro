@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import vkuData from '../../data/vku_data.json';
+
+const { course, locations } = vkuData;
+const currentLocation = locations[2];
+const otherLocations = locations.filter(l => l.slug !== 'steinhausen');
+---
+
+<BaseLayout
+  title="VKU Steinhausen – Verkehrskundeunterricht in Steinhausen"
+  description="VKU Kurs in Steinhausen, Kanton Zug. Zentrale Lage, moderne Ausstattung. Jetzt anmelden!"
+  canonical="https://vku-kurs-zug.ch/ort/steinhausen"
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">VKU Steinhausen</h1>
+      <p class="text-xl">Verkehrskundeunterricht in Steinhausen, Kanton Zug</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav class="bg-gray-50 py-4">
+    <div class="max-w-6xl mx-auto px-4">
+      <a href="/" class="text-blue-600 hover:underline">Home</a> > 
+      <a href="/#standorte" class="text-blue-600 hover:underline">Standorte</a> > 
+      <span class="text-gray-600">Steinhausen</span>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <section class="py-12 max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-3xl font-bold mb-6">VKU in Steinhausen</h2>
+        <p class="text-lg text-gray-700 mb-4">
+          Steinhausen ist eine wachsende Gemeinde im Kanton Zug mit guter Infrastruktur. Unser Standort Steinhausen bietet dir eine komfortable Umgebung für deinen Verkehrskundeunterricht.
+        </p>
+        <p class="text-lg text-gray-700 mb-4">
+          Mit modernen Lernmaterialien und erfahrenen Kursleitern bereiten wir dich optimal auf deine Fahrprüfung vor. Der Standort ist leicht erreichbar und bietet gute Verkehrsanbindungen.
+        </p>
+        <p class="text-lg text-gray-700 mb-6">
+          Wie an allen unseren Standorten sind Getränke und Früchte im Kurspreis inbegriffen.
+        </p>
+
+        <h3 class="text-2xl font-bold mb-4">Anreise</h3>
+        <ul class="text-gray-700 space-y-2 mb-6">
+          <li><strong>Mit dem Auto:</strong> Zentrale Lage mit Parkplätzen</li>
+          <li><strong>Mit dem Bus:</strong> Gute Busanbindung</li>
+          <li><strong>Mit dem Zug:</strong> Bahnhof Steinhausen in der Nähe</li>
+        </ul>
+
+        <h3 class="text-2xl font-bold mb-4">Adresse</h3>
+        <p class="text-gray-700 mb-6">
+          Steinhausen<br />
+          Kanton Zug<br />
+          Schweiz
+        </p>
+
+        <a href="/kontakt" class="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 inline-block">
+          Jetzt anmelden
+        </a>
+      </div>
+
+      <div>
+        <div class="bg-blue-50 p-8 rounded-lg">
+          <h3 class="text-2xl font-bold mb-6">Kursinformationen</h3>
+          <div class="space-y-4">
+            <div class="border-b pb-4">
+              <p class="font-semibold text-gray-600">Preis</p>
+              <p class="text-2xl font-bold text-blue-600">{course.price}</p>
+              <p class="text-sm text-gray-600">Inkl. Material, Zertifikat, Getränke, Früchte</p>
+            </div>
+            <div class="border-b pb-4">
+              <p class="font-semibold text-gray-600">Dauer</p>
+              <p class="text-2xl font-bold text-blue-600">{course.duration}</p>
+              <p class="text-sm text-gray-600">{course.duration_days}</p>
+            </div>
+            <div class="border-b pb-4">
+              <p class="font-semibold text-gray-600">Module</p>
+              <p class="text-2xl font-bold text-blue-600">4</p>
+              <p class="text-sm text-gray-600">Verkehrssehen, -umwelt, -dynamik, -taktik</p>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-600">Lage</p>
+              <p class="text-2xl font-bold text-blue-600">Zentral</p>
+              <p class="text-sm text-gray-600">Leicht erreichbar</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weitere Standorte -->
+    <div class="mt-12">
+      <h2 class="text-3xl font-bold mb-8">Weitere VKU-Standorte in Zug</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {otherLocations.map((location) => (
+          <div class="border rounded-lg p-6 hover:shadow-lg transition">
+            <h3 class="text-xl font-bold mb-3">{location.name}</h3>
+            <p class="text-gray-700 mb-4">{location.description}</p>
+            <a href={`/ort/${location.slug}`} class="text-blue-600 hover:underline font-semibold">
+              Mehr erfahren →
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 text-center">
+      <a href="/" class="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 inline-block">Zurück zur Startseite</a>
+    </div>
+  </section>
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://vku-kurs-zug.ch/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Standorte",
+        "item": "https://vku-kurs-zug.ch/#standorte"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Steinhausen",
+        "item": "https://vku-kurs-zug.ch/ort/steinhausen"
+      }
+    ]
+  }
+  </script>
+</BaseLayout>

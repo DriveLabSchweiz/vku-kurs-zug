@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Datenschutz – VKU Zug"
+  description="Datenschutzerklärung der VKU Zug Website."
+  canonical="https://vku-kurs-zug.ch/datenschutz"
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">Datenschutz</h1>
+      <p class="text-xl">Datenschutzerklärung</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav class="bg-gray-50 py-4">
+    <div class="max-w-6xl mx-auto px-4">
+      <a href="/" class="text-blue-600 hover:underline">Home</a> > <span class="text-gray-600">Datenschutz</span>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <section class="py-12 max-w-6xl mx-auto px-4">
+    <div class="prose max-w-none">
+      <h2>1. Verantwortlicher</h2>
+      <p>
+        Verantwortlicher für die Datenverarbeitung ist:<br />
+        VKU Zug<br />
+        Industriestrasse 50<br />
+        6900 Zug<br />
+        Schweiz<br />
+        Tel: +41 41 219 36 60
+      </p>
+
+      <h2>2. Datenerfassung und -verarbeitung</h2>
+      <p>
+        Wir erfassen und verarbeiten personenbezogene Daten nur, wenn Sie uns diese über unser Kontaktformular zur Verfügung stellen. Die erfassten Daten umfassen:
+      </p>
+      <ul>
+        <li>Vorname und Nachname</li>
+        <li>E-Mail-Adresse</li>
+        <li>Telefonnummer (optional)</li>
+        <li>Nachrichteninhalt</li>
+      </ul>
+
+      <h2>3. Zweck der Datenverarbeitung</h2>
+      <p>
+        Die erfassten Daten werden ausschliesslich zur Kontaktaufnahme und Kursorganisation verwendet. Wir verwenden Ihre Daten nicht für Marketing- oder Werbezwecke.
+      </p>
+
+      <h2>4. Speicherdauer</h2>
+      <p>
+        Ihre Daten werden so lange gespeichert, wie es für die Erfüllung des Zwecks erforderlich ist, mindestens jedoch für die Dauer der Geschäftsbeziehung. Danach werden die Daten gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.
+      </p>
+
+      <h2>5. Datensicherheit</h2>
+      <p>
+        Wir schützen Ihre Daten durch angemessene technische und organisatorische Massnahmen vor unbefugtem Zugriff, Verlust oder Zerstörung.
+      </p>
+
+      <h2>6. Ihre Rechte</h2>
+      <p>
+        Sie haben das Recht:
+      </p>
+      <ul>
+        <li>Auskunft über Ihre gespeicherten Daten zu erhalten</li>
+        <li>Ihre Daten zu korrigieren oder zu löschen</li>
+        <li>Die Verarbeitung Ihrer Daten einzuschränken</li>
+        <li>Ihre Daten in einem strukturierten Format zu erhalten (Datenportabilität)</li>
+        <li>Der Verarbeitung zu widersprechen</li>
+      </ul>
+
+      <h2>7. Cookies</h2>
+      <p>
+        Diese Website verwendet keine Tracking-Cookies. Wir respektieren Ihre Privatsphäre und erfassen keine Nutzungsdaten.
+      </p>
+
+      <h2>8. Externe Links</h2>
+      <p>
+        Diese Website enthält Links zu externen Websites. Wir sind nicht verantwortlich für die Datenschutzpraktiken dieser Websites.
+      </p>
+
+      <h2>9. Kontakt</h2>
+      <p>
+        Wenn Sie Fragen zu dieser Datenschutzerklärung haben, kontaktieren Sie uns bitte unter:<br />
+        Tel: +41 41 219 36 60<br />
+        E-Mail: kontakt@vku-kurs-zug.ch
+      </p>
+
+      <p class="text-sm text-gray-600 mt-8">
+        Letzte Aktualisierung: November 2025
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 text-center">
+      <a href="/" class="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 inline-block">Zurück zur Startseite</a>
+    </div>
+  </section>
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://vku-kurs-zug.ch/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Datenschutz",
+        "item": "https://vku-kurs-zug.ch/datenschutz"
+      }
+    ]
+  }
+  </script>
+</BaseLayout>
