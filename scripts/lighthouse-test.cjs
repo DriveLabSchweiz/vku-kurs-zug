@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+
 /**
  * Lighthouse Performance Test
  * Überprüft die Performance der Website nach dem Build

@@ -1,0 +1,25 @@
+---
+interface Props {
+  src: string;
+  title: string;
+  height?: string;
+  class?: string;
+}
+
+const { src, title, height = '500px', class: className } = Astro.props;
+---
+
+<iframe
+  style="border: 0px #ffffff none;"
+  src={src}
+  title={title}
+  width="100%"
+  height={height}
+  frameborder="1"
+  marginwidth="0px"
+  marginheight="0px"
+  loading="lazy"
+  scrolling="yes"
+  allowfullscreen="allowfullscreen"
+  class:list={[className, 'rounded-lg shadow-xl']}
+></iframe>

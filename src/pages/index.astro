@@ -1,13 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import vkuData from '../data/vku_data.json';
+import OptimizedImage from '../components/OptimizedImage.astro';
+import CourseIframe from '../components/CourseIframe.astro';
 
 const { course, locations } = vkuData;
 ---
 
 <BaseLayout
-  title="VKU Zug – Verkehrskundeunterricht im Kanton Zug"
-  description="Jetzt Ihren VKU Zug Kurs in Zug buchen: 8 Stunden Verkehrskunde, zentrale Lage, inkl. Material. Plätze sichern!"
+  title="VKU Zug – Verkehrskundekurs in 2 Tagen | vku-kurs-zug.ch"
+  description="Buche deinen VKU in Zug und absolviere den Verkehrskundekurs in nur 2 Tagen. Zentral in Zug, inkl. Lehrmittel und Bestätigung. Jetzt Kursdatum wählen und online anmelden."
   canonical="https://vku-kurs-zug.ch/"
 >
   <!-- Hero Section -->
@@ -15,7 +17,7 @@ const { course, locations } = vkuData;
     <div class="max-w-6xl mx-auto px-4 text-center">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">VKU Zug – Verkehrskundeunterricht</h1>
       <p class="text-xl md:text-2xl mb-8">8 Stunden intensive Verkehrskunde im Zentrum von Zug</p>
-      <a href="#booking" class="bg-white text-blue-600 px-8 py-3 rounded font-bold hover:bg-gray-100 inline-block">Platz sichern</a>
+      <a href="#booking" class="bg-white text-blue-600 px-8 py-3 rounded font-bold hover:bg-gray-100 inline-block">Jetzt Kursdatum wählen</a>
     </div>
   </section>
 
@@ -36,6 +38,23 @@ const { course, locations } = vkuData;
   <!-- Was ist VKU? -->
   <section id="was-ist-vku" class="py-12 max-w-6xl mx-auto px-4">
     <h2 class="text-3xl font-bold mb-6">Was ist Verkehrskundeunterricht (VKU)?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+      <OptimizedImage 
+        src="/vku-kursraum-aussenansicht.webp" 
+        alt="Moderner VKU Kursraum in Zug mit Blick nach draussen" 
+        width={600} 
+        height={400} 
+        class="rounded-lg shadow-lg"
+        loading="eager"
+      />
+      <OptimizedImage 
+        src="/vku-lehrerin-unterricht.webp" 
+        alt="VKU Lehrerin erklärt den Kursteilnehmern die Verkehrsregeln" 
+        width={600} 
+        height={400} 
+        class="rounded-lg shadow-lg"
+      />
+    </div>
     <p class="text-lg text-gray-700 mb-4">
       Der VKU ist ein zweitägiger Kurs, der die Brücke zwischen Theorie und den praktischen Fahrstunden schlägt. Er ist obligatorisch für alle, die zum ersten Mal einen Führerschein der Kategorie B (Auto) oder Kategorie A1/A (Motorrad) machen.
     </p>
@@ -110,12 +129,18 @@ const { course, locations } = vkuData;
     </div>
   </section>
 
-  <!-- Booking CTA -->
-  <section id="booking" class="bg-blue-600 text-white py-12">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4">Bereit für deinen VKU?</h2>
-      <p class="text-xl mb-8">Sichere dir deinen Platz im nächsten Kurs!</p>
-      <a href="/kontakt" class="bg-white text-blue-600 px-8 py-3 rounded font-bold hover:bg-gray-100 inline-block">Jetzt anmelden</a>
+  <!-- Booking iFrame -->
+  <section id="booking" class="bg-gray-50 py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8 text-center">VKU Kursdatum wählen und anmelden</h2>
+      <CourseIframe 
+        src="https://iframe.vku-pgs.asa.ch/de/public/coursegroup/all/VktVXzU3NzQ=/0/vku/" 
+        title="VKU Kursanmeldung" 
+        height="600px"
+      />
+      <div class="mt-8 text-center">
+        <a href="/kontakt" class="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 inline-block">Fragen zur Anmeldung? Kontaktiere uns</a>
+      </div>
     </div>
   </section>
 

@@ -1,0 +1,29 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+}
+
+const { src, alt, width, height, class: className, loading = 'lazy' } = Astro.props;
+
+// Simple check for external images
+const isExternal = src.startsWith('http');
+
+// Fallback for internal images (Astro's built-in image optimization is complex with Cloudflare Adapter)
+// We rely on the fact that the user provided WebP images, which are already optimized.
+// We will use the native HTML <img> tag with lazy loading.
+---
+
+<img
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  class:list={[className, 'object-cover']}
+  loading={loading}
+  decoding="async"
+/>

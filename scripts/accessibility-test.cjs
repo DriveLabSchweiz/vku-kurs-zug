@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+
 /**
  * Accessibility Test
  * Überprüft die Barrierefreiheit der Website

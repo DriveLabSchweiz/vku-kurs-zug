@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Startseite -->
+  <url>
+    <loc>https://vku-kurs-zug.ch/</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Kursinhalt -->
+  <url>
+    <loc>https://vku-kurs-zug.ch/kursinhalt</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://vku-kurs-zug.ch/faq</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Kontakt -->
+  <url>
+    <loc>https://vku-kurs-zug.ch/kontakt</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Ortsseite: Zug Hauptbahnhof -->
+  <url>
+    <loc>https://vku-kurs-zug.ch/ort/zug-hauptbahnhof</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Ortsseite: Baar -->
+  <url>
+    <loc>https://vku-kurs-zug.ch/ort/baar</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Ortsseite: Steinhausen -->
+  <url>
+    <loc>https://vku-kurs-zug.ch/ort/steinhausen</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Datenschutz -->
+  <url>
+    <loc>https://vku-kurs-zug.ch/datenschutz</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Impressum -->
+  <url>
+    <loc>https://vku-kurs-zug.ch/impressum</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
