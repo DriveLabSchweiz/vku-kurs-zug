@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import vkuData from '../../data/vku_data.json';
+import OptimizedImage from '../../components/OptimizedImage.astro';
 
 const { course, locations } = vkuData;
 const currentLocation = locations[1];
@@ -33,6 +34,14 @@ const otherLocations = locations.filter(l => l.slug !== 'baar');
   <section class="py-12 max-w-6xl mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
       <div>
+        <OptimizedImage 
+          src="/vku-schulungsraum-fenster.webp" 
+          alt="VKU Schulungsraum in Baar mit Fenster und Blick auf die Strasse" 
+          width={600} 
+          height={400} 
+          class="rounded-lg shadow-lg mb-6 w-full object-cover"
+          loading="eager"
+        />
         <h2 class="text-3xl font-bold mb-6">VKU in Baar</h2>
         <p class="text-lg text-gray-700 mb-4">
           Baar ist eine der grössten Gemeinden im Kanton Zug und bietet eine ideale Lage für unseren Verkehrskundeunterricht. Mit modernen Einrichtungen und erfahrenen Kursleitern bieten wir dir ein hochwertiges Lernerlebnis.

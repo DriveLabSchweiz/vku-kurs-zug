@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import vkuData from '../data/vku_data.json';
+import OptimizedImage from '../components/OptimizedImage.astro';
 
 const { course } = vkuData;
 ---
@@ -27,6 +28,16 @@ const { course } = vkuData;
 
   <!-- Main Content -->
   <section class="py-12 max-w-6xl mx-auto px-4">
+    <div class="mb-12">
+      <OptimizedImage 
+        src="/vku-lehrerin-unterricht.webp" 
+        alt="VKU Lehrerin erklaert den Kursteilnehmern die Verkehrsregeln" 
+        width={800} 
+        height={400} 
+        class="rounded-lg shadow-lg mb-8 w-full object-cover"
+        loading="eager"
+      />
+    </div>
     <div class="space-y-6">
       {course.faq.map((item) => (
         <details class="border-2 border-gray-200 rounded-lg p-6 hover:border-blue-600 transition">
@@ -36,6 +47,18 @@ const { course } = vkuData;
           <p class="mt-4 text-gray-700 leading-relaxed">{item.answer}</p>
         </details>
       ))}
+    </div>
+
+    <!-- Image Section -->
+    <div class="my-12">
+      <OptimizedImage 
+        src="/vku-klassenzimmer-u-form.webp" 
+        alt="VKU Klassenzimmer in U-Form mit modernen Tischen und Stuehlen" 
+        width={800} 
+        height={400} 
+        class="rounded-lg shadow-lg w-full object-cover"
+        loading="lazy"
+      />
     </div>
 
     <!-- Additional Help -->

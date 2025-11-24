@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import vkuData from '../data/vku_data.json';
+import OptimizedImage from '../components/OptimizedImage.astro';
 
 const { course } = vkuData;
 ---
@@ -27,6 +28,16 @@ const { course } = vkuData;
 
   <!-- Main Content -->
   <section class="py-12 max-w-6xl mx-auto px-4">
+    <div class="mb-12">
+      <OptimizedImage 
+        src="/vku-schulungsraum-fenster.webp" 
+        alt="VKU Schulungsraum mit Fenster und Blick auf die Strasse" 
+        width={800} 
+        height={400} 
+        class="rounded-lg shadow-lg mb-8 w-full object-cover"
+        loading="eager"
+      />
+    </div>
     <p class="text-lg text-gray-700 mb-8">
       Der VKU besteht aus 4 aufeinander aufbauenden Modulen, die zusammen ein umfassendes Verständnis für sicheres Fahren vermitteln. Jedes Modul behandelt einen wichtigen Aspekt der Verkehrskunde.
     </p>

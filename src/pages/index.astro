@@ -5,6 +5,15 @@ import OptimizedImage from '../components/OptimizedImage.astro';
 import CourseIframe from '../components/CourseIframe.astro';
 
 const { course, locations } = vkuData;
+
+const galleryImages = [
+  { src: '/vku-kursraum-aussenansicht.webp', alt: 'Moderner VKU Kursraum in Zug mit Blick nach draussen' },
+  { src: '/vku-lehrerin-unterricht.webp', alt: 'VKU Lehrerin erklärt den Kursteilnehmern die Verkehrsregeln' },
+  { src: '/vku-klassenzimmer-u-form.webp', alt: 'VKU Klassenzimmer in U-Form mit modernen Tischen und Stühlen' },
+  { src: '/vku-schulungsraum-fenster.webp', alt: 'VKU Schulungsraum mit grossem Fenster und Blick auf die Strasse' },
+  { src: '/vku-gratis-getraenke.webp', alt: 'Kostenlose Getränke und Snacks im VKU Kurs inbegriffen' },
+  { src: '/vku-lokal-aussenansicht.webp', alt: 'Aussenansicht des VKU Lokals an der Industriestrasse in Zug' },
+];
 ---
 
 <BaseLayout
@@ -12,12 +21,14 @@ const { course, locations } = vkuData;
   description="Buche deinen VKU in Zug und absolviere den Verkehrskundekurs in nur 2 Tagen. Zentral in Zug, inkl. Lehrmittel und Bestätigung. Jetzt Kursdatum wählen und online anmelden."
   canonical="https://vku-kurs-zug.ch/"
 >
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">VKU Zug – Verkehrskundeunterricht</h1>
-      <p class="text-xl md:text-2xl mb-8">8 Stunden intensive Verkehrskunde im Zentrum von Zug</p>
-      <a href="#booking" class="bg-white text-blue-600 px-8 py-3 rounded font-bold hover:bg-gray-100 inline-block">Jetzt Kursdatum wählen</a>
+  <!-- Hero Section with Background Image -->
+  <section class="relative h-96 md:h-[500px] bg-cover bg-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/vku-kursraum-aussenansicht.webp'); background-size: cover; background-position: center;">
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="text-center text-white">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">VKU Zug – Verkehrskundeunterricht</h1>
+        <p class="text-xl md:text-2xl mb-8">8 Stunden intensive Verkehrskunde im Zentrum von Zug</p>
+        <a href="#booking" class="bg-white text-blue-600 px-8 py-3 rounded font-bold hover:bg-gray-100 inline-block">Jetzt Kursdatum wählen</a>
+      </div>
     </div>
   </section>
 
@@ -30,6 +41,7 @@ const { course, locations } = vkuData;
         <li><a href="#fakten" class="text-blue-600 hover:underline">Fakten</a></li>
         <li><a href="#module" class="text-blue-600 hover:underline">Module</a></li>
         <li><a href="#standorte" class="text-blue-600 hover:underline">Standorte</a></li>
+        <li><a href="#galerie" class="text-blue-600 hover:underline">Galerie</a></li>
         <li><a href="#booking" class="text-blue-600 hover:underline">Anmeldung</a></li>
       </ul>
     </div>
@@ -38,23 +50,6 @@ const { course, locations } = vkuData;
   <!-- Was ist VKU? -->
   <section id="was-ist-vku" class="py-12 max-w-6xl mx-auto px-4">
     <h2 class="text-3xl font-bold mb-6">Was ist Verkehrskundeunterricht (VKU)?</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-      <OptimizedImage 
-        src="/vku-kursraum-aussenansicht.webp" 
-        alt="Moderner VKU Kursraum in Zug mit Blick nach draussen" 
-        width={600} 
-        height={400} 
-        class="rounded-lg shadow-lg"
-        loading="eager"
-      />
-      <OptimizedImage 
-        src="/vku-lehrerin-unterricht.webp" 
-        alt="VKU Lehrerin erklärt den Kursteilnehmern die Verkehrsregeln" 
-        width={600} 
-        height={400} 
-        class="rounded-lg shadow-lg"
-      />
-    </div>
     <p class="text-lg text-gray-700 mb-4">
       Der VKU ist ein zweitägiger Kurs, der die Brücke zwischen Theorie und den praktischen Fahrstunden schlägt. Er ist obligatorisch für alle, die zum ersten Mal einen Führerschein der Kategorie B (Auto) oder Kategorie A1/A (Motorrad) machen.
     </p>
@@ -126,6 +121,25 @@ const { course, locations } = vkuData;
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- Image Gallery -->
+  <section id="galerie" class="py-12 max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-8 text-center">Unser VKU Zentrum</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {galleryImages.map((image) => (
+        <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+          <OptimizedImage 
+            src={image.src} 
+            alt={image.alt} 
+            width={400} 
+            height={300} 
+            class="w-full h-64 object-cover"
+            loading="lazy"
+          />
+        </div>
+      ))}
     </div>
   </section>
 

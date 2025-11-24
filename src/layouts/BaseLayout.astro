@@ -36,6 +36,10 @@ const currentPath = new URL(Astro.request.url).pathname;
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={image} />
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.svg" />
+  
   <!-- Schema.org Markup -->
   <script type="application/ld+json">
   {
@@ -48,7 +52,7 @@ const currentPath = new URL(Astro.request.url).pathname;
       "@type": "PostalAddress",
       "streetAddress": "Industriestrasse 50",
       "addressLocality": "Zug",
-      "postalCode": "6900",
+      "postalCode": "6300",
       "addressCountry": "CH"
     },
     "url": "{canonical}",
@@ -60,7 +64,9 @@ const currentPath = new URL(Astro.request.url).pathname;
   <!-- Header & Navigation -->
   <header class="bg-white shadow-sm sticky top-0 z-50">
     <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/" class="text-2xl font-bold text-blue-600">VKU Zug</a>
+      <a href="/" class="flex items-center gap-2">
+        <img src="/logo.webp" alt="VKU Zug Logo" class="h-8" />
+      </a>
       <div class="hidden md:flex space-x-6">
         <a href="/" class={`hover:text-blue-600 ${currentPath === '/' ? 'text-blue-600 font-semibold' : ''}`}>Startseite</a>
         <a href="/kursinhalt" class={`hover:text-blue-600 ${currentPath === '/kursinhalt' ? 'text-blue-600 font-semibold' : ''}`}>Kursinhalt</a>
@@ -83,7 +89,7 @@ const currentPath = new URL(Astro.request.url).pathname;
         <div>
           <h3 class="font-bold text-lg mb-4">VKU Zug</h3>
           <p class="text-gray-400">Verkehrskundeunterricht im Zentrum von Zug.</p>
-          <p class="text-gray-400 mt-2">Industriestrasse 50, 6900 Zug</p>
+          <p class="text-gray-400 mt-2">Industriestrasse 50, 6300 Zug</p>
           <p class="text-gray-400">Tel: +41 41 219 36 60</p>
         </div>
         <div>
