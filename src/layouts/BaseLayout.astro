@@ -6,14 +6,63 @@ interface Props {
   description?: string;
   image?: string;
   canonical?: string;
+  lang?: 'de' | 'en';
 }
 
-const { title = 'VKU Zug – Verkehrskundeunterricht im Kanton Zug', description = 'Jetzt Ihren VKU Zug Kurs in Zug buchen: 8 Stunden Verkehrskunde, zentrale Lage, inkl. Material. Plätze sichern!', image = '/vku-zug-hero.png', canonical = 'https://vku-kurs-zug.ch' } = Astro.props;
+const { 
+  title = 'VKU Zug – Verkehrskundeunterricht im Kanton Zug', 
+  description = 'Jetzt Ihren VKU Zug Kurs in Zug buchen: 8 Stunden Verkehrskunde, zentrale Lage, inkl. Material. Plätze sichern!', 
+  image = '/vku-zug-hero.png', 
+  canonical = 'https://vku-kurs-zug.ch',
+  lang = 'de'
+} = Astro.props;
+
 const currentPath = new URL(Astro.request.url).pathname;
+
+// Language Switcher Logic
+const isEn = lang === 'en';
+const dePath = isEn ? currentPath.replace(/^\/en/, '') || '/' : currentPath;
+const enPath = isEn ? currentPath : `/en${currentPath === '/' ? '' : currentPath}`;
+
+// Navigation Links
+const navLinks = [
+  { href: isEn ? '/en' : '/', label: isEn ? 'Home' : 'Startseite' },
+  { href: isEn ? '/en/kursinhalt' : '/kursinhalt', label: isEn ? 'Course Content' : 'Kursinhalt' },
+  { href: isEn ? '/en/faq' : '/faq', label: 'FAQ' },
+  { href: isEn ? '/en/kontakt' : '/kontakt', label: isEn ? 'Contact' : 'Kontakt' },
+];
+
+const footerLinks = {
+  vku: {
+    title: 'VKU Zug',
+    desc: isEn ? 'Traffic theory course in the center of Zug.' : 'Verkehrskundeunterricht im Zentrum von Zug.',
+    addr: 'Industriestrasse 50, 6300 Zug',
+    tel: 'Tel: +41 41 219 36 60'
+  },
+  nav: {
+    title: 'Navigation',
+    links: navLinks
+  },
+  loc: {
+    title: isEn ? 'Locations' : 'Standorte',
+    links: [
+      { href: isEn ? '/en/ort/zug-hauptbahnhof' : '/ort/zug-hauptbahnhof', label: 'Zug Hauptbahnhof' },
+      { href: isEn ? '/en/ort/baar' : '/ort/baar', label: 'Baar' },
+      { href: isEn ? '/en/ort/steinhausen' : '/ort/steinhausen', label: 'Steinhausen' },
+    ]
+  },
+  legal: {
+    title: isEn ? 'Legal' : 'Rechtliches',
+    links: [
+      { href: isEn ? '/en/datenschutz' : '/datenschutz', label: isEn ? 'Privacy Policy' : 'Datenschutz' },
+      { href: isEn ? '/en/impressum' : '/impressum', label: isEn ? 'Imprint' : 'Impressum' },
+    ]
+  }
+};
 ---
 
 <!DOCTYPE html>
-<html lang="de-CH">
+<html lang={isEn ? 'en-CH' : 'de-CH'}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,13 +71,17 @@ const currentPath = new URL(Astro.request.url).pathname;
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href={canonical} />
   
+  <!-- Hreflang Tags -->
+  <link rel="alternate" hreflang="de-CH" href={`https://vku-kurs-zug.ch${dePath === '/' ? '' : dePath}`} />
+  <link rel="alternate" hreflang="en-CH" href={`https://vku-kurs-zug.ch${enPath === '/' ? '' : enPath}`} />
+  
   <!-- Open Graph -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={image} />
   <meta property="og:url" content={canonical} />
   <meta property="og:type" content="website" />
-  <meta property="og:locale" content="de_CH" />
+  <meta property="og:locale" content={isEn ? 'en_CH' : 'de_CH'} />
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -41,13 +94,12 @@ const currentPath = new URL(Astro.request.url).pathname;
   <link rel="alternate icon" href="/favicon.svg" />
   
   <!-- Schema.org Markup -->
-  <script type="application/ld+json">
-  {
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "VKU Zug – Verkehrskundeunterricht",
-    "image": "{image}",
-    "description": "{description}",
+    "image": image,
+    "description": description,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Industriestrasse 50",
@@ -55,25 +107,43 @@ const currentPath = new URL(Astro.request.url).pathname;
       "postalCode": "6300",
       "addressCountry": "CH"
     },
-    "url": "{canonical}",
-    "telephone": "+41 41 219 36 60"
-  }
-  </script>
+    "url": canonical,
+    "telephone": "+41 41 219 36 60",
+    "priceRange": "CHF 230",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.1736, 
+      "longitude": 8.5167 
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ]
+  })} />
 </head>
 <body class="bg-white text-gray-900 font-sans">
   <!-- Header & Navigation -->
   <header class="bg-white shadow-sm sticky top-0 z-50">
     <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2">
+      <a href={isEn ? '/en' : '/'} class="flex items-center gap-2">
         <img src="/logo.webp" alt="VKU Zug Logo" class="h-8" />
       </a>
-      <div class="hidden md:flex space-x-6">
-        <a href="/" class={`hover:text-blue-600 ${currentPath === '/' ? 'text-blue-600 font-semibold' : ''}`}>Startseite</a>
-        <a href="/kursinhalt" class={`hover:text-blue-600 ${currentPath === '/kursinhalt' ? 'text-blue-600 font-semibold' : ''}`}>Kursinhalt</a>
-        <a href="/faq" class={`hover:text-blue-600 ${currentPath === '/faq' ? 'text-blue-600 font-semibold' : ''}`}>FAQ</a>
-        <a href="/kontakt" class={`hover:text-blue-600 ${currentPath === '/kontakt' ? 'text-blue-600 font-semibold' : ''}`}>Kontakt</a>
+      <div class="hidden md:flex space-x-6 items-center">
+        {navLinks.map(link => (
+          <a href={link.href} class={`hover:text-blue-600 ${currentPath === link.href ? 'text-blue-600 font-semibold' : ''}`}>{link.label}</a>
+        ))}
+        <!-- Language Switcher -->
+        <div class="flex items-center space-x-2 border-l pl-4 ml-4">
+          <a href={dePath} class={`text-sm ${!isEn ? 'font-bold text-blue-600' : 'text-gray-500 hover:text-blue-600'}`}>DE</a>
+          <span class="text-gray-300">|</span>
+          <a href={enPath} class={`text-sm ${isEn ? 'font-bold text-blue-600' : 'text-gray-500 hover:text-blue-600'}`}>EN</a>
+        </div>
       </div>
-      <a href="#booking" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Jetzt buchen</a>
+      <a href="#booking" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">{isEn ? 'Book Now' : 'Jetzt buchen'}</a>
     </nav>
   </header>
 
@@ -85,40 +155,40 @@ const currentPath = new URL(Astro.request.url).pathname;
   <!-- Footer -->
   <footer class="bg-gray-900 text-white mt-12">
     <div class="max-w-6xl mx-auto px-4 py-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <div>
-          <h3 class="font-bold text-lg mb-4">VKU Zug</h3>
-          <p class="text-gray-400">Verkehrskundeunterricht im Zentrum von Zug.</p>
-          <p class="text-gray-400 mt-2">Industriestrasse 50, 6300 Zug</p>
-          <p class="text-gray-400">Tel: +41 41 219 36 60</p>
+          <h3 class="font-bold text-lg mb-4">{footerLinks.vku.title}</h3>
+          <p class="text-gray-400">{footerLinks.vku.desc}</p>
+          <p class="text-gray-400 mt-2">{footerLinks.vku.addr}</p>
+          <p class="text-gray-400">{footerLinks.vku.tel}</p>
         </div>
         <div>
-          <h3 class="font-bold text-lg mb-4">Navigation</h3>
+          <h3 class="font-bold text-lg mb-4">{footerLinks.nav.title}</h3>
           <ul class="space-y-2 text-gray-400">
-            <li><a href="/" class="hover:text-white">Startseite</a></li>
-            <li><a href="/kursinhalt" class="hover:text-white">Kursinhalt</a></li>
-            <li><a href="/faq" class="hover:text-white">FAQ</a></li>
-            <li><a href="/kontakt" class="hover:text-white">Kontakt</a></li>
+            {footerLinks.nav.links.map(link => (
+              <li><a href={link.href} class="hover:text-white">{link.label}</a></li>
+            ))}
           </ul>
         </div>
         <div>
-          <h3 class="font-bold text-lg mb-4">Standorte</h3>
+          <h3 class="font-bold text-lg mb-4">{footerLinks.loc.title}</h3>
           <ul class="space-y-2 text-gray-400">
-            <li><a href="/ort/zug-hauptbahnhof" class="hover:text-white">Zug Hauptbahnhof</a></li>
-            <li><a href="/ort/baar" class="hover:text-white">Baar</a></li>
-            <li><a href="/ort/steinhausen" class="hover:text-white">Steinhausen</a></li>
+            {footerLinks.loc.links.map(link => (
+              <li><a href={link.href} class="hover:text-white">{link.label}</a></li>
+            ))}
           </ul>
         </div>
         <div>
-          <h3 class="font-bold text-lg mb-4">Rechtliches</h3>
+          <h3 class="font-bold text-lg mb-4">{footerLinks.legal.title}</h3>
           <ul class="space-y-2 text-gray-400">
-            <li><a href="/datenschutz" class="hover:text-white">Datenschutz</a></li>
-            <li><a href="/impressum" class="hover:text-white">Impressum</a></li>
+            {footerLinks.legal.links.map(link => (
+              <li><a href={link.href} class="hover:text-white">{link.label}</a></li>
+            ))}
           </ul>
         </div>
       </div>
       <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-        <p>&copy; 2025 VKU Zug. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2025 VKU Zug. {isEn ? 'All rights reserved.' : 'Alle Rechte vorbehalten.'}</p>
       </div>
     </div>
   </footer>

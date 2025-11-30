@@ -1,63 +1,63 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import vkuData from "../data/vku_data.json";
-import OptimizedImage from "../components/OptimizedImage.astro";
-import CourseIframe from "../components/CourseIframe.astro";
-import CourseList from "../components/CourseList.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import vkuData from "../../data/vku_data_en.json";
+import OptimizedImage from "../../components/OptimizedImage.astro";
+import CourseIframe from "../../components/CourseIframe.astro";
+import CourseList from "../../components/CourseList.astro";
 
 const { course, locations } = vkuData;
 
 const galleryImages = [
   {
     src: "/vku-kursraum-aussenansicht.webp",
-    alt: "Moderner VKU Kursraum in Zug mit Blick nach draussen",
+    alt: "Modern VKU classroom in Zug with a view outside",
   },
   {
     src: "/vku-lehrerin-unterricht.webp",
-    alt: "VKU Lehrerin erklärt den Kursteilnehmern die Verkehrsregeln",
+    alt: "VKU teacher explaining traffic rules to course participants",
   },
   {
     src: "/vku-klassenzimmer-u-form.webp",
-    alt: "VKU Klassenzimmer in U-Form mit modernen Tischen und Stühlen",
+    alt: "VKU classroom in U-shape with modern tables and chairs",
   },
   {
     src: "/vku-schulungsraum-fenster.webp",
-    alt: "VKU Schulungsraum mit grossem Fenster und Blick auf die Strasse",
+    alt: "VKU training room with large window and street view",
   },
   {
     src: "/vku-gratis-getraenke.webp",
-    alt: "Kostenlose Getränke und Snacks im VKU Kurs inbegriffen",
+    alt: "Free drinks and snacks included in the VKU course",
   },
   {
     src: "/vku-lokal-aussenansicht.webp",
-    alt: "Aussenansicht des VKU Lokals an der Industriestrasse in Zug",
+    alt: "Exterior view of the VKU location at Industriestrasse in Zug",
   },
 ];
 
 const testimonials = [
   {
     name: "Sarah M.",
-    text: "Super Kurs! Die 8 Stunden vergingen wie im Flug. Sehr praxisnah und verständlich erklärt.",
-    role: "Fahrschülerin",
+    text: "Great course! The 8 hours flew by. Very practical and clearly explained.",
+    role: "Student Driver",
   },
   {
     name: "Luca B.",
-    text: "Tolle Atmosphäre und coole Instruktoren. Kann ich nur empfehlen für den VKU in Zug.",
-    role: "Fahrschüler",
+    text: "Great atmosphere and cool instructors. I can only recommend it for the VKU in Zug.",
+    role: "Student Driver",
   },
   {
     name: "Jana K.",
-    text: "Zentral gelegen und gut organisiert. Die Snacks waren ein nettes Extra!",
-    role: "Fahrschülerin",
+    text: "Centrally located and well organized. The snacks were a nice extra!",
+    role: "Student Driver",
   },
 ];
 ---
 
 <BaseLayout
-  title="VKU Kurs Zug – Verkehrskundeunterricht & Intensivkurs | vku-kurs-zug.ch"
-  description="Buche deinen VKU Kurs in Zug: 8 Stunden Verkehrskundeunterricht (Intensivkurs), zentral gelegen, inkl. Lehrmittel. Jetzt anmelden und Führerschein Prüfung bestehen!"
-  canonical="https://vku-kurs-zug.ch/"
-  lang="de"
+  title="VKU Course Zug – Traffic Theory Course in 2 Days | vku-kurs-zug.ch"
+  description="Book your VKU in Zug and complete the traffic theory course in just 2 days. Central in Zug, incl. materials and confirmation. Choose course date and register online now."
+  canonical="https://vku-kurs-zug.ch/en/"
+  lang="en"
 >
   <!-- Hero Section with Background Image -->
   <section
@@ -67,15 +67,16 @@ const testimonials = [
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="text-center text-white px-4">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">
-          VKU Kurs Zug – Verkehrskundeunterricht
+          VKU Course Zug – Traffic Theory
         </h1>
         <p class="text-xl md:text-2xl mb-8">
-          Dein Weg zum Führerschein: 8 Stunden Intensivkurs im Zentrum von Zug
+          Your way to the driver's license: 8 hours intensive course in the
+          center of Zug
         </p>
         <a
           href="#booking"
           class="bg-white text-blue-600 px-8 py-3 rounded font-bold hover:bg-gray-100 inline-block transition transform hover:scale-105"
-          >Jetzt Kursdatum wählen</a
+          >Choose Course Date Now</a
         >
       </div>
     </div>
@@ -84,34 +85,32 @@ const testimonials = [
   <!-- Table of Contents -->
   <nav class="bg-gray-50 py-4 sticky top-20 z-40 shadow-sm">
     <div class="max-w-6xl mx-auto px-4">
-      <p class="text-sm font-semibold text-gray-600 mb-2">Auf dieser Seite:</p>
+      <p class="text-sm font-semibold text-gray-600 mb-2">On this page:</p>
       <ul class="flex flex-wrap gap-4 text-sm">
         <li>
           <a href="#was-ist-vku" class="text-blue-600 hover:underline"
-            >Was ist VKU?</a
-          >
+            >What is VKU?</a>
         </li>
         <li>
-          <a href="#fakten" class="text-blue-600 hover:underline">Fakten</a>
+          <a href="#fakten" class="text-blue-600 hover:underline">Facts</a>
         </li>
         <li>
-          <a href="#termine" class="text-blue-600 hover:underline">Termine</a>
+          <a href="#termine" class="text-blue-600 hover:underline">Dates</a>
         </li>
         <li>
-          <a href="#module" class="text-blue-600 hover:underline">Module</a>
+          <a href="#module" class="text-blue-600 hover:underline">Modules</a>
         </li>
         <li>
           <a href="#standorte" class="text-blue-600 hover:underline"
-            >Standorte</a
-          >
+            >Locations</a>
         </li>
         <li>
           <a href="#testimonials" class="text-blue-600 hover:underline"
-            >Erfahrungen</a
-          >
+            >Testimonials</a>
         </li>
         <li>
-          <a href="#booking" class="text-blue-600 hover:underline">Anmeldung</a>
+          <a href="#booking" class="text-blue-600 hover:underline"
+            >Registration</a>
         </li>
       </ul>
     </div>
@@ -120,69 +119,65 @@ const testimonials = [
   <!-- Was ist VKU? -->
   <section id="was-ist-vku" class="py-12 max-w-6xl mx-auto px-4">
     <h2 class="text-3xl font-bold mb-6">
-      Was ist Verkehrskundeunterricht (VKU)?
+      What is Traffic Theory Instruction (VKU)?
     </h2>
     <p class="text-lg text-gray-700 mb-4">
-      Der <strong>Verkehrskundeunterricht (VKU)</strong> ist ein obligatorischer
-      8-stündiger Kurs, der die Brücke zwischen der theoretischen Prüfung und den
-      praktischen Fahrstunden schlägt. Er ist gesetzlich vorgeschrieben für alle,
-      die zum ersten Mal einen Führerschein der Kategorie B (Auto) oder Kategorie
-      A1/A (Motorrad) in der Schweiz erwerben möchten.
+      The <strong>Traffic Theory Instruction (VKU)</strong> is a mandatory 8-hour
+      course that bridges the gap between the theoretical exam and practical driving
+      lessons. It is legally required for everyone obtaining a category B (car) or
+      category A1/A (motorcycle) license for the first time in Switzerland.
     </p>
     <p class="text-lg text-gray-700 mb-4">
-      Unser <strong>VKU Kurs in Zug</strong> bereitet dich optimal auf die Verkehrsdynamik
-      vor. Du lernst Gefahren frühzeitig zu erkennen und richtig einzuschätzen –
-      eine essentielle Fähigkeit für deine Sicherheit und die <a
-        href="https://vku-kurs-zug.ch/faq"
-        class="text-blue-600 hover:underline">Führerschein Prüfung</a
+      Our <strong>VKU Course in Zug</strong> prepares you optimally for traffic dynamics.
+      You learn to recognize dangers early and assess them correctly – an essential
+      skill for your safety and the <a
+        href="https://vku-kurs-zug.ch/en/faq"
+        class="text-blue-600 hover:underline">driving test</a
       >.
     </p>
     <p class="text-lg text-gray-700">
-      Die Preise verstehen sich <strong>all inclusive</strong>. Du kannst dein
-      Portemonnaie für den VKU also zu Hause lassen. Auch Getränke und Früchte
-      gehen auf unsere Kosten. Wir bieten dir einen modernen <strong
-        >VKU Intensivkurs</strong
-      >, den du bequem an zwei Abenden absolvieren kannst.
+      The prices are <strong>all inclusive</strong>. So you can leave your
+      wallet at home for the VKU. Drinks and fruit are also on us. We offer you
+      a modern <strong>VKU intensive course</strong>, which you can comfortably
+      complete on two evenings.
     </p>
   </section>
 
   <!-- Fakten Box -->
   <section id="fakten" class="bg-blue-50 py-12">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-8 text-center">
-        VKU Zug auf einen Blick
-      </h2>
+      <h2 class="text-3xl font-bold mb-8 text-center">VKU Zug at a Glance</h2>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div
           class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
         >
           <p class="text-4xl font-bold text-blue-600 mb-2">{course.price}</p>
-          <p class="text-gray-700 font-semibold">Gesamtpreis</p>
+          <p class="text-gray-700 font-semibold">Total Price</p>
           <p class="text-sm text-gray-500 mt-2">
-            Inkl. Material, Zertifikat, Getränke, Früchte
+            Incl. material, certificate, drinks, fruit
           </p>
         </div>
         <div
           class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
         >
           <p class="text-4xl font-bold text-blue-600 mb-2">{course.duration}</p>
-          <p class="text-gray-700 font-semibold">Kursdauer</p>
+          <p class="text-gray-700 font-semibold">Course Duration</p>
           <p class="text-sm text-gray-500 mt-2">{course.duration_days}</p>
         </div>
         <div
           class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
         >
           <p class="text-4xl font-bold text-blue-600 mb-2">4</p>
-          <p class="text-gray-700 font-semibold">Module</p>
+          <p class="text-gray-700 font-semibold">Modules</p>
           <p class="text-sm text-gray-500 mt-2">
-            Verkehrssehen, -umwelt, -dynamik, -taktik
+            Traffic vision, environment, dynamics, tactics
           </p>
         </div>
         <div
           class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
         >
           <p class="text-4xl font-bold text-blue-600 mb-2">9 Min</p>
-          <p class="text-gray-700 font-semibold">Zu Fuss vom Bahnhof</p>
+          <p class="text-gray-700 font-semibold">Walk from station</p>
           <p class="text-sm text-gray-500 mt-2">{course.location_main}</p>
         </div>
       </div>
@@ -191,18 +186,17 @@ const testimonials = [
 
   <!-- Upcoming Courses List -->
   <section id="termine" class="py-12 max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-8">Nächste Kurstermine</h2>
+    <h2 class="text-3xl font-bold mb-8">Upcoming Course Dates</h2>
     <p class="text-lg text-gray-700 mb-6">
-      Sichere dir jetzt deinen Platz für den nächsten <strong
-        >VKU Kurs in Zug</strong
-      >. Unsere Kurse sind oft schnell ausgebucht.
+      Secure your spot for the next <strong>VKU Course in Zug</strong> now. Our courses
+      are often booked out quickly.
     </p>
-    <CourseList lang="de" />
+    <CourseList lang="en" />
   </section>
 
   <!-- Module -->
   <section id="module" class="py-12 max-w-6xl mx-auto px-4 bg-gray-50">
-    <h2 class="text-3xl font-bold mb-8">Die 4 Kursmodule im Detail</h2>
+    <h2 class="text-3xl font-bold mb-8">The 4 Course Modules in Detail</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {
         course.modules.map((module) => (
@@ -210,10 +204,10 @@ const testimonials = [
             <h3 class="text-2xl font-bold mb-3">{module.title}</h3>
             <p class="text-gray-700 mb-4">{module.description}</p>
             <p class="text-gray-600 text-sm">
-              Im Modul <strong>{module.title}</strong> lernst du praxisnahe
-              Beispiele kennen, die dir helfen, typische Anfängerfehler zu
-              vermeiden. Wir besprechen reale Verkehrssituationen, damit du
-              sicher durch die Prüfung kommst.
+              In module <strong>{module.title}</strong> you will learn practical
+              examples that help you avoid typical beginner mistakes. We discuss
+              real traffic situations so that you can get through the exam
+              safely.
             </p>
           </div>
         ))
@@ -221,22 +215,22 @@ const testimonials = [
     </div>
     <div class="mt-8 p-6 bg-white rounded shadow text-center">
       <p class="text-gray-700 text-lg">
-        Möchtest du genau wissen, was dich erwartet? Besuche unsere <a
-          href="/kursinhalt"
-          class="text-blue-600 hover:underline font-bold">Kursinhalt-Seite</a
-        > für eine detaillierte Beschreibung aller Lernziele und Inhalte.
+        Want to know exactly what to expect? Visit our <a
+          href="/en/kursinhalt"
+          class="text-blue-600 hover:underline font-bold">Course Content Page</a
+        > for a detailed description of all learning objectives and contents.
       </p>
     </div>
   </section>
 
   <!-- Standorte -->
   <section id="standorte" class="py-12 max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-8 text-center">VKU Standorte in Zug</h2>
+    <h2 class="text-3xl font-bold mb-8 text-center">VKU Locations in Zug</h2>
     <p class="text-center text-gray-700 mb-8 max-w-2xl mx-auto">
-      Wir bieten unsere Kurse an verschiedenen zentralen Standorten an, damit du
-      den <strong>VKU Zug</strong>, <strong>VKU Baar</strong> oder <strong
+      We offer our courses at various central locations so that you can easily
+      reach <strong>VKU Zug</strong>, <strong>VKU Baar</strong> or <strong
         >VKU Steinhausen</strong
-      > bequem erreichen kannst.
+      >.
     </p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
@@ -245,10 +239,10 @@ const testimonials = [
             <h3 class="text-xl font-bold mb-3">{location.name}</h3>
             <p class="text-gray-700 mb-4">{location.description}</p>
             <a
-              href={`/ort/${location.slug}`}
+              href={`/en/ort/${location.slug}`}
               class="text-blue-600 hover:underline font-semibold flex items-center gap-1"
             >
-              Mehr erfahren
+              Learn more
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-4 w-4"
@@ -274,7 +268,7 @@ const testimonials = [
   <section id="testimonials" class="bg-blue-600 py-12 text-white">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl font-bold mb-10 text-center">
-        Das sagen unsere Teilnehmer
+        What our participants say
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {
@@ -295,7 +289,7 @@ const testimonials = [
 
   <!-- Image Gallery -->
   <section id="galerie" class="py-12 max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-8 text-center">Unser VKU Zentrum</h2>
+    <h2 class="text-3xl font-bold mb-8 text-center">Our VKU Center</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {
         galleryImages.map((image) => (
@@ -318,24 +312,26 @@ const testimonials = [
   <section id="booking" class="bg-gray-50 py-12">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl font-bold mb-8 text-center">
-        VKU Kursdatum wählen und anmelden
+        Select VKU Course Date and Register
       </h2>
       <p class="text-center text-gray-700 mb-8">
-        Wähle unten deinen passenden Termin für den <strong
-          >Verkehrskundeunterricht Zug</strong
-        > aus. Die Anmeldung ist verbindlich.
+        Choose your suitable date for the <strong
+          >Traffic Theory Instruction Zug</strong
+        > below. Registration is binding.
       </p>
       <CourseIframe
         src="https://iframe.vku-pgs.asa.ch/de/public/coursegroup/all/VktVXzU3NzQ=/0/vku/"
-        title="VKU Kursanmeldung"
+        title="VKU Course Registration"
         height="600px"
       />
       <div class="mt-8 text-center">
-        <p class="mb-4 text-gray-600">Hast du noch Fragen vor der Buchung?</p>
+        <p class="mb-4 text-gray-600">
+          Do you have any questions before booking?
+        </p>
         <a
-          href="/kontakt"
+          href="/en/kontakt"
           class="bg-white border-2 border-blue-600 text-blue-600 px-8 py-3 rounded font-bold hover:bg-blue-50 inline-block transition"
-          >Kontakt aufnehmen</a
+          >Contact us</a
         >
       </div>
     </div>
@@ -343,7 +339,7 @@ const testimonials = [
 
   <!-- FAQ Preview -->
   <section class="py-12 max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-8">Häufig gestellte Fragen</h2>
+    <h2 class="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
     <div class="space-y-4">
       {
         course.faq.slice(0, 3).map((item) => (
@@ -358,8 +354,10 @@ const testimonials = [
       }
     </div>
     <div class="mt-8 text-center">
-      <a href="/faq" class="text-blue-600 hover:underline font-semibold text-lg"
-        >Alle FAQs anschauen →</a
+      <a
+        href="/en/faq"
+        class="text-blue-600 hover:underline font-semibold text-lg"
+        >View all FAQs →</a
       >
     </div>
   </section>
@@ -374,7 +372,7 @@ const testimonials = [
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://vku-kurs-zug.ch/"
+          "item": "https://vku-kurs-zug.ch/en/"
         }
       ]
     }
@@ -385,8 +383,8 @@ const testimonials = [
     {
       "@context": "https://schema.org",
       "@type": "Course",
-      "name": "Verkehrskundeunterricht (VKU) Zug",
-      "description": "8-stündiger Verkehrskundeunterricht im Zentrum von Zug",
+      "name": "Traffic Theory Instruction (VKU) Zug",
+      "description": "8-hour traffic theory instruction in the center of Zug",
       "duration": "PT8H",
       "offers": {
         "@type": "Offer",

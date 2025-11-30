@@ -1,0 +1,46 @@
+[
+    {
+        "date": "12. - 13.12.2025",
+        "time": "Fr 18:00 - 22:00, Sa 12:30 - 16:30",
+        "location": "Zug",
+        "address": "Industriestrasse 50",
+        "price": "CHF 230",
+        "availability": "Available",
+        "link": "https://vku-pgs.asa.ch/de/public/coursegroup/all/VktVXzU3NzQ=/0/vku",
+        "startDate": "2025-12-12T18:00:00+01:00",
+        "endDate": "2025-12-13T16:30:00+01:00"
+    },
+    {
+        "date": "23. - 24.01.2026",
+        "time": "Fr 18:00 - 22:00, Sa 12:30 - 16:30",
+        "location": "Zug",
+        "address": "Industriestrasse 50",
+        "price": "CHF 230",
+        "availability": "Available",
+        "link": "https://vku-pgs.asa.ch/de/public/coursegroup/all/VktVXzU3NzQ=/0/vku",
+        "startDate": "2026-01-23T18:00:00+01:00",
+        "endDate": "2026-01-24T16:30:00+01:00"
+    },
+    {
+        "date": "19. - 21.02.2026",
+        "time": "Do 18:00 - 22:00, Sa 12:30 - 16:30",
+        "location": "Zug",
+        "address": "Industriestrasse 50",
+        "price": "CHF 230",
+        "availability": "Available",
+        "link": "https://vku-pgs.asa.ch/de/public/coursegroup/all/VktVXzU3NzQ=/0/vku",
+        "startDate": "2026-02-19T18:00:00+01:00",
+        "endDate": "2026-02-21T16:30:00+01:00"
+    },
+    {
+        "date": "19. - 21.03.2026",
+        "time": "Do 18:00 - 22:00, Sa 12:30 - 16:30",
+        "location": "Zug",
+        "address": "Industriestrasse 50",
+        "price": "CHF 230",
+        "availability": "Available",
+        "link": "https://vku-pgs.asa.ch/de/public/coursegroup/all/VktVXzU3NzQ=/0/vku",
+        "startDate": "2026-03-19T18:00:00+01:00",
+        "endDate": "2026-03-21T16:30:00+01:00"
+    }
+]

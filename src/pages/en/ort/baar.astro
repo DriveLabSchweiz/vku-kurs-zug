@@ -1,7 +1,7 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import vkuData from "../../data/vku_data.json";
-import OptimizedImage from "../../components/OptimizedImage.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import vkuData from "../../../data/vku_data_en.json";
+import OptimizedImage from "../../../components/OptimizedImage.astro";
 
 const { course, locations } = vkuData;
 const currentLocation = locations[1];
@@ -9,24 +9,26 @@ const otherLocations = locations.filter((l) => l.slug !== "baar");
 ---
 
 <BaseLayout
-  title="VKU Baar – Verkehrskundekurs im Kanton Zug"
-  description="VKU Kurs in Baar im Kanton Zug: Verkehrskunde in moderner Atmosphäre, gut erreichbar mit ÖV. Ideal, wenn du im Raum Baar wohnst. Jetzt Termin prüfen und anmelden."
-  canonical="https://vku-kurs-zug.ch/ort/baar"
-  lang="de"
+  title="VKU Baar – Traffic Theory Course in Canton Zug"
+  description="VKU Course in Baar in Canton Zug: Traffic theory in a modern atmosphere, easily accessible by public transport. Ideal if you live in the Baar area. Check dates and register now."
+  canonical="https://vku-kurs-zug.ch/en/ort/baar"
+  lang="en"
 >
   <!-- Hero Section -->
   <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
     <div class="max-w-6xl mx-auto px-4">
       <h1 class="text-4xl font-bold mb-4">VKU Baar</h1>
-      <p class="text-xl">Verkehrskundeunterricht in Baar, Kanton Zug</p>
+      <p class="text-xl">Traffic theory instruction in Baar, Canton Zug</p>
     </div>
   </section>
 
   <!-- Breadcrumb -->
   <nav class="bg-gray-50 py-4">
     <div class="max-w-6xl mx-auto px-4">
-      <a href="/" class="text-blue-600 hover:underline">Home</a> >
-      <a href="/#standorte" class="text-blue-600 hover:underline">Standorte</a> >
+      <a href="/en" class="text-blue-600 hover:underline">Home</a> >
+      <a href="/en/#standorte" class="text-blue-600 hover:underline"
+        >Locations</a
+      > >
       <span class="text-gray-600">Baar</span>
     </div>
   </nav>
@@ -37,7 +39,7 @@ const otherLocations = locations.filter((l) => l.slug !== "baar");
       <div>
         <OptimizedImage
           src="/vku-schulungsraum-fenster.webp"
-          alt="VKU Schulungsraum in Baar mit Fenster und Blick auf die Strasse"
+          alt="VKU training room in Baar with window and street view"
           width={600}
           height={400}
           class="rounded-lg shadow-lg mb-6 w-full object-cover"
@@ -45,70 +47,69 @@ const otherLocations = locations.filter((l) => l.slug !== "baar");
         />
         <h2 class="text-3xl font-bold mb-6">VKU in Baar</h2>
         <p class="text-lg text-gray-700 mb-4">
-          Baar ist eine der grössten Gemeinden im Kanton Zug und bietet eine
-          ideale Lage für unseren Verkehrskundeunterricht. Mit modernen
-          Einrichtungen und erfahrenen Kursleitern bieten wir dir ein
-          hochwertiges Lernerlebnis.
+          Baar is one of the largest municipalities in Canton Zug and offers an
+          ideal location for our traffic theory instruction. With modern
+          facilities and experienced instructors, we offer you a high-quality
+          learning experience.
         </p>
         <p class="text-lg text-gray-700 mb-4">
-          Der Standort Baar ist leicht erreichbar und bietet gute
-          Parkmöglichkeiten sowie eine gute Anbindung an den öffentlichen
-          Nahverkehr.
+          The Baar location is easily accessible and offers good parking
+          facilities as well as good public transport connections.
         </p>
         <p class="text-lg text-gray-700 mb-6">
-          Wie an allen unseren Standorten sind Getränke und Früchte im Kurspreis
-          inbegriffen.
+          As at all our locations, drinks and fruit are included in the course
+          price.
         </p>
 
-        <h3 class="text-2xl font-bold mb-4">Anreise</h3>
+        <h3 class="text-2xl font-bold mb-4">Arrival</h3>
         <ul class="text-gray-700 space-y-2 mb-6">
-          <li><strong>Mit dem Auto:</strong> Zentrale Lage mit Parkplätzen</li>
-          <li><strong>Mit dem Bus:</strong> Gute Busanbindung</li>
-          <li><strong>Mit dem Zug:</strong> Bahnhof Baar in der Nähe</li>
+          <li><strong>By car:</strong> Central location with parking</li>
+          <li><strong>By bus:</strong> Good bus connection</li>
+          <li><strong>By train:</strong> Baar station nearby</li>
         </ul>
 
-        <h3 class="text-2xl font-bold mb-4">Adresse</h3>
+        <h3 class="text-2xl font-bold mb-4">Address</h3>
         <p class="text-gray-700 mb-6">
           Baar<br />
-          Kanton Zug<br />
-          Schweiz
+          Canton Zug<br />
+          Switzerland
         </p>
 
         <a
-          href="/kontakt"
+          href="/en/kontakt"
           class="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 inline-block"
         >
-          Jetzt anmelden
+          Register Now
         </a>
       </div>
 
       <div>
         <div class="bg-blue-50 p-8 rounded-lg">
-          <h3 class="text-2xl font-bold mb-6">Kursinformationen</h3>
+          <h3 class="text-2xl font-bold mb-6">Course Information</h3>
           <div class="space-y-4">
             <div class="border-b pb-4">
-              <p class="font-semibold text-gray-600">Preis</p>
+              <p class="font-semibold text-gray-600">Price</p>
               <p class="text-2xl font-bold text-blue-600">{course.price}</p>
               <p class="text-sm text-gray-600">
-                Inkl. Material, Zertifikat, Getränke, Früchte
+                Incl. material, certificate, drinks, fruit
               </p>
             </div>
             <div class="border-b pb-4">
-              <p class="font-semibold text-gray-600">Dauer</p>
+              <p class="font-semibold text-gray-600">Duration</p>
               <p class="text-2xl font-bold text-blue-600">{course.duration}</p>
               <p class="text-sm text-gray-600">{course.duration_days}</p>
             </div>
             <div class="border-b pb-4">
-              <p class="font-semibold text-gray-600">Module</p>
+              <p class="font-semibold text-gray-600">Modules</p>
               <p class="text-2xl font-bold text-blue-600">4</p>
               <p class="text-sm text-gray-600">
-                Verkehrssehen, -umwelt, -dynamik, -taktik
+                Traffic vision, environment, dynamics, tactics
               </p>
             </div>
             <div>
-              <p class="font-semibold text-gray-600">Lage</p>
-              <p class="text-2xl font-bold text-blue-600">Zentral</p>
-              <p class="text-sm text-gray-600">Leicht erreichbar</p>
+              <p class="font-semibold text-gray-600">Location</p>
+              <p class="text-2xl font-bold text-blue-600">Central</p>
+              <p class="text-sm text-gray-600">Easily accessible</p>
             </div>
           </div>
         </div>
@@ -117,7 +118,7 @@ const otherLocations = locations.filter((l) => l.slug !== "baar");
 
     <!-- Weitere Standorte -->
     <div class="mt-12">
-      <h2 class="text-3xl font-bold mb-8">Weitere VKU-Standorte in Zug</h2>
+      <h2 class="text-3xl font-bold mb-8">Other VKU Locations in Zug</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {
           otherLocations.map((location) => (
@@ -125,10 +126,10 @@ const otherLocations = locations.filter((l) => l.slug !== "baar");
               <h3 class="text-xl font-bold mb-3">{location.name}</h3>
               <p class="text-gray-700 mb-4">{location.description}</p>
               <a
-                href={`/ort/${location.slug}`}
+                href={`/en/ort/${location.slug}`}
                 class="text-blue-600 hover:underline font-semibold"
               >
-                Mehr erfahren →
+                Learn more →
               </a>
             </div>
           ))
@@ -139,38 +140,40 @@ const otherLocations = locations.filter((l) => l.slug !== "baar");
     <!-- CTA -->
     <div class="mt-12 text-center">
       <a
-        href="/"
+        href="/en"
         class="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 inline-block"
-        >Zurück zur Startseite</a
+        >Back to Home</a
       >
     </div>
   </section>
 
   <!-- Breadcrumb Schema -->
-  <script type="application/ld+json">
-    {
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      "itemListElement": [
+      itemListElement: [
         {
           "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://vku-kurs-zug.ch/"
+          position: 1,
+          name: "Home",
+          item: "https://vku-kurs-zug.ch/en/",
         },
         {
           "@type": "ListItem",
-          "position": 2,
-          "name": "Standorte",
-          "item": "https://vku-kurs-zug.ch/#standorte"
+          position: 2,
+          name: "Locations",
+          item: "https://vku-kurs-zug.ch/en/#standorte",
         },
         {
           "@type": "ListItem",
-          "position": 3,
-          "name": "Baar",
-          "item": "https://vku-kurs-zug.ch/ort/baar"
-        }
-      ]
-    }
-  </script>
+          position: 3,
+          name: "Baar",
+          item: "https://vku-kurs-zug.ch/en/ort/baar",
+        },
+      ],
+    })}
+  />
 </BaseLayout>

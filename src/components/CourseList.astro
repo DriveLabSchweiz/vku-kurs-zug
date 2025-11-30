@@ -1,0 +1,153 @@
+---
+import courses from "../data/courses.json";
+
+interface Props {
+    lang?: "de" | "en";
+}
+
+const { lang = "de" } = Astro.props;
+const isEn = lang === "en";
+
+const labels = {
+    date: isEn ? "Date" : "Datum",
+    time: isEn ? "Time" : "Zeit",
+    location: isEn ? "Location" : "Ort",
+    price: isEn ? "Price" : "Preis",
+    availability: isEn ? "Availability" : "Verfügbarkeit",
+    book: isEn ? "Book Now" : "Jetzt anmelden",
+    waitlist: isEn ? "Waitlist" : "Warteliste",
+    fewSpots: isEn ? "Few spots left" : "Wenige Plätze",
+    available: isEn ? "Available" : "Verfügbar",
+};
+
+function getAvailabilityLabel(status: string) {
+    if (status === "Waitlist") return labels.waitlist;
+    if (status === "Few spots left") return labels.fewSpots;
+    return labels.available;
+}
+
+function getAvailabilityColor(status: string) {
+    if (status === "Waitlist") return "text-red-600 bg-red-50";
+    if (status === "Few spots left") return "text-orange-600 bg-orange-50";
+    return "text-green-600 bg-green-50";
+}
+---
+
+<div class="overflow-x-auto">
+    <table
+        class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm"
+    >
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="py-3 px-4 text-left font-semibold text-gray-700"
+                    >{labels.date}</th
+                >
+                <th class="py-3 px-4 text-left font-semibold text-gray-700"
+                    >{labels.time}</th
+                >
+                <th class="py-3 px-4 text-left font-semibold text-gray-700"
+                    >{labels.location}</th
+                >
+                <th class="py-3 px-4 text-left font-semibold text-gray-700"
+                    >{labels.price}</th
+                >
+                <th class="py-3 px-4 text-left font-semibold text-gray-700"
+                    >{labels.availability}</th
+                >
+                <th class="py-3 px-4 text-left font-semibold text-gray-700"
+                ></th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            {
+                courses.map((course) => (
+                    <tr
+                        class={
+                            course.availability === "Waitlist"
+                                ? "opacity-75"
+                                : ""
+                        }
+                    >
+                        <td class="py-4 px-4 whitespace-nowrap">
+                            {course.date}
+                        </td>
+                        <td class="py-4 px-4 whitespace-nowrap">
+                            {course.time}
+                        </td>
+                        <td class="py-4 px-4 whitespace-nowrap">
+                            {course.location}
+                        </td>
+                        <td class="py-4 px-4 whitespace-nowrap font-bold">
+                            {course.price}
+                        </td>
+                        <td class="py-4 px-4 whitespace-nowrap">
+                            <span
+                                class={`px-2 py-1 rounded-full text-xs font-semibold ${getAvailabilityColor(course.availability)}`}
+                            >
+                                {getAvailabilityLabel(course.availability)}
+                            </span>
+                        </td>
+                        <td class="py-4 px-4 whitespace-nowrap text-right">
+                            {course.availability !== "Waitlist" ? (
+                                <a
+                                    href={course.link}
+                                    class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm font-bold transition"
+                                >
+                                    {labels.book}
+                                </a>
+                            ) : (
+                                <span class="text-gray-500 text-sm font-semibold">
+                                    {labels.waitlist}
+                                </span>
+                            )}
+                        </td>
+                    </tr>
+                ))
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Event Schema -->
+<script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(
+        courses.map((course) => ({
+            "@context": "https://schema.org",
+            "@type": "Event",
+            name: `VKU Kurs ${course.location}`,
+            startDate: course.startDate,
+            endDate: course.endDate,
+            eventAttendanceMode:
+                "https://schema.org/OfflineEventAttendanceMode",
+            eventStatus: "https://schema.org/EventScheduled",
+            location: {
+                "@type": "Place",
+                name: course.location,
+                address: {
+                    "@type": "PostalAddress",
+                    streetAddress: course.address,
+                    addressLocality: course.location,
+                    postalCode: "6300",
+                    addressCountry: "CH",
+                },
+            },
+            offers: {
+                "@type": "Offer",
+                price: course.price.replace("CHF ", ""),
+                priceCurrency: "CHF",
+                availability:
+                    course.availability === "Waitlist"
+                        ? "https://schema.org/SoldOut"
+                        : "https://schema.org/InStock",
+                url: "https://vku-kurs-zug.ch/#booking",
+            },
+            organizer: {
+                "@type": "Organization",
+                name: "VKU Zug",
+                url: "https://vku-kurs-zug.ch",
+            },
+        })),
+    )}
+/>

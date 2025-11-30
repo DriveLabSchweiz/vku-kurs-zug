@@ -1,7 +1,7 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import vkuData from "../../data/vku_data.json";
-import OptimizedImage from "../../components/OptimizedImage.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import vkuData from "../../../data/vku_data_en.json";
+import OptimizedImage from "../../../components/OptimizedImage.astro";
 
 const { course, locations } = vkuData;
 const currentLocation = locations[0];
@@ -9,25 +9,27 @@ const otherLocations = locations.filter((l) => l.slug !== "zug-hauptbahnhof");
 ---
 
 <BaseLayout
-  title="VKU Zug am Bahnhof – Verkehrskunde direkt beim Zug HB"
-  description="Besuche deinen VKU Kurs direkt beim Bahnhof Zug. Kurze Wege, top ÖV-Anbindung und moderner Kursraum. Jetzt VKU Zug am Bahnhof buchen und Platz sichern."
-  canonical="https://vku-kurs-zug.ch/ort/zug-hauptbahnhof"
-  lang="de"
+  title="VKU Zug at the Station – Traffic Theory directly at Zug HB"
+  description="Visit your VKU course directly at Zug station. Short distances, top public transport connection and modern classroom. Book VKU Zug at the station now and secure your spot."
+  canonical="https://vku-kurs-zug.ch/en/ort/zug-hauptbahnhof"
+  lang="en"
 >
   <!-- Hero Section -->
   <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
     <div class="max-w-6xl mx-auto px-4">
-      <h1 class="text-4xl font-bold mb-4">VKU Zug Hauptbahnhof</h1>
-      <p class="text-xl">Verkehrskundeunterricht direkt am Bahnhof Zug</p>
+      <h1 class="text-4xl font-bold mb-4">VKU Zug Main Station</h1>
+      <p class="text-xl">Traffic theory instruction directly at Zug station</p>
     </div>
   </section>
 
   <!-- Breadcrumb -->
   <nav class="bg-gray-50 py-4">
     <div class="max-w-6xl mx-auto px-4">
-      <a href="/" class="text-blue-600 hover:underline">Home</a> >
-      <a href="/#standorte" class="text-blue-600 hover:underline">Standorte</a> >
-      <span class="text-gray-600">Zug Hauptbahnhof</span>
+      <a href="/en" class="text-blue-600 hover:underline">Home</a> >
+      <a href="/en/#standorte" class="text-blue-600 hover:underline"
+        >Locations</a
+      > >
+      <span class="text-gray-600">Zug Main Station</span>
     </div>
   </nav>
 
@@ -37,81 +39,77 @@ const otherLocations = locations.filter((l) => l.slug !== "zug-hauptbahnhof");
       <div>
         <OptimizedImage
           src="/vku-lokal-aussenansicht.webp"
-          alt="Aussenansicht des VKU Lokals an der Industriestrasse in Zug"
+          alt="Exterior view of the VKU location at Industriestrasse in Zug"
           width={600}
           height={400}
           class="rounded-lg shadow-lg mb-6 w-full object-cover"
           loading="eager"
         />
-        <h2 class="text-3xl font-bold mb-6">Unser Kursraum am Bahnhof</h2>
+        <h2 class="text-3xl font-bold mb-6">Our classroom at the station</h2>
         <p class="text-lg text-gray-700 mb-4">
-          Unser Kursraum befindet sich an der Industriestrasse 50 in Zug, nur
-          ca. 9 Minuten zu Fuss vom Bahnhof entfernt. Dies macht die Anreise
-          besonders einfach und bequem.
+          Our classroom is located at Industriestrasse 50 in Zug, only approx. 9
+          minutes walk from the station. This makes arrival particularly easy
+          and convenient.
         </p>
         <p class="text-lg text-gray-700 mb-4">
-          Der Kursraum ist modern ausgestattet mit interaktiven Lernmaterialien,
-          Whiteboards und Multimedia-Systemen. Wir bieten eine angenehme
-          Lernatmosphäre für unsere Schüler.
+          The classroom is modernly equipped with interactive learning
+          materials, whiteboards, and multimedia systems. We offer a pleasant
+          learning atmosphere for our students.
         </p>
         <p class="text-lg text-gray-700 mb-6">
-          Getränke und Früchte sind im Preis inbegriffen, sodass du dich während
-          des Kurses erfrischen kannst.
+          Drinks and fruit are included in the price, so you can refresh
+          yourself during the course.
         </p>
 
-        <h3 class="text-2xl font-bold mb-4">Anreise</h3>
+        <h3 class="text-2xl font-bold mb-4">Arrival</h3>
         <ul class="text-gray-700 space-y-2 mb-6">
-          <li>
-            <strong>Mit dem Zug:</strong> 9 Minuten zu Fuss vom Bahnhof Zug
-          </li>
-          <li><strong>Mit dem Bus:</strong> Linie 4 bis Zug, Göbli</li>
-          <li>
-            <strong>Mit dem Auto:</strong> Parkplätze in der Nähe vorhanden
-          </li>
+          <li><strong>By train:</strong> 9 minutes walk from Zug station</li>
+          <li><strong>By bus:</strong> Line 4 to Zug, Göbli</li>
+          <li><strong>By car:</strong> Parking spaces available nearby</li>
         </ul>
 
-        <h3 class="text-2xl font-bold mb-4">Adresse</h3>
+        <h3 class="text-2xl font-bold mb-4">Address</h3>
         <p class="text-gray-700 mb-6">
           Industriestrasse 50<br />
           6300 Zug<br />
-          Schweiz
+          Switzerland
         </p>
 
         <a
-          href="/kontakt"
+          href="/en/kontakt"
           class="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 inline-block"
         >
-          Jetzt anmelden
+          Register Now
         </a>
       </div>
 
       <div>
         <div class="bg-blue-50 p-8 rounded-lg">
-          <h3 class="text-2xl font-bold mb-6">Kursinformationen</h3>
+          <h3 class="text-2xl font-bold mb-6">Course Information</h3>
           <div class="space-y-4">
             <div class="border-b pb-4">
-              <p class="font-semibold text-gray-600">Preis</p>
+              <p class="font-semibold text-gray-600">Price</p>
               <p class="text-2xl font-bold text-blue-600">{course.price}</p>
               <p class="text-sm text-gray-600">
-                Inkl. Material, Zertifikat, Getränke, Früchte
+                Incl. material, certificate, drinks, fruit
               </p>
             </div>
             <div class="border-b pb-4">
-              <p class="font-semibold text-gray-600">Dauer</p>
+              <p class="font-semibold text-gray-600">Duration</p>
               <p class="text-2xl font-bold text-blue-600">{course.duration}</p>
               <p class="text-sm text-gray-600">{course.duration_days}</p>
             </div>
             <div class="border-b pb-4">
-              <p class="font-semibold text-gray-600">Module</p>
+              <p class="font-semibold text-gray-600">Modules</p>
               <p class="text-2xl font-bold text-blue-600">4</p>
               <p class="text-sm text-gray-600">
-                Verkehrssehen, -umwelt, -dynamik, -taktik
+                Traffic vision, environment, dynamics, tactics
               </p>
             </div>
             <div>
-              <p class="font-semibold text-gray-600">Anfahrtsweg</p>
+              <p class="font-semibold text-gray-600">Travel time</p>
               <p class="text-2xl font-bold text-blue-600">9 Min</p>
-              <p class="text-sm text-gray-600">Zu Fuss vom Bahnhof</p>
+              <p class="text-sm text-gray-600">Walk from station</p>
             </div>
           </div>
         </div>
@@ -120,7 +118,7 @@ const otherLocations = locations.filter((l) => l.slug !== "zug-hauptbahnhof");
 
     <!-- Weitere Standorte -->
     <div class="mt-12">
-      <h2 class="text-3xl font-bold mb-8">Weitere VKU-Standorte in Zug</h2>
+      <h2 class="text-3xl font-bold mb-8">Other VKU Locations in Zug</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {
           otherLocations.map((location) => (
@@ -128,10 +126,10 @@ const otherLocations = locations.filter((l) => l.slug !== "zug-hauptbahnhof");
               <h3 class="text-xl font-bold mb-3">{location.name}</h3>
               <p class="text-gray-700 mb-4">{location.description}</p>
               <a
-                href={`/ort/${location.slug}`}
+                href={`/en/ort/${location.slug}`}
                 class="text-blue-600 hover:underline font-semibold"
               >
-                Mehr erfahren →
+                Learn more →
               </a>
             </div>
           ))
@@ -142,9 +140,9 @@ const otherLocations = locations.filter((l) => l.slug !== "zug-hauptbahnhof");
     <!-- CTA -->
     <div class="mt-12 text-center">
       <a
-        href="/"
+        href="/en"
         class="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 inline-block"
-        >Zurück zur Startseite</a
+        >Back to Home</a
       >
     </div>
   </section>
@@ -161,19 +159,19 @@ const otherLocations = locations.filter((l) => l.slug !== "zug-hauptbahnhof");
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://vku-kurs-zug.ch/",
+          item: "https://vku-kurs-zug.ch/en/",
         },
         {
           "@type": "ListItem",
           position: 2,
-          name: "Standorte",
-          item: "https://vku-kurs-zug.ch/#standorte",
+          name: "Locations",
+          item: "https://vku-kurs-zug.ch/en/#standorte",
         },
         {
           "@type": "ListItem",
           position: 3,
-          name: "Zug Hauptbahnhof",
-          item: "https://vku-kurs-zug.ch/ort/zug-hauptbahnhof",
+          name: "Zug Main Station",
+          item: "https://vku-kurs-zug.ch/en/ort/zug-hauptbahnhof",
         },
       ],
     })}
@@ -186,9 +184,9 @@ const otherLocations = locations.filter((l) => l.slug !== "zug-hauptbahnhof");
     set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      name: "VKU Zug Hauptbahnhof",
+      name: "VKU Zug Main Station",
       image: "/vku-zug-bahnhof-zug-anfahrt.png",
-      description: "Verkehrskundeunterricht direkt am Bahnhof Zug",
+      description: "Traffic theory instruction directly at Zug station",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Industriestrasse 50",
@@ -196,7 +194,7 @@ const otherLocations = locations.filter((l) => l.slug !== "zug-hauptbahnhof");
         postalCode: "6300",
         addressCountry: "CH",
       },
-      url: "https://vku-kurs-zug.ch/ort/zug-hauptbahnhof",
+      url: "https://vku-kurs-zug.ch/en/ort/zug-hauptbahnhof",
       telephone: "+41 41 219 36 60",
     })}
   />

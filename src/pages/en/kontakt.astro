@@ -1,26 +1,26 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="Kontakt VKU Zug – Fragen zum Verkehrskundekurs?"
-  description="Du hast Fragen zum VKU Kurs in Zug oder brauchst Hilfe bei der Anmeldung? Kontaktiere uns per Formular, E-Mail oder Telefon – wir melden uns schnell bei dir."
-  canonical="https://vku-kurs-zug.ch/kontakt"
-  lang="de"
+  title="Contact VKU Zug – Questions about the traffic theory course?"
+  description="Do you have questions about the VKU course in Zug or need help with registration? Contact us via form, email or phone – we will get back to you quickly."
+  canonical="https://vku-kurs-zug.ch/en/kontakt"
+  lang="en"
 >
   <!-- Hero Section -->
   <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
     <div class="max-w-6xl mx-auto px-4">
-      <h1 class="text-4xl font-bold mb-4">Kontakt</h1>
-      <p class="text-xl">Schreib uns eine Nachricht oder ruf uns an</p>
+      <h1 class="text-4xl font-bold mb-4">Contact</h1>
+      <p class="text-xl">Send us a message or call us</p>
     </div>
   </section>
 
   <!-- Breadcrumb -->
   <nav class="bg-gray-50 py-4">
     <div class="max-w-6xl mx-auto px-4">
-      <a href="/" class="text-blue-600 hover:underline">Home</a> > <span
-        class="text-gray-600">Kontakt</span
+      <a href="/en" class="text-blue-600 hover:underline">Home</a> > <span
+        class="text-gray-600">Contact</span
       >
     </div>
   </nav>
@@ -30,18 +30,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
       <!-- Contact Info -->
       <div>
-        <h2 class="text-2xl font-bold mb-6">Kontaktinformationen</h2>
+        <h2 class="text-2xl font-bold mb-6">Contact Information</h2>
         <div class="space-y-6">
           <div>
-            <h3 class="font-bold text-lg mb-2">Adresse</h3>
+            <h3 class="font-bold text-lg mb-2">Address</h3>
             <p class="text-gray-700">
               Industriestrasse 50<br />
               6300 Zug<br />
-              Schweiz
+              Switzerland
             </p>
           </div>
           <div>
-            <h3 class="font-bold text-lg mb-2">Telefon</h3>
+            <h3 class="font-bold text-lg mb-2">Phone</h3>
             <p class="text-gray-700">
               <a href="tel:+41412193660" class="text-blue-600 hover:underline"
                 >+41 41 219 36 60</a
@@ -49,18 +49,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             </p>
           </div>
           <div>
-            <h3 class="font-bold text-lg mb-2">Öffnungszeiten</h3>
+            <h3 class="font-bold text-lg mb-2">Opening Hours</h3>
             <p class="text-gray-700">
-              Montag – Freitag: 08:00 – 18:00<br />
-              Samstag: 09:00 – 12:00<br />
-              Sonntag: Geschlossen
+              Monday – Friday: 08:00 – 18:00<br />
+              Saturday: 09:00 – 12:00<br />
+              Sunday: Closed
             </p>
           </div>
           <div>
-            <h3 class="font-bold text-lg mb-2">Anreise</h3>
+            <h3 class="font-bold text-lg mb-2">Arrival</h3>
             <p class="text-gray-700">
-              Ca. 9 Minuten zu Fuss vom Bahnhof Zug<br />
-              oder mit dem Bus Nr. 4 bis Zug, Göbli
+              Approx. 9 minutes walk from Zug station<br />
+              or by bus no. 4 to Zug, Göbli
             </p>
           </div>
         </div>
@@ -68,10 +68,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
       <!-- Contact Form -->
       <div>
-        <h2 class="text-2xl font-bold mb-6">Kursanmeldung</h2>
+        <h2 class="text-2xl font-bold mb-6">Course Registration</h2>
         <p class="text-lg text-gray-700 mb-6">
-          Melde dich direkt über unser Anmeldeformular für den nächsten VKU Kurs
-          an.
+          Register directly via our registration form for the next VKU course.
         </p>
         <iframe
           style="border: 0px #ffffff none;"
@@ -87,11 +86,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           allowfullscreen="allowfullscreen"
           class="rounded-lg shadow-xl"></iframe>
 
-        <h2 class="text-2xl font-bold mb-6 mt-12">Kontaktformular</h2>
+        <h2 class="text-2xl font-bold mb-6 mt-12">Contact Form</h2>
         <form id="contactForm" class="space-y-4">
           <div>
             <label for="vorname" class="block font-semibold mb-2"
-              >Vorname *</label
+              >First Name *</label
             >
             <input
               type="text"
@@ -103,7 +102,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
           <div>
             <label for="nachname" class="block font-semibold mb-2"
-              >Nachname *</label
+              >Last Name *</label
             >
             <input
               type="text"
@@ -114,7 +113,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             />
           </div>
           <div>
-            <label for="email" class="block font-semibold mb-2">E-Mail *</label>
+            <label for="email" class="block font-semibold mb-2">Email *</label>
             <input
               type="email"
               id="email"
@@ -125,7 +124,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
           <div>
             <label for="telefon" class="block font-semibold mb-2"
-              >Telefon (optional)</label
+              >Phone (optional)</label
             >
             <input
               type="tel"
@@ -136,7 +135,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
           <div>
             <label for="nachricht" class="block font-semibold mb-2"
-              >Nachricht *</label
+              >Message *</label
             >
             <textarea
               id="nachricht"
@@ -155,17 +154,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               class="mt-1 mr-3"
             />
             <label for="datenschutz" class="text-sm text-gray-700">
-              Ich stimme der Datenverarbeitung gemäss <a
-                href="/datenschutz"
-                class="text-blue-600 hover:underline">Datenschutzerklärung</a
-              > zu. *
+              I agree to data processing according to the <a
+                href="/en/datenschutz"
+                class="text-blue-600 hover:underline">privacy policy</a
+              >. *
             </label>
           </div>
           <button
             type="submit"
             class="w-full bg-blue-600 text-white px-6 py-3 rounded font-bold hover:bg-blue-700 transition"
           >
-            Nachricht senden
+            Send Message
           </button>
           <p id="formMessage" class="text-sm text-gray-600 hidden"></p>
         </form>
@@ -185,13 +184,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://vku-kurs-zug.ch/",
+          item: "https://vku-kurs-zug.ch/en/",
         },
         {
           "@type": "ListItem",
           position: 2,
-          name: "Kontakt",
-          item: "https://vku-kurs-zug.ch/kontakt",
+          name: "Contact",
+          item: "https://vku-kurs-zug.ch/en/kontakt",
         },
       ],
     })}
@@ -218,18 +217,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           if (messageElement) {
             if (response.ok) {
               messageElement.textContent =
-                "Vielen Dank! Deine Nachricht wurde versendet.";
+                "Thank you! Your message has been sent.";
               messageElement.className = "text-sm text-green-600 block";
               target.reset();
             } else {
               messageElement.textContent =
-                "Es gab einen Fehler. Bitte versuche es später erneut.";
+                "There was an error. Please try again later.";
               messageElement.className = "text-sm text-red-600 block";
             }
           }
         } catch (error) {
           if (messageElement) {
-            messageElement.textContent = "Fehler beim Senden der Nachricht.";
+            messageElement.textContent = "Error sending message.";
             messageElement.className = "text-sm text-red-600 block";
           }
         }
