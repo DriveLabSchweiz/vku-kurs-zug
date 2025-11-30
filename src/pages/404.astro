@@ -1,34 +1,39 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const isEnglish = Astro.url.pathname.startsWith('/en');
-const lang = isEnglish ? 'en' : 'de';
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const lang = isEnglish ? "en" : "de";
 
 const content = {
   de: {
     title: "404 Error – Seite nicht gefunden | VKU Zug",
-    description: "Ups! Diese Seite existiert nicht. Sieht aus, als hättest du eine Abzweigung verpasst.",
+    description:
+      "Ups! Diese Seite existiert nicht. Sieht aus, als hättest du eine Abzweigung verpasst.",
     heading: "404 Error: VKU Zug nicht gefunden",
-    subheading: "Sieht aus, als hättest du eine falsche Abzweigung bei der Theorieprüfung genommen. Vielleicht nächstes Mal den Blinker setzen?",
+    subheading:
+      "Sieht aus, als hättest du eine falsche Abzweigung bei der Theorieprüfung genommen. Vielleicht nächstes Mal den Blinker setzen?",
     note: "Oder warte einfach hier auf den Abschleppwagen der Scham.",
-    pageNotFound: "Seite nicht gefunden, aber dein Orientierungssinn könnte es sein.",
+    pageNotFound:
+      "Seite nicht gefunden, aber dein Orientierungssinn könnte es sein.",
     signature: "- VKU Zug Team (wahrscheinlich auch verloren)",
     homeButton: "Zurück zur sicheren Startseite",
     coursesButton: "Zu den Kursen",
-    altText: "Lustige Illustration: Fahrschüler mit kaputtem Auto in Zug verloren"
+    altText:
+      "Lustige Illustration: Fahrschüler mit kaputtem Auto in Zug verloren",
   },
   en: {
     title: "404 Error – Page Not Found | VKU Zug",
     description: "Oops! This page doesn't exist. Looks like you missed a turn.",
     heading: "404 Error: VKU Zug not found",
-    subheading: "Looks like you took a wrong turn at the theory exam. Maybe try using your blinker next time?",
+    subheading:
+      "Looks like you took a wrong turn at the theory exam. Maybe try using your blinker next time?",
     note: "Or just wait here for the tow truck of shame.",
     pageNotFound: "Page not found, but your sense of direction might be.",
     signature: "- VKU Zug Team (probably lost too)",
     homeButton: "Back to Safe Homepage",
     coursesButton: "View Courses",
-    altText: "Funny illustration: Student drivers with broken car lost in Zug"
-  }
+    altText: "Funny illustration: Student drivers with broken car lost in Zug",
+  },
 };
 
 const t = content[lang];
@@ -37,44 +42,53 @@ const t = content[lang];
 <BaseLayout
   title={t.title}
   description={t.description}
-  canonical={`https://vku-kurs-zug.ch${isEnglish ? '/en' : ''}/404`}
+  canonical={`https://vku-kurs-zug.ch${isEnglish ? "/en" : ""}/404`}
   lang={lang}
 >
-  <div class="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center px-4 py-12">
+  <div
+    class="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center px-4 py-12"
+  >
     <div class="max-w-6xl w-full">
       <!-- Main content container -->
       <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
         <!-- Image section -->
         <div class="relative">
-          <img 
-            src="/404-vku-lost.jpg" 
+          <img
+            src="/404-vku-lost.jpg"
             alt={t.altText}
             class="w-full h-auto object-cover"
             loading="eager"
           />
           <!-- Glitch effect overlay -->
-          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/20 to-purple-500/20 blur-xl"></div>
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/20 to-purple-500/20 blur-xl"
+          >
+          </div>
         </div>
 
         <!-- Text content -->
         <div class="p-8 md:p-12 text-center">
-          <h1 class="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1
+            class="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+          >
             404
           </h1>
-          
+
           <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
             {t.heading}
           </h2>
-          
+
           <p class="text-lg md:text-xl text-gray-600 mb-3 max-w-2xl mx-auto">
             {t.subheading}
           </p>
-          
+
           <p class="text-md text-gray-500 mb-6 italic">
             {t.note}
           </p>
 
-          <div class="bg-blue-50 rounded-lg p-6 mb-8 max-w-2xl mx-auto border-l-4 border-blue-600">
+          <div
+            class="bg-blue-50 rounded-lg p-6 mb-8 max-w-2xl mx-auto border-l-4 border-blue-600"
+          >
             <p class="text-gray-700 font-medium mb-2">
               {t.pageNotFound}
             </p>
@@ -84,23 +98,40 @@ const t = content[lang];
           </div>
 
           <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a 
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <a
               href={isEnglish ? "/en" : "/"}
               class="w-full sm:w-auto bg-blue-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-700 transition transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+                ></path>
               </svg>
               {t.homeButton}
             </a>
-            
-            <a 
+
+            <a
               href={isEnglish ? "/en/#booking" : "/#booking"}
               class="w-full sm:w-auto bg-white text-blue-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-50 transition border-2 border-blue-600 flex items-center justify-center gap-2"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                  clip-rule="evenodd"></path>
               </svg>
               {t.coursesButton}
             </a>
@@ -109,9 +140,11 @@ const t = content[lang];
           <!-- Fun car facts -->
           <div class="mt-12 pt-8 border-t border-gray-200">
             <p class="text-sm text-gray-500">
-              {lang === 'de' 
-                ? '💡 VKU-Tipp: Immer den Blinker setzen, auch im Internet. Dann verirrt man sich seltener.' 
-                : '💡 VKU Tip: Always use your blinker, even on the internet. You'll get lost less often.'}
+              {
+                lang === "de"
+                  ? "💡 VKU-Tipp: Immer den Blinker setzen, auch im Internet. Dann verirrt man sich seltener."
+                  : "💡 VKU Tip: Always use your blinker, even on the internet. You'll get lost less often."
+              }
             </p>
           </div>
         </div>
@@ -120,10 +153,14 @@ const t = content[lang];
   </div>
 
   <!-- Schema for 404 page -->
-  <script type="application/ld+json" is:inline set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "404 Error - Page Not Found",
-    "description": t.description
-  })} />
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "404 Error - Page Not Found",
+      description: t.description,
+    })}
+  />
 </BaseLayout>
