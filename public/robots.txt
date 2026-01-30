@@ -10,7 +10,7 @@ Disallow: /private/
 Disallow: /api/
 
 # Specify sitemap location
-Sitemap: https://vku-kurs-zug.ch/sitemap.xml
+Sitemap: https://vku-kurs-zug.ch/sitemap-index.xml
 
 # Crawl delay (optional, in seconds)
 Crawl-delay: 1

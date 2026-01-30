@@ -7,9 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "node scripts/lighthouse-test.cjs && node scripts/accessibility-test.cjs",
-    "test:lighthouse": "node scripts/lighthouse-test.cjs",
-    "test:a11y": "node scripts/accessibility-test.cjs"
+    "test": "npm run build && node scripts/lighthouse-test.cjs && node scripts/accessibility-test.cjs",
+    "test:lighthouse": "npm run build && node scripts/lighthouse-test.cjs",
+    "test:a11y": "npm run build && node scripts/accessibility-test.cjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.11",

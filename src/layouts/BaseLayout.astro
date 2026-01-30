@@ -6,6 +6,7 @@ interface Props {
   description?: string;
   image?: string;
   canonical?: string;
+  robots?: string;
   lang?: 'de' | 'en';
 }
 
@@ -14,8 +15,12 @@ const {
   description = 'Jetzt Ihren VKU Zug Kurs in Zug buchen: 8 Stunden Verkehrskunde, zentrale Lage, inkl. Material. Plätze sichern!', 
   image = '/vku-zug-hero.png', 
   canonical = 'https://vku-kurs-zug.ch',
+  robots = 'index, follow',
   lang = 'de'
 } = Astro.props;
+
+const origin = 'https://vku-kurs-zug.ch';
+const fullImage = image.startsWith('http') ? image : `${origin}${image}`;
 
 const currentPath = new URL(Astro.request.url).pathname;
 
@@ -68,7 +73,7 @@ const footerLinks = {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content={robots} />
   <link rel="canonical" href={canonical} />
   
   <!-- Hreflang Tags -->
@@ -78,7 +83,7 @@ const footerLinks = {
   <!-- Open Graph -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={image} />
+  <meta property="og:image" content={fullImage} />
   <meta property="og:url" content={canonical} />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content={isEn ? 'en_CH' : 'de_CH'} />
@@ -87,7 +92,7 @@ const footerLinks = {
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={image} />
+  <meta name="twitter:image" content={fullImage} />
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -98,7 +103,7 @@ const footerLinks = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "VKU Zug – Verkehrskundeunterricht",
-    "image": image,
+    "image": fullImage,
     "description": description,
     "address": {
       "@type": "PostalAddress",
