@@ -1,0 +1,281 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import vkuData from "../data/vku_data.json";
+import OptimizedImage from "../components/OptimizedImage.astro";
+
+const { course } = vkuData;
+const moduleData = course.modules[0]; // Verkehrssehen
+
+const relatedLinks = [
+  { href: "/verkehrsumwelt", label: "Verkehrsumwelt" },
+  { href: "/verkehrsdynamik", label: "Verkehrsdynamik" },
+  { href: "/verkehrstaktik", label: "Verkehrstaktik" },
+  { href: "/kursinhalt", label: "Gesamter Kursinhalt" },
+];
+
+const faqs = [
+  {
+    question: "Warum ist Verkehrssehen so wichtig?",
+    answer: "Über 90% der Verkehrsinformationen nehmen wir über die Augen auf. Gutes Verkehrssehen ist die Grundlage für sicheres Fahren und hilft, Unfälle zu vermeiden."
+  },
+  {
+    question: "Was ist das Gesichtsfeld?",
+    answer: "Das Gesichtsfeld beschreibt alles, was wir ohne Augenbewegung wahrnehmen können. Beim Autofahren ist ein breites Gesichtsfeld wichtig, um Nebengefahren frühzeitig zu erkennen."
+  },
+  {
+    question: "Wie trainiere ich meine Blicktechnik?",
+    answer: "Durch regelmässige Übung: Weit blicken, Spiegel kontrollieren, tote Winkel beachten, und nie zu lange auf ein Objekt fixieren. Der VKU zeigt dir spezifische Techniken."
+  }
+];
+---
+
+<BaseLayout
+  title="Verkehrssehen im VKU – Blicktechnik & Gefahrenerkennung | Zug"
+  description="Lerne Verkehrssehen im VKU Zug: Blicktechniken, Gesichtsfeld, Gefahrenerkennung & Sensomotorik. Modul 1 des Verkehrskundeunterrichts. Jetzt buchen!"
+  canonical="https://vku-kurs-zug.ch/verkehrssehen/"
+  lang="de"
+>
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://vku-kurs-zug.ch/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Verkehrssehen",
+          "item": "https://vku-kurs-zug.ch/verkehrssehen/"
+        }
+      ]
+    }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Warum ist Verkehrssehen so wichtig?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Über 90% der Verkehrsinformationen nehmen wir über die Augen auf. Gutes Verkehrssehen ist die Grundlage für sicheres Fahren und hilft, Unfälle zu vermeiden."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist das Gesichtsfeld?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Das Gesichtsfeld beschreibt alles, was wir ohne Augenbewegung wahrnehmen können. Beim Autofahren ist ein breites Gesichtsfeld wichtig, um Nebengefahren frühzeitig zu erkennen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie trainiere ich meine Blicktechnik?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Durch regelmässige Übung: Weit blicken, Spiegel kontrollieren, tote Winkel beachten, und nie zu lange auf ein Objekt fixieren. Der VKU zeigt dir spezifische Techniken."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <nav class="text-sm mb-6" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2">
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><span class="text-blue-200">/</span></li>
+          <li class="text-blue-200">Verkehrssehen</li>
+        </ol>
+      </nav>
+      
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        Verkehrssehen im VKU
+      </h1>
+      <p class="text-xl text-blue-100 max-w-3xl">
+        Lerne, wie deine Augen im Verkehr arbeiten und wie du durch die richtige Blicktechnik 
+        Gefahren frühzeitig erkennst. Modul 1 des Verkehrskundeunterrichts in Zug.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    
+    <!-- Introduction -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Was ist Verkehrssehen?</h2>
+      <p class="text-lg text-gray-700 mb-4">
+        <strong>Verkehrssehen</strong> ist die Fähigkeit, Verkehrssituationen frühzeitig zu erkennen 
+        und richtig einzuschätzen. Es bildet das Fundament für sicheres Fahren und ist das erste der 
+        vier Module im <a href="/kursinhalt" class="text-blue-600 hover:underline">Verkehrskundeunterricht (VKU)</a>.
+      </p>
+      <p class="text-lg text-gray-700 mb-4">
+        In diesem Modul lernst du, wie das menschliche Auge funktioniert, wo seine Grenzen liegen 
+        und wie du durch gezielte Blicktechniken deine Wahrnehmung im Straßenverkehr optimierst.
+      </p>
+      <div class="bg-blue-50 border-l-4 border-blue-600 p-6 my-8">
+        <p class="font-semibold text-blue-900">
+          💡 Wusstest du? Über 90% aller Informationen im Straßenverkehr nehmen wir über unsere Augen auf. 
+          Gutes Verkehrssehen kann lebensrettend sein!
+        </p>
+      </div>
+    </section>
+
+    <!-- Key Topics -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Die wichtigsten Themen im Modul Verkehrssehen</h2>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">👁️</div>
+          <h3 class="text-xl font-bold mb-3">Das menschliche Auge</h3>
+          <p class="text-gray-700">
+            Wie funktioniert das Sehen? Wir erklären die Physiologie des Auges, 
+            die Bedeutung des peripheren Sehens und warum Nachtsicht eingeschränkt ist.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">🎯</div>
+          <h3 class="text-xl font-bold mb-3">Blicktechniken</h3>
+          <p class="text-gray-700">
+            Lerne die richtige Blickführung: Weit blicken, Spiegel nutzen, 
+            tote Winkel überprüfen und die Aufmerksamkeit richtig verteilen.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">📐</div>
+          <h3 class="text-xl font-bold mb-3">Gesichtsfeld</h3>
+          <p class="text-gray-700">
+            Verstehe, wie weit du sehen kannst ohne den Kopf zu drehen. 
+            Erfahre, wie Geschwindigkeit dein Gesichtsfeld verändert.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">⚡</div>
+          <h3 class="text-xl font-bold mb-3">Reaktionszeit</h3>
+          <p class="text-gray-700">
+            Wie schnell reagierst du auf Gefahren? Wir messen deine Reaktionszeit 
+            und zeigen, warum Vorausschau so wichtig ist.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Practical Application -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Praxisnahe Anwendung im VKU Zug</h2>
+      
+      <p class="text-lg text-gray-700 mb-6">
+        In unserem VKU in Zug lernst du nicht nur Theorie, sondern wendest das Gelernte direkt an:
+      </p>
+
+      <ul class="space-y-4 text-lg text-gray-700">
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-3">✓</span>
+          <span><strong>360-Grad-Videos:</strong> Erlebe reale Verkehrssituationen aus Zug und übe die Gefahrenerkennung</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-3">✓</span>
+          <span><strong>Interaktive Übungen:</strong> Teste dein Gesichtsfeld und deine Reaktionszeit mit praktischen Experimenten</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-3">✓</span>
+          <span><strong>Gruppendiskussionen:</strong> Analysiere echte Unfallszenarien und lerne aus den Fehlern anderer</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-3">✓</span>
+          <span><strong>Moderne Technik:</strong> Nutze Tablets und Smartphones für interaktive Lerninhalte</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Connection to Other Modules -->
+    <section class="mb-12 bg-gray-50 p-8 rounded-lg">
+      <h2 class="text-2xl font-bold mb-4">Verkehrssehen im Kontext des gesamten VKU</h2>
+      
+      <p class="text-gray-700 mb-4">
+        Das Modul Verkehrssehen bildet die Basis für alle anderen Module. Erst wenn du Gefahren 
+        sehen kannst, kannst du:
+      </p>
+
+      <ul class="space-y-2 text-gray-700 mb-6">
+        <li>→ Sie richtig <a href="/verkehrsumwelt" class="text-blue-600 hover:underline">einschätzen (Verkehrsumwelt)</a></li>
+        <li>→ Dein Fahrzeug entsprechend <a href="/verkehrsdynamik" class="text-blue-600 hover:underline">steueren (Verkehrsdynamik)</a></li>
+        <li>→ Die richtige <a href="/verkehrstaktik" class="text-blue-600 hover:underline">Entscheidung treffen (Verkehrstaktik)</a></li>
+      </ul>
+
+      <div class="flex flex-wrap gap-3">
+        {relatedLinks.map(link => (
+          <a 
+            href={link.href} 
+            class="bg-white px-4 py-2 rounded border border-gray-200 text-blue-600 hover:bg-blue-50 hover:border-blue-300 transition"
+          >
+            {link.label} →
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Häufige Fragen zum Modul Verkehrssehen</h2>
+      
+      <div class="space-y-4">
+        {faqs.map((faq, index) => (
+          <details 
+            class="border rounded-lg p-4 hover:bg-gray-50 group cursor-pointer"
+            open={index === 0}
+          >
+            <summary class="font-semibold text-lg list-none flex justify-between items-center">
+              {faq.question}
+              <span class="group-open:rotate-180 transition-transform text-blue-600">▼</span>
+            </summary>
+            <p class="mt-4 text-gray-700">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-blue-600 text-white p-8 rounded-lg text-center">
+      <h2 class="text-2xl font-bold mb-4">Bereit für den VKU in Zug?</h2>
+      <p class="text-blue-100 mb-6">
+        Lerne Verkehrssehen und die drei anderen Module in unserem 8-stündigen Intensivkurs. 
+        Zentral in Zug, alle Inklusivleistungen, erfahrene Fahrlehrer.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/#booking" 
+          class="bg-white text-blue-600 px-8 py-3 rounded font-bold hover:bg-gray-100 transition"
+        >
+          Jetzt VKU buchen
+        </a>
+        <a 
+          href="/kursinhalt" 
+          class="border-2 border-white text-white px-8 py-3 rounded font-bold hover:bg-blue-700 transition"
+        >
+          Alle Module ansehen
+        </a>
+      </div>
+    </section>
+
+  </article>
+
+</BaseLayout>

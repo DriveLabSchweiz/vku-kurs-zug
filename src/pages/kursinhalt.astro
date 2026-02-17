@@ -70,24 +70,36 @@ const expandedContent = [
     </p>
 
     {
-      course.modules.map((module, index) => (
-        <div class="mb-12" id={`modul-${index + 1}`}>
-          <div class="flex items-center mb-4">
-            <div class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg mr-4 flex-shrink-0">
-              {index + 1}
+      course.modules.map((module, index) => {
+        const moduleSlugs = ["verkehrssehen", "verkehrsumwelt", "verkehrsdynamik", "verkehrstaktik"];
+        const moduleUrl = `/${moduleSlugs[index]}/`;
+        return (
+          <div class="mb-12" id={`modul-${index + 1}`}>
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg mr-4 flex-shrink-0">
+                {index + 1}
+              </div>
+              <h2 class="text-3xl font-bold">
+                <a href={moduleUrl} class="hover:text-blue-600 transition">{module.title}</a>
+              </h2>
             </div>
-            <h2 class="text-3xl font-bold">{module.title}</h2>
+            <div class="bg-blue-50 p-8 rounded shadow-sm hover:shadow-md transition">
+              <p class="text-lg text-gray-700 leading-relaxed font-semibold mb-4">
+                {module.description}
+              </p>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                {expandedContent[index].text}
+              </p>
+              <a 
+                href={moduleUrl} 
+                class="inline-flex items-center text-blue-600 font-semibold hover:underline"
+              >
+                Mehr über {module.title} erfahren →
+              </a>
+            </div>
           </div>
-          <div class="bg-blue-50 p-8 rounded shadow-sm hover:shadow-md transition">
-            <p class="text-lg text-gray-700 leading-relaxed font-semibold mb-4">
-              {module.description}
-            </p>
-            <p class="text-gray-700 leading-relaxed">
-              {expandedContent[index].text}
-            </p>
-          </div>
-        </div>
-      ))
+        );
+      })
     }
 
     <!-- Additional Info -->

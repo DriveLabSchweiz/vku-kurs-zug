@@ -1,0 +1,268 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import vkuData from "../data/vku_data.json";
+
+const { course } = vkuData;
+
+const includedItems = [
+  { icon: "📚", title: "Lehrmaterial", desc: "Umfassendes Kursbuch und digitale Inhalte" },
+  { icon: "📜", title: "VKU-Zertifikat", desc: "Offizielles Zertifikat für die Prüfungsanmeldung" },
+  { icon: "☕", title: "Getränke", desc: "Kaffee, Tee, Wasser – unbegrenzt während des Kurses" },
+  { icon: "🍎", title: "Früchte & Snacks", desc: "Gesunde Snacks für zwischendurch" },
+  { icon: "📝", title: "Schreibmaterial", desc: "Stifte, Notizblöcke – alles vor Ort" },
+  { icon: "📱", title: "Digitale Inhalte", desc: "Zugang zu Videos und Quiz-Apps" },
+];
+
+const competitorComparison = [
+  { name: "VKU Zug (DriveLab)", price: "CHF 230", included: "Alle Inklusivleistungen", location: "Zentral in Zug" },
+  { name: "Verkehrsschule Zug", price: "CHF 260", included: "Material inkl., Getränke teilweise", location: "Zug" },
+  { name: "BLINK Fahrschule", price: "CHF 240-280", included: "Grundausstattung", location: "Zug" },
+  { name: "VKU am Bahnhof", price: "CHF 250", included: "Standard", location: "Zug HB" },
+];
+
+const faqs = [
+  {
+    question: "Warum kostet der VKU bei euch nur CHF 230?",
+    answer: "Wir haben effiziente Prozesse und günstige Räumlichkeiten, ohne Kompromisse bei der Qualität. Die Einsparungen geben wir direkt an dich weiter."
+  },
+  {
+    question: "Gibt es versteckte Kosten?",
+    answer: "Nein! Der Preis von CHF 230 ist der Endpreis. Keine Zusatzkosten für Material, Zertifikat oder Getränke."
+  },
+  {
+    question: "Kann ich in Raten zahlen?",
+    answer: "Der VKU muss vor Kursbeginn vollständig bezahlt werden. Bei finanziellen Problemen sprich uns an – wir finden eine Lösung."
+  },
+  {
+    question: "Was ist die Stornierungsbedingung?",
+    answer: "Bis 48 Stunden vor Kursbeginn kannst du kostenlos stornieren. Danach fällt die volle Gebühr an."
+  }
+];
+---
+
+<BaseLayout
+  title="VKU Zug Preis 2025 – CHF 230 inkl. allem | Günstig & Zentral"
+  description="VKU Zug ab CHF 230: Inkl. Material, Zertifikat, Getränke & Snacks. Keine versteckten Kosten. Jetzt online buchen und sparen!"
+  canonical="https://vku-kurs-zug.ch/vku-preis/"
+  lang="de"
+>
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vku-kurs-zug.ch/" },
+        { "@type": "ListItem", "position": 2, "name": "VKU Preis", "item": "https://vku-kurs-zug.ch/vku-preis/" }
+      ]
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Offer",
+      "name": "VKU Zug – Verkehrskundeunterricht",
+      "description": "8-stündiger Verkehrskundeunterricht in Zug inkl. aller Leistungen",
+      "price": "230",
+      "priceCurrency": "CHF",
+      "availability": "https://schema.org/InStock",
+      "url": "https://vku-kurs-zug.ch/vku-preis/"
+    }
+  </script>
+
+  <section class="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <nav class="text-sm mb-6" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2">
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><span class="text-blue-200">/</span></li>
+          <li class="text-blue-200">VKU Preis</li>
+        </ol>
+      </nav>
+      
+      <div class="text-center">
+        <p class="text-blue-200 text-lg mb-2">Verkehrskundeunterricht Zug</p>
+        <h1 class="text-5xl md:text-6xl font-bold mb-4">CHF 230</h1>
+        <p class="text-xl text-blue-100 mb-8">All inclusive – Keine versteckten Kosten</p>
+        <a href="/#booking" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition inline-block">
+          Jetzt VKU buchen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <article class="max-w-6xl mx-auto px-4 py-12">
+    
+    <!-- What's Included -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-center">Was ist im Preis inbegriffen?</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {includedItems.map(item => (
+          <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 text-center hover:shadow-lg transition">
+            <div class="text-4xl mb-4">{item.icon}</div>
+            <h3 class="text-xl font-bold mb-2">{item.title}</h3>
+            <p class="text-gray-600">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-8 p-6 bg-green-50 border-l-4 border-green-500 rounded">
+        <p class="text-green-900 font-semibold text-center text-lg">
+          💡 Du brauchst nichts mitbringen – wir haben an alles gedacht!
+        </p>
+      </div>
+    </section>
+
+    <!-- Price Comparison -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-center">Preisvergleich VKU Zug 2025</h2>
+      
+      
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white rounded-lg shadow">
+          <thead class="bg-gray-800 text-white">
+            <tr>
+              <th class="p-4 text-left">Anbieter</th>
+              <th class="p-4 text-left">Preis</th>
+              <th class="p-4 text-left">Inklusivleistungen</th>
+              <th class="p-4 text-left">Standort</th>
+            </tr>
+          </thead>
+          <tbody>
+            {competitorComparison.map((comp, index) => (
+              <tr class={index === 0 ? "bg-blue-50 border-l-4 border-blue-600" : "border-b"}>
+                <td class="p-4 font-semibold">{comp.name}</td>
+                <td class="p-4"><span class={index === 0 ? "text-2xl font-bold text-blue-600" : ""}>{comp.price}</span></td>
+                <td class="p-4">{comp.included}</td>
+                <td class="p-4">{comp.location}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      
+      <p class="text-sm text-gray-500 mt-4">* Preise und Leistungen ohne Gewähr, Stand Februar 2025</p>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-center">Warum VKU Zug bei DriveLab?</h2>
+      
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">💰</span>
+            <div>
+              <h4 class="font-bold">Bester Preis</h4>
+              <p class="text-gray-700">Mit CHF 230 bieten wir einen der günstigsten VKU-Kurse in Zug – bei vollem Leistungsumfang.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">📍</span>
+            <div>
+              <h4 class="font-bold">Zentrale Lage</h4>
+              <p class="text-gray-700">Nur 9 Minuten zu Fuss vom Zuger Bahnhof. Perfekt erreichbar mit ÖV und Auto.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">⚡</span>
+            <div>
+              <h4 class="font-bold">Intensivformat</h4>
+              <p class="text-gray-700">8 Stunden an 2 Tagen – effizient und praxisnah. Keine langwierigen Abendkurse.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">🎓</span>
+            <div>
+              <h4 class="font-bold">Erfahrene Lehrer</h4>
+              <p class="text-gray-700">Unsere Fahrlehrer haben jahrelange Erfahrung und machen den VKU unterhaltsam.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">🌐</span>
+            <div>
+              <h4 class="font-bold">Deutsch & Englisch</h4>
+              <p class="text-gray-700">Wir bieten den VKU in beiden Sprachen an – perfekt für internationale Fahrschüler.</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">⭐</span>
+            <div>
+              <h4 class="font-bold">Top Bewertungen</h4>
+              <p class="text-gray-700">Unsere Teilnehmer bewerten uns durchschnittlich mit 4.8/5 Sternen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Total Cost Overview -->
+    <section class="mb-16 bg-gray-50 p-8 rounded-lg">
+      <h2 class="text-3xl font-bold mb-8 text-center">Gesamtkosten Führerschein Schweiz 2025</h2>
+      
+      
+      <p class="text-gray-700 mb-6 text-center">
+        Der VKU ist nur ein Teil der Gesamtkosten für den Führerschein. Hier eine Übersicht:
+      </p>
+
+      <div class="max-w-2xl mx-auto">
+        <div class="space-y-3">
+          <div class="flex justify-between p-3 bg-white rounded"><span>Lernfahrausweis</span><span class="font-semibold">CHF 20-40</span></div>
+          <div class="flex justify-between p-3 bg-white rounded"><span>Theorieprüfung</span><span class="font-semibold">CHF 40</span></div>
+          <div class="flex justify-between p-3 bg-blue-100 rounded border-l-4 border-blue-600"><span class="font-semibold">VKU (Verkehrskunde)</span><span class="font-bold text-blue-600">CHF 230</span></div>
+          <div class="flex justify-between p-3 bg-white rounded"><span>Fahrstunden (Ø 25 Stunden)</span><span class="font-semibold">CHF 2'250</span></div>
+          <div class="flex justify-between p-3 bg-white rounded"><span>Praktische Prüfung</span><span class="font-semibold">CHF 130</span></div>
+          <div class="flex justify-between p-3 bg-white rounded"><span>WAB-Kurs (nach Prüfung)</span><span class="font-semibold">CHF 300-400</span></div>
+        </div>
+        
+        <div class="mt-6 p-4 bg-gray-800 text-white rounded-lg text-center">
+          <p class="text-lg">Geschätzte Gesamtkosten: <strong class="text-2xl">CHF 3'000 – 3'500</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-center">Häufige Fragen zum VKU Preis</h2>
+      
+      <div class="max-w-3xl mx-auto space-y-4">
+        {faqs.map((faq, index) => (
+          <details class="border rounded-lg p-4 hover:bg-gray-50 group cursor-pointer" open={index === 0}>
+            <summary class="font-semibold text-lg list-none flex justify-between items-center">
+              {faq.question}
+              <span class="group-open:rotate-180 transition-transform text-blue-600">▼</span>
+            </summary>
+            <p class="mt-4 text-gray-700">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-blue-600 text-white p-12 rounded-lg text-center">
+      <h2 class="text-3xl font-bold mb-4">VKU Zug für CHF 230 buchen</h2>
+      <p class="text-blue-100 mb-2">All inclusive • Zentral gelegen • Erfahrene Lehrer</p>
+      <p class="text-4xl font-bold my-6">CHF 230</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/#booking" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
+          Jetzt online buchen
+        </a>
+        <a href="/kontakt" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition">
+          Fragen? Kontaktiere uns
+        </a>
+      </div>
+    </section>
+
+  </article>
+
+</BaseLayout>

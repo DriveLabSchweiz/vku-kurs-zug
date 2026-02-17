@@ -1,0 +1,234 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import vkuData from "../data/vku_data.json";
+
+const { course } = vkuData;
+
+const relatedLinks = [
+  { href: "/verkehrssehen", label: "Verkehrssehen" },
+  { href: "/verkehrsumwelt", label: "Verkehrsumwelt" },
+  { href: "/verkehrstaktik", label: "Verkehrstaktik" },
+  { href: "/kursinhalt", label: "Gesamter Kursinhalt" },
+];
+
+const faqs = [
+  {
+    question: "Was ist Verkehrsdynamik?",
+    answer: "Verkehrsdynamik beschreibt die physikalischen Kräfte, die auf ein Fahrzeug wirken: Beschleunigung, Bremsen, Kurvenfahren und die Reibung zwischen Reifen und Fahrbahn."
+  },
+  {
+    question: "Wie berechne ich den Bremsweg?",
+    "answer": "Faustformel: (Geschwindigkeit in km/h ÷ 10)² = Bremsweg in Metern. Bei 50 km/h sind das 25 Meter. Bei Nässe verdoppelt sich der Bremsweg!"
+  },
+  {
+    question: "Was sind Fahrerassistenzsysteme?",
+    answer: "Ab Juli 2025 prüfungsrelevant: Systeme wie ABS, ESP, Spurhalteassistent, Notbremsassistent und Abstandsregeltempomat unterstützen den Fahrer."
+  }
+];
+---
+
+<BaseLayout
+  title="Verkehrsdynamik im VKU – Fahrphysik & Bremsweg | Zug"
+  description="Lerne Verkehrsdynamik im VKU Zug: Fahrphysik, Bremsweg, Kurvenfahren & Fahrerassistenzsysteme. Modul 3 des Verkehrskundeunterrichts. Jetzt buchen!"
+  canonical="https://vku-kurs-zug.ch/verkehrsdynamik/"
+  lang="de"
+>
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vku-kurs-zug.ch/" },
+        { "@type": "ListItem", "position": 2, "name": "Verkehrsdynamik", "item": "https://vku-kurs-zug.ch/verkehrsdynamik/" }
+      ]
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was ist Verkehrsdynamik?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Verkehrsdynamik beschreibt die physikalischen Kräfte, die auf ein Fahrzeug wirken: Beschleunigung, Bremsen, Kurvenfahren und die Reibung zwischen Reifen und Fahrbahn." }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie berechne ich den Bremsweg?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Faustformel: (Geschwindigkeit in km/h ÷ 10)² = Bremsweg in Metern. Bei 50 km/h sind das 25 Meter. Bei Nässe verdoppelt sich der Bremsweg!" }
+        },
+        {
+          "@type": "Question",
+          "name": "Was sind Fahrerassistenzsysteme?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ab Juli 2025 prüfungsrelevant: Systeme wie ABS, ESP, Spurhalteassistent, Notbremsassistent und Abstandsregeltempomat unterstützen den Fahrer." }
+        }
+      ]
+    }
+  </script>
+
+  <section class="bg-gradient-to-br from-orange-600 to-orange-800 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <nav class="text-sm mb-6" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2">
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><span class="text-orange-200">/</span></li>
+          <li class="text-orange-200">Verkehrsdynamik</li>
+        </ol>
+      </nav>
+      
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Verkehrsdynamik im VKU</h1>
+      <p class="text-xl text-orange-100 max-w-3xl">
+        Verstehe die Physik des Fahrens: Bremswege, Kurvenkräfte und moderne Assistenzsysteme. 
+        Modul 3 des Verkehrskundeunterrichts in Zug.
+      </p>
+    </div>
+  </section>
+
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Was ist Verkehrsdynamik?</h2>
+      
+      <p class="text-lg text-gray-700 mb-4">
+        <strong>Verkehrsdynamik</strong> beschäftigt sich mit den physikalischen Kräften, 
+        die auf ein Fahrzeug wirken. Wie verhält sich dein Auto beim Bremsen, Beschleunigen 
+        oder in der Kurve? Dieses Wissen ist entscheidend für sicheres Fahren.
+      </p>
+      
+      <p class="text-lg text-gray-700 mb-4">
+        Seit <strong>Juli 2025</strong> sind zudem <strong>Fahrerassistenzsysteme</strong> 
+        prüfungsrelevant – wir bereiten dich optimal darauf vor.
+      </p>
+      
+      <div class="bg-orange-50 border-l-4 border-orange-600 p-6 my-8">
+        <p class="font-semibold text-orange-900">
+          ⚠️ Wichtig: Die Geschwindigkeit quadratisch in den Bremsweg ein. 
+          Bei doppelter Geschwindigkeit brauchst du die <strong>vierfache</strong> Bremsstrecke!
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Die wichtigsten Themen im Modul Verkehrsdynamik</h2>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">🛑</div>
+          <h3 class="text-xl font-bold mb-3">Bremsweg & Anhalteweg</h3>
+          <p class="text-gray-700">Lerne die Faustformeln für Reaktionsweg, Bremsweg und Anhalteweg. 
+          Verstehe, wie Geschwindigkeit und Strassenzustand den Bremsweg beeinflussen.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">🔄</div>
+          <h3 class="text-xl font-bold mb-3">Kurvenfahren</h3>
+          <p class="text-gray-700">Fliehkraft, Reibung, ideale Linie – verstehe die Kräfte in der Kurve 
+          und wie du sie kontrollierst.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">🤖</div>
+          <h3 class="text-xl font-bold mb-3">Fahrerassistenzsysteme (ab Juli 2025)</h3>
+          <p class="text-gray-700">ABS, ESP, Spurhalteassistent, Notbremsassistent, Tempomat – 
+          lerne die wichtigsten Systeme kennen.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">🔧</div>
+          <h3 class="text-xl font-bold mb-3">Fahrzeugunterhalt</h3>
+          <p class="text-gray-700">Reifendruck, Profiltiefe, Bremsen, Ölstand – wie du dein Fahrzeug 
+          in Schuss hältst für maximale Sicherheit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12 bg-gray-100 p-8 rounded-lg">
+      <h2 class="text-2xl font-bold mb-6">Bremsweg-Tabelle (Faustformel)</h2>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white rounded-lg shadow">
+          <thead class="bg-orange-600 text-white">
+            <tr>
+              <th class="p-4 text-left">Geschwindigkeit</th>
+              <th class="p-4 text-left">Reaktionsweg</th>
+              <th class="p-4 text-left">Bremsweg (trocken)</th>
+              <th class="p-4 text-left">Bremsweg (nass)</th>
+              <th class="p-4 text-left">Anhalteweg (trocken)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b"><td class="p-4">30 km/h</td><td class="p-4">9 m</td><td class="p-4">9 m</td><td class="p-4">18 m</td><td class="p-4 font-bold">18 m</td></tr>
+            <tr class="border-b bg-gray-50"><td class="p-4">50 km/h</td><td class="p-4">15 m</td><td class="p-4">25 m</td><td class="p-4">50 m</td><td class="p-4 font-bold">40 m</td></tr>
+            <tr class="border-b"><td class="p-4">80 km/h</td><td class="p-4">24 m</td><td class="p-4">64 m</td><td class="p-4">128 m</td><td class="p-4 font-bold">88 m</td></tr>
+            <tr><td class="p-4">100 km/h</td><td class="p-4">30 m</td><td class="p-4">100 m</td><td class="p-4">200 m</td><td class="p-4 font-bold">130 m</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm text-gray-600 mt-4">* Faustformel: Reaktionsweg = (km/h ÷ 10) × 3 | Bremsweg = (km/h ÷ 10)²</p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Fahrerassistenzsysteme (ab Juli 2025 prüfungsrelevant)</h2>
+      
+      <p class="text-lg text-gray-700 mb-6">
+        Die Schweizer Fahrprüfung wurde aktualisiert. Ab Juli 2025 musst du <strong>Fahrerassistenzsysteme</strong> 
+        kennen und deren Funktionsweise erklären können:
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="border p-4 rounded-lg"><h4 class="font-bold">ABS</h4><p class="text-gray-700 text-sm">Anti-Blockier-System: Verhindert das Blockieren der Räder beim Bremsen.</p></div>
+        <div class="border p-4 rounded-lg"><h4 class="font-bold">ESP</h4><p class="text-gray-700 text-sm">Elektronisches Stabilitätsprogramm: Hält das Fahrzeug in kritischen Fahrsituationen stabil.</p></div>
+        <div class="border p-4 rounded-lg"><h4 class="font-bold">Spurhalteassistent</h4><p class="text-gray-700 text-sm">Warnt bei unbeabsichtigtem Verlassen der Fahrspur.</p></div>
+        <div class="border p-4 rounded-lg"><h4 class="font-bold">Notbremsassistent</h4><p class="text-gray-700 text-sm">Erkennt kritische Situationen und bremst autonom.</p></div>
+        <div class="border p-4 rounded-lg"><h4 class="font-bold">Abstandsregeltempomat</h4><p class="text-gray-700 text-sm">Hält automatisch den Abstand zum vorausfahrenden Fahrzeug.</p></div>
+        <div class="border p-4 rounded-lg"><h4 class="font-bold">Müdigkeitserkennung</h4><p class="text-gray-700 text-sm">Warnt den Fahrer bei Anzeichen von Übermüdung.</p></div>
+      </div>
+    </section>
+
+    <section class="mb-12 bg-gray-50 p-8 rounded-lg">
+      <h2 class="text-2xl font-bold mb-4">Verkehrsdynamik im Kontext des VKU</h2>
+      <p class="text-gray-700 mb-4">Nachdem du Gefahren <a href="/verkehrssehen" class="text-orange-600 hover:underline">sehst</a> 
+      und die <a href="/verkehrsumwelt" class="text-orange-600 hover:underline">Umgebung einschätzt</a>, 
+      lernst du nun, wie dein Fahrzeug reagiert:</p>
+
+      <ul class="space-y-2 text-gray-700 mb-6">
+        <li>→ Welche taktische Entscheidung triffst du? → <a href="/verkehrstaktik" class="text-orange-600 hover:underline">Verkehrstaktik</a></li>
+      </ul>
+
+      <div class="flex flex-wrap gap-3">
+        {relatedLinks.map(link => (
+          <a href={link.href} class="bg-white px-4 py-2 rounded border border-gray-200 text-orange-600 hover:bg-orange-50 transition">{link.label} →</a>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Häufige Fragen zum Modul Verkehrsdynamik</h2>
+      <div class="space-y-4">
+        {faqs.map((faq, index) => (
+          <details class="border rounded-lg p-4 hover:bg-gray-50 group cursor-pointer" open={index === 0}>
+            <summary class="font-semibold text-lg list-none flex justify-between items-center">
+              {faq.question}
+              <span class="group-open:rotate-180 transition-transform text-orange-600">▼</span>
+            </summary>
+            <p class="mt-4 text-gray-700">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="bg-orange-600 text-white p-8 rounded-lg text-center">
+      <h2 class="text-2xl font-bold mb-4">Bereit für den VKU in Zug?</h2>
+      <p class="text-orange-100 mb-6">Lerne Verkehrsdynamik und die drei anderen Module in unserem 8-stündigen Intensivkurs.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/#booking" class="bg-white text-orange-600 px-8 py-3 rounded font-bold hover:bg-gray-100 transition">Jetzt VKU buchen</a>
+        <a href="/kursinhalt" class="border-2 border-white text-white px-8 py-3 rounded font-bold hover:bg-orange-700 transition">Alle Module ansehen</a>
+      </div>
+    </section>
+
+  </article>
+
+</BaseLayout>

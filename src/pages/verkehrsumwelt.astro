@@ -1,0 +1,208 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import vkuData from "../data/vku_data.json";
+
+const { course } = vkuData;
+
+const relatedLinks = [
+  { href: "/verkehrssehen", label: "Verkehrssehen" },
+  { href: "/verkehrsdynamik", label: "Verkehrsdynamik" },
+  { href: "/verkehrstaktik", label: "Verkehrstaktik" },
+  { href: "/kursinhalt", label: "Gesamter Kursinhalt" },
+];
+
+const faqs = [
+  {
+    question: "Was bedeutet Verkehrsumwelt?",
+    answer: "Die Verkehrsumwelt umfasst alle externen Faktoren, die das Fahren beeinflussen: andere Verkehrsteilnehmer, Wetter, Strassenzustand, Lichtverhältnisse und Verkehrsinfrastruktur."
+  },
+  {
+    question: "Wie passe ich meine Geschwindigkeit an die Umgebung an?",
+    answer: "Die Geschwindigkeit muss immer der Situation angepasst werden: Bei schlechter Sicht, Regen, Schnee, oder dichtem Verkehr reduzierst du deine Geschwindigkeit entsprechend."
+  },
+  {
+    question: "Was sind typische Gefahren in der Verkehrsumwelt?",
+    answer: "Fussgänger, Radfahrer, plötzliche Hindernisse, wechselnde Lichtverhältnisse, enge Strassen, Baustellen und unübersichtliche Kreuzungen sind häufige Gefahrenquellen."
+  }
+];
+---
+
+<BaseLayout
+  title="Verkehrsumwelt im VKU – Geschwindigkeit & Anpassung | Zug"
+  description="Lerne Verkehrsumwelt im VKU Zug: Geschwindigkeitsanpassung, Wettereinflüsse, Fussgänger & Radfahrer. Modul 2 des Verkehrskundeunterrichts. Jetzt buchen!"
+  canonical="https://vku-kurs-zug.ch/verkehrsumwelt/"
+  lang="de"
+>
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vku-kurs-zug.ch/" },
+        { "@type": "ListItem", "position": 2, "name": "Verkehrsumwelt", "item": "https://vku-kurs-zug.ch/verkehrsumwelt/" }
+      ]
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was bedeutet Verkehrsumwelt?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Die Verkehrsumwelt umfasst alle externen Faktoren, die das Fahren beeinflussen: andere Verkehrsteilnehmer, Wetter, Strassenzustand, Lichtverhältnisse und Verkehrsinfrastruktur." }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie passe ich meine Geschwindigkeit an die Umgebung an?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Die Geschwindigkeit muss immer der Situation angepasst werden: Bei schlechter Sicht, Regen, Schnee, oder dichtem Verkehr reduzierst du deine Geschwindigkeit entsprechend." }
+        },
+        {
+          "@type": "Question",
+          "name": "Was sind typische Gefahren in der Verkehrsumwelt?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Fussgänger, Radfahrer, plötzliche Hindernisse, wechselnde Lichtverhältnisse, enge Strassen, Baustellen und unübersichtliche Kreuzungen sind häufige Gefahrenquellen." }
+        }
+      ]
+    }
+  </script>
+
+  <section class="bg-gradient-to-br from-green-600 to-green-800 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <nav class="text-sm mb-6" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2">
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><span class="text-green-200">/</span></li>
+          <li class="text-green-200">Verkehrsumwelt</li>
+        </ol>
+      </nav>
+      
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Verkehrsumwelt im VKU</h1>
+      <p class="text-xl text-green-100 max-w-3xl">
+        Lerne, wie du dich an verschiedene Verkehrsumgebungen anpasst – von der Stadt bis zur Autobahn. 
+        Modul 2 des Verkehrskundeunterrichts in Zug.
+      </p>
+    </div>
+  </section>
+
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Was ist Verkehrsumwelt?</h2>
+      <p class="text-lg text-gray-700 mb-4">
+        <strong>Verkehrsumwelt</strong> beschreibt alle externen Faktoren, die dein Fahren beeinflussen. 
+        Dazu gehören andere Verkehrsteilnehmer, Wetterbedingungen, der Zustand der Strasse, 
+        Lichtverhältnisse und die Verkehrsinfrastruktur.
+      </p>
+      <p class="text-lg text-gray-700 mb-4">
+        In diesem Modul lernst du, wie du deine <strong>Geschwindigkeit an die jeweilige Situation anpasst</strong>, 
+        auf Fussgänger und Radfahrer achtest und mit verschiedenen Wetterbedingungen umgehst.
+      </p>
+      <div class="bg-green-50 border-l-4 border-green-600 p-6 my-8">
+        <p class="font-semibold text-green-900">
+          💡 Wusstest du? Die meisten Unfälle passieren nicht wegen technischen Defekten, 
+          sondern weil Fahrer die Verkehrsumwelt falsch einschätzen.
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Die wichtigsten Themen im Modul Verkehrsumwelt</h2>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">🌧️</div>
+          <h3 class="text-xl font-bold mb-3">Wettereinflüsse</h3>
+          <p class="text-gray-700">Wie beeinflussen Regen, Schnee, Nebel und Sonne dein Fahren? 
+          Lerne die richtigen Anpassungen für jedes Wetter.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">🚶</div>
+          <h3 class="text-xl font-bold mb-3">Fussgänger & Radfahrer</h3>
+          <p class="text-gray-700">Besonders schwache Verkehrsteilnehmer brauchen deine Aufmerksamkeit. 
+          Lerne, wie du sie frühzeitig erkennst und schützt.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">🏙️</div>
+          <h3 class="text-xl font-bold mb-3">Stadtverkehr</h3>
+          <p class="text-gray-700">Enge Gassen, viele Ampeln, dichtes Gedränge – der Stadtverkehr stellt 
+          besondere Anforderungen an deine Aufmerksamkeit.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">🛣️</div>
+          <h3 class="text-xl font-bold mb-3">Landstrasse & Autobahn</h3>
+          <p class="text-gray-700">Unterschiedliche Geschwindigkeiten, Überholmanöver, Einfädeln – 
+          lerne die Gefahren auf Schnellstrassen kennen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">360-Grad-Videos aus Zug</h2>
+      
+      <p class="text-lg text-gray-700 mb-6">
+        In unserem VKU nutzen wir <strong>360-Grad-Videos aus dem Raum Zug</strong>, 
+        um reale Verkehrssituationen zu simulieren:
+      </p>
+
+      <ul class="space-y-4 text-lg text-gray-700">
+        <li class="flex items-start"><span class="text-green-600 mr-3">✓</span>
+          <span>Fahrt durch die Zuger Altstadt mit engen Gassen</span></li>
+        <li class="flex items-start"><span class="text-green-600 mr-3">✓</span>
+          <span>Kreuzungen mit Fussgängerstreifen in Baar</span></li>
+        <li class="flex items-start"><span class="text-green-600 mr-3">✓</span>
+          <span>Autobahnauffahrt bei Regenwetter</span></li>
+        <li class="flex items-start"><span class="text-green-600 mr-3">✓</span>
+          <span>Nächtliche Fahrt mit Gegenverkehr</span></li>
+      </ul>
+    </section>
+
+    <section class="mb-12 bg-gray-50 p-8 rounded-lg">
+      <h2 class="text-2xl font-bold mb-4">Verkehrsumwelt im Kontext des VKU</h2>
+      <p class="text-gray-700 mb-4">Nachdem du im ersten Modul gelernt hast, Gefahren zu <a href="/verkehrssehen" class="text-green-600 hover:underline">sehen</a>, 
+      lernst du nun, sie richtig einzuschätzen:</p>
+
+      <ul class="space-y-2 text-gray-700 mb-6">
+        <li>→ Wie reagiert dein Fahrzeug? → <a href="/verkehrsdynamik" class="text-green-600 hover:underline">Verkehrsdynamik</a></li>
+        <li>→ Welche taktische Entscheidung triffst du? → <a href="/verkehrstaktik" class="text-green-600 hover:underline">Verkehrstaktik</a></li>
+      </ul>
+
+      <div class="flex flex-wrap gap-3">
+        {relatedLinks.map(link => (
+          <a href={link.href} class="bg-white px-4 py-2 rounded border border-gray-200 text-green-600 hover:bg-green-50 transition">{link.label} →</a>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Häufige Fragen zum Modul Verkehrsumwelt</h2>
+      <div class="space-y-4">
+        {faqs.map((faq, index) => (
+          <details class="border rounded-lg p-4 hover:bg-gray-50 group cursor-pointer" open={index === 0}>
+            <summary class="font-semibold text-lg list-none flex justify-between items-center">
+              {faq.question}
+              <span class="group-open:rotate-180 transition-transform text-green-600">▼</span>
+            </summary>
+            <p class="mt-4 text-gray-700">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="bg-green-600 text-white p-8 rounded-lg text-center">
+      <h2 class="text-2xl font-bold mb-4">Bereit für den VKU in Zug?</h2>
+      <p class="text-green-100 mb-6">Lerne Verkehrsumwelt und die drei anderen Module in unserem 8-stündigen Intensivkurs.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/#booking" class="bg-white text-green-600 px-8 py-3 rounded font-bold hover:bg-gray-100 transition">Jetzt VKU buchen</a>
+        <a href="/kursinhalt" class="border-2 border-white text-white px-8 py-3 rounded font-bold hover:bg-green-700 transition">Alle Module ansehen</a>
+      </div>
+    </section>
+
+  </article>
+
+</BaseLayout>

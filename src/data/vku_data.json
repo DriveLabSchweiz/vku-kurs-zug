@@ -59,6 +59,58 @@
       {
         "question": "Was muss man beim VKU mitnehmen?",
         "answer": "Nur das Handy, da einige Inhalte online abrufbar sind. Lehrmittel, Getränke, Früchte, Schreibzeug und Notizmaterial werden gestellt und sind im Preis inbegriffen."
+      },
+      {
+        "question": "Was ist der Unterschied zwischen VKU und WAB?",
+        "answer": "Der VKU (Verkehrskundeunterricht) ist der obligatorische 8-Stunden-Kurs VOR der praktischen Prüfung. Der WAB (Weiterbildungskurs) ist ein 2-tägiger Kurs, den du innerhalb der ersten 2 Jahre NACH Erhalt des Führerscheins absolvieren musst."
+      },
+      {
+        "question": "Kann ich den VKU online machen?",
+        "answer": "Nein, der VKU muss persönlich in einer anerkannten Verkehrsschule besucht werden. Die 8 Stunden sind gesetzlich vorgeschrieben und erfordern physische Anwesenheit."
+      },
+      {
+        "question": "Was passiert, wenn ich den VKU nicht bestehe?",
+        "answer": "Der VKU hat keine Prüfung im traditionellen Sinne. Du erhältst das Zertifikat nach Absolvierung aller 8 Stunden. Es ist wichtig, an allen Modulen teilzunehmen."
+      },
+      {
+        "question": "Wie melde ich mich zur praktischen Prüfung an?",
+        "answer": "Nach dem VKU kannst du dich beim Strassenverkehrsamt Zug zur praktischen Prüfung anmelden. Du benötigst dafür dein VKU-Zertifikat und den Lernfahrausweis."
+      },
+      {
+        "question": "Gibt es eine Abbruchfrist für die VKU-Anmeldung?",
+        "answer": "Ja, du kannst bis 48 Stunden vor Kursbeginn kostenlos absagen. Bei späterer Absage oder Nichterscheinen fällt die volle Kursgebühr an."
+      },
+      {
+        "question": "Ist der VKU auch auf Englisch verfügbar?",
+        "answer": "Ja, wir bieten den VKU in Zug auf Deutsch und Englisch an. Bei der Buchung kannst du deine bevorzugte Sprache angeben."
+      },
+      {
+        "question": "Kann ich mit dem Motorradführerschein am Auto-VKU teilnehmen?",
+        "answer": "Ja, der VKU ist für die Kategorien A1/A (Motorrad) und B (Auto) identisch. Ein absolvierter VKU gilt für beide Führerscheinkategorien."
+      },
+      {
+        "question": "Wo finde ich Parkplätze für den VKU in Zug?",
+        "answer": "Unser Standort an der Industriestrasse 50 bietet kostenlose Parkplätze. Alternativ erreichst du uns in 9 Minuten zu Fuss vom Zuger Bahnhof."
+      },
+      {
+        "question": "Was lerne ich im Modul Verkehrssehen?",
+        "answer": "Du lernst, wie das menschliche Auge im Verkehr funktioniert, Blicktechniken zur frühzeitigen Gefahrenerkennung und die Grenzen der menschlichen Wahrnehmung."
+      },
+      {
+        "question": "Was behandelt das Modul Verkehrsdynamik?",
+        "answer": "Grundlagen der Fahrphysik, Bremswege, Kurvenfahren, sowie moderne Fahrerassistenzsysteme (ab Juli 2025 prüfungsrelevant)."
+      },
+      {
+        "question": "Brauche ich den VKU für einen ausländischen Führerschein?",
+        "answer": "Bei der Umschreibung eines ausländischen Führerscheins auf einen Schweizer ist der VKU in der Regel nicht erforderlich. Erkundige dich beim Strassenverkehrsamt Zug."
+      },
+      {
+        "question": "Wie erhalte ich mein VKU-Zertifikat?",
+        "answer": "Das Zertifikat erhältst du direkt nach Abschluss des Kurses vor Ort. Es ist sofort gültig und berechtigt zur Anmeldung zur praktischen Prüfung."
+      },
+      {
+        "question": "Was ist der Ablauf eines typischen VKU-Tages?",
+        "answer": "Der Kurs dauert jeweils 4 Stunden (mit Pausen). Wir behandeln 2 Module pro Tag mit interaktiven Präsentationen, Videos, Gruppendiskussionen und praktischen Übungen."
       }
     ]
   },

@@ -1,0 +1,290 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import vkuData from "../data/vku_data.json";
+
+const { course } = vkuData;
+
+const relatedLinks = [
+  { href: "/verkehrssehen", label: "Verkehrssehen" },
+  { href: "/verkehrsumwelt", label: "Verkehrsumwelt" },
+  { href: "/verkehrsdynamik", label: "Verkehrsdynamik" },
+  { href: "/kursinhalt", label: "Gesamter Kursinhalt" },
+];
+
+const faqs = [
+  {
+    question: "Was ist Verkehrstaktik?",
+    answer: "Verkehrstaktik beschreibt die strategischen Entscheidungen, die du als Fahrer triffst: Wann überhole ich? Wie passe ich mich dem Verkehrsfluss an? Wie verhalte ich mich bei Stau?"
+  },
+  {
+    question: "Was sind Ablenkungen beim Fahren?",
+    answer: "Zu den grössten Ablenkungen gehören: Smartphone-Nutzung, Essen/Trinken, laute Musik, Gespräche mit Passagieren, Navigationssysteme und Müdigkeit."
+  },
+  {
+    question: "Wie erkenne ich Müdigkeit am Steuer?",
+    answer: "Warnzeichen sind: häufiges Gähnen, schwere Augenlider, Konzentrationsschwierigkeiten, langsameres Reaktionsvermögen, unkontrolliertes Wegdriften."
+  }
+];
+---
+
+<BaseLayout
+  title="Verkehrstaktik im VKU – Risikomanagement & Strategie | Zug"
+  description="Lerne Verkehrstaktik im VKU Zug: Risikomanagement, Ablenkungen, Müdigkeit & strategisches Fahren. Modul 4 des Verkehrskundeunterrichts. Jetzt buchen!"
+  canonical="https://vku-kurs-zug.ch/verkehrstaktik/"
+  lang="de"
+>
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vku-kurs-zug.ch/" },
+        { "@type": "ListItem", "position": 2, "name": "Verkehrstaktik", "item": "https://vku-kurs-zug.ch/verkehrstaktik/" }
+      ]
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was ist Verkehrstaktik?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Verkehrstaktik beschreibt die strategischen Entscheidungen, die du als Fahrer triffst: Wann überhole ich? Wie passe ich mich dem Verkehrsfluss an? Wie verhalte ich mich bei Stau?" }
+        },
+        {
+          "@type": "Question",
+          "name": "Was sind Ablenkungen beim Fahren?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Zu den grössten Ablenkungen gehören: Smartphone-Nutzung, Essen/Trinken, laute Musik, Gespräche mit Passagieren, Navigationssysteme und Müdigkeit." }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie erkenne ich Müdigkeit am Steuer?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Warnzeichen sind: häufiges Gähnen, schwere Augenlider, Konzentrationsschwierigkeiten, langsameres Reaktionsvermögen, unkontrolliertes Wegdriften." }
+        }
+      ]
+    }
+  </script>
+
+  <section class="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <nav class="text-sm mb-6" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2">
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><span class="text-purple-200">/</span></li>
+          <li class="text-purple-200">Verkehrstaktik</li>
+        </ol>
+      </nav>
+      
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Verkehrstaktik im VKU</h1>
+      <p class="text-xl text-purple-100 max-w-3xl">
+        Entwickle deine Fahrstrategie: Risiken erkennen, Ablenkungen vermeiden und kluge Entscheidungen treffen. 
+        Modul 4 des Verkehrskundeunterrichts in Zug.
+      </p>
+    </div>
+  </section>
+
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Was ist Verkehrstaktik?</h2>
+      
+      <p class="text-lg text-gray-700 mb-4">
+        <strong>Verkehrstaktik</strong> ist die Kunst, kluge Entscheidungen im Straßenverkehr zu treffen. 
+        Nachdem du gelernt hast, Gefahren zu sehen, die Umgebung einzuschätzen und dein Fahrzeug zu kontrollieren, 
+        geht es nun um die <strong>strategische Ebene des Fahrens</strong>.
+      </p>
+      
+      <p class="text-lg text-gray-700 mb-4">
+        In diesem Modul beschäftigen wir uns mit Risikomanagement, Ablenkungen, Müdigkeit, 
+        Drogen und Medikamenten – alles Faktoren, die deine Fahrtüchtigkeit beeinflussen können.
+      </p>
+      <div class="bg-purple-50 border-l-4 border-purple-600 p-6 my-8">
+        <p class="font-semibold text-purple-900">
+          🧠 Das menschliche Gehirn kann sich nicht vollständig auf zwei Dinge gleichzeitig konzentrieren. 
+          Deshalb ist bewusstes Risikomanagement so wichtig!
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Die wichtigsten Themen im Modul Verkehrstaktik</h2>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">⚠️</div>
+          <h3 class="text-xl font-bold mb-3">Risikomanagement</h3>
+          <p class="text-gray-700">Lerne, Risiken vorherzusehen und proaktiv zu minimieren. 
+          Wann ist Überholen sicher? Wie verhalte ich mich bei Unfallstellen?</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">📱</div>
+          <h3 class="text-xl font-bold mb-3">Ablenkungen</h3>
+          <p class="text-gray-700">Smartphone, Essen, laute Musik – Ablenkungen sind eine der häufigsten 
+          Unfallursachen. Lerne, fokussiert zu bleiben.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">😴</div>
+          <h3 class="text-xl font-bold mb-3">Müdigkeit</h3>
+          <p class="text-gray-700">Müdigkeit kann tödlich sein. Erkenne die Warnzeichen frühzeitig 
+          und lerne, wann eine Pause notwendig ist.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+          <div class="text-3xl mb-3">🍺</div>
+          <h3 class="text-xl font-bold mb-3">Drogen & Medikamente</h3>
+          <p class="text-gray-700">Alkohol, Drogen und manche Medikamente beeinträchtigen die Fahrtüchtigkeit. 
+          Verstehe die rechtlichen und gesundheitlichen Konsequenzen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Die häufigsten Ablenkungen im Überblick</h2>
+      
+      <div class="space-y-4">
+        <div class="flex items-start gap-4 p-4 bg-red-50 border-l-4 border-red-500 rounded">
+          <span class="text-2xl">📱</span>
+          <div>
+            <h4 class="font-bold text-red-900">Smartphone – Die tödlichste Ablenkung</h4>
+            <p class="text-red-800">
+              Das Schreiben einer Nachricht nimmt durchschnittlich 5 Sekunden in Anspruch. 
+              Bei 50 km/h legst du in dieser Zeit <strong>70 Meter</strong> zurück – <strong>blind</strong>!
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded">
+          <span class="text-2xl">🍔</span>
+          <div>
+            <h4 class="font-bold text-yellow-900">Essen & Trinken</h4>
+            <p class="text-yellow-800">Eine Hand am Lenkrad, die andere am Burger – deine Reaktionszeit sinkt erheblich.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded">
+          <span class="text-2xl">🎵</span>
+          <div>
+            <h4 class="font-bold text-yellow-900">Laute Musik</h4>
+            <p class="text-yellow-800">Zu laute Musik übertönt wichtige Verkehrsgeräusche: Sirenen, Hupen, quietschende Reifen.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded">
+          <span class="text-2xl">💬</span>
+          <div>
+            <h4 class="font-bold text-yellow-900">Gespräche mit Passagieren</h4>
+            <p class="text-yellow-800">Intensive Gespräche können die Aufmerksamkeit vom Verkehr ablenken.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12 bg-gray-100 p-8 rounded-lg">
+      <h2 class="text-2xl font-bold mb-6">Müdigkeit am Steuer – Die unterschätzte Gefahr</h2>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h4 class="font-bold mb-3">⚠️ Warnzeichen</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Häufiges Gähnen</li>
+            <li>• Schwere Augenlider</li>
+            <li>• Konzentrationsschwierigkeiten</li>
+            <li>• Langsameres Reaktionsvermögen</li>
+            <li>• Unkontrolliertes Wegdriften</li>
+            <li>• Vergessene Ausfahrten</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-3">✅ Was tun?</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Sofort eine Pause einlegen</li>
+            <li>• 15-20 Minuten schlafen (Power-Nap)</li>
+            <li>• Frische Luft schnappen</li>
+            <li>• Koffein kann kurzfristig helfen</li>
+            <li>• Bei anhaltender Müdigkeit: Fahrt unterbrechen</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-6 p-4 bg-red-100 border border-red-300 rounded">
+        <p class="font-semibold text-red-900">
+          🚨 Müdige Fahrer sind verantwortlich für etwa 25% aller Unfälle mit Todesfolge auf Autobahnen!
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Alkohol, Drogen & Medikamente</h2>
+      
+      <p class="text-lg text-gray-700 mb-6">
+        Die Schweiz hat strenge Regeln für das Fahren unter Einfluss von Alkohol und Drogen. 
+        Aber auch bestimmte Medikamente können die Fahrtüchtigkeit beeinträchtigen.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="border p-4 rounded-lg">
+          <h4 class="font-bold text-red-600">🍺 Alkohol</h4>
+          <p class="text-sm text-gray-700 mt-2">Promillegrenze: 0.5‰ (0.1‰ für Fahranfänger). Strafen: Busse, Fahrverbot, Gefängnis.</p>
+        </div>
+        <div class="border p-4 rounded-lg">
+          <h4 class="font-bold text-red-600">💊 Drogen</h4>
+          <p class="text-sm text-gray-700 mt-2">Null-Toleranz für illegale Drogen. Fahrtüchtigkeit kann noch Tage nach Konsum beeinträchtigt sein.</p>
+        </div>
+        <div class="border p-4 rounded-lg">
+          <h4 class="font-bold text-yellow-600">💉 Medikamente</h4>
+          <p class="text-sm text-gray-700 mt-2">Schlaf-, Beruhigungs- und Allergiemittel können müde machen. Beipackzettel beachten!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12 bg-gray-50 p-8 rounded-lg">
+      <h2 class="text-2xl font-bold mb-4">Verkehrstaktik – Das letzte Modul</h2>
+      <p class="text-gray-700 mb-4">Im vierten Modul verbindest du alles, was du gelernt hast:</p>
+
+      <ul class="space-y-2 text-gray-700 mb-6">
+        <li>→ <a href="/verkehrssehen" class="text-purple-600 hover:underline">Gefahren sehen</a></li>
+        <li>→ <a href="/verkehrsumwelt" class="text-purple-600 hover:underline">Umgebung einschätzen</a></li>
+        <li>→ <a href="/verkehrsdynamik" class="text-purple-600 hover:underline">Fahrzeug kontrollieren</a></li>
+        <li>→ <strong>Kluge Entscheidungen treffen</strong> (Verkehrstaktik)</li>
+      </ul>
+
+      <div class="flex flex-wrap gap-3">
+        {relatedLinks.map(link => (
+          <a href={link.href} class="bg-white px-4 py-2 rounded border border-gray-200 text-purple-600 hover:bg-purple-50 transition">{link.label} →</a>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6">Häufige Fragen zum Modul Verkehrstaktik</h2>
+      <div class="space-y-4">
+        {faqs.map((faq, index) => (
+          <details class="border rounded-lg p-4 hover:bg-gray-50 group cursor-pointer" open={index === 0}>
+            <summary class="font-semibold text-lg list-none flex justify-between items-center">
+              {faq.question}
+              <span class="group-open:rotate-180 transition-transform text-purple-600">▼</span>
+            </summary>
+            <p class="mt-4 text-gray-700">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="bg-purple-600 text-white p-8 rounded-lg text-center">
+      <h2 class="text-2xl font-bold mb-4">Bereit für den VKU in Zug?</h2>
+      <p class="text-purple-100 mb-6">Lerne Verkehrstaktik und die drei anderen Module in unserem 8-stündigen Intensivkurs.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/#booking" class="bg-white text-purple-600 px-8 py-3 rounded font-bold hover:bg-gray-100 transition">Jetzt VKU buchen</a>
+        <a href="/kursinhalt" class="border-2 border-white text-white px-8 py-3 rounded font-bold hover:bg-purple-700 transition">Alle Module ansehen</a>
+      </div>
+    </section>
+
+  </article>
+
+</BaseLayout>
