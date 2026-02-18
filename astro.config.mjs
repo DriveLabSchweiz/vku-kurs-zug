@@ -14,7 +14,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   adapter: cloudflare({
-    sessionKVBinding: false
+    sessions: false
   }),
   integrations: [sitemap({
     i18n: {
