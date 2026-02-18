@@ -13,7 +13,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    sessionKVBinding: false
+  }),
   integrations: [sitemap({
     i18n: {
       defaultLocale: 'de',
