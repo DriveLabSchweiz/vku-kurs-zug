@@ -12,6 +12,8 @@
     "duration_days": "2 Tage",
     "location_main": "Industriestrasse 50, 6300 Zug",
     "location_detail": "Ca. 9 Minuten zu Fuss vom Zug Bahnhof.",
+    "parking": "Parkhaus GIBZ gegenüber (auch für Motorräder)",
+    "cancellation_policy": "Kostenlose Stornierung bis 48 Stunden vor Kursbeginn",
     "inclusions": ["Lernmaterial", "Zertifikat", "Getränke", "Früchte"],
     "modules": [
       {
@@ -90,7 +92,7 @@
       },
       {
         "question": "Wo finde ich Parkplätze für den VKU in Zug?",
-        "answer": "Unser Standort an der Industriestrasse 50 bietet kostenlose Parkplätze. Alternativ erreichst du uns in 9 Minuten zu Fuss vom Zuger Bahnhof."
+        "answer": "Unser Standort an der Industriestrasse 50 ist nur 9 Minuten zu Fuss vom Zuger Bahnhof erreichbar. Falls du mit dem Auto oder Motorrad kommst: Das Parkhaus GIBZ befindet sich direkt gegenüber unserem Kursraum und bietet Parkplätze für Autos und Motorräder."
       },
       {
         "question": "Was lerne ich im Modul Verkehrssehen?",
@@ -98,7 +100,7 @@
       },
       {
         "question": "Was behandelt das Modul Verkehrsdynamik?",
-        "answer": "Grundlagen der Fahrphysik, Bremswege, Kurvenfahren, sowie moderne Fahrerassistenzsysteme (ab Juli 2025 prüfungsrelevant)."
+        "answer": "Grundlagen der Fahrphysik, Bremswege, Kurvenfahren, sowie moderne Fahrerassistenzsysteme (ABS, ESP, Spurhalteassistent etc.). Seit Juli 2025 sind Fahrerassistenzsysteme prüfungsrelevant."
       },
       {
         "question": "Brauche ich den VKU für einen ausländischen Führerschein?",

@@ -9,28 +9,28 @@ const { course, locations } = vkuData;
 
 const galleryImages = [
   {
-    src: "/vku-kursraum-aussenansicht.webp",
-    alt: "Modern VKU classroom in Zug with a view outside",
+    src: "/vku-lokal-aussenansicht-neu.jpg",
+    alt: "Exterior view of the VKU location at Industriestrasse 50 in Zug",
+  },
+  {
+    src: "/vku-klassenzimmer-1.jpg",
+    alt: "Modern VKU classroom in Zug with U-shaped seating",
+  },
+  {
+    src: "/vku-klassenzimmer-2.jpg",
+    alt: "VKU classroom with whiteboard and projector",
+  },
+  {
+    src: "/vku-klassenzimmer-3.jpg",
+    alt: "VKU training room with modern equipment",
+  },
+  {
+    src: "/vku-whiteboard-programm.jpg",
+    alt: "VKU lesson program on whiteboard with learning objectives",
   },
   {
     src: "/vku-lehrerin-unterricht.webp",
     alt: "VKU teacher explaining traffic rules to course participants",
-  },
-  {
-    src: "/vku-klassenzimmer-u-form.webp",
-    alt: "VKU classroom in U-shape with modern tables and chairs",
-  },
-  {
-    src: "/vku-schulungsraum-fenster.webp",
-    alt: "VKU training room with large window and street view",
-  },
-  {
-    src: "/vku-gratis-getraenke.webp",
-    alt: "Free drinks and snacks included in the VKU course",
-  },
-  {
-    src: "/vku-lokal-aussenansicht.webp",
-    alt: "Exterior view of the VKU location at Industriestrasse in Zug",
   },
 ];
 
@@ -62,7 +62,7 @@ const testimonials = [
   <!-- Hero Section with Background Image -->
   <section
     class="relative h-96 md:h-[500px] bg-cover bg-center"
-    style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/vku-kursraum-aussenansicht.webp'); background-size: cover; background-position: center;"
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/vku-lokal-aussenansicht-neu.jpg'); background-size: cover; background-position: center;"
   >
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="text-center text-white px-4">
@@ -147,7 +147,7 @@ const testimonials = [
   <section id="fakten" class="bg-blue-50 py-12">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-3xl font-bold mb-8 text-center">VKU Zug at a Glance</h2>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div
           class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
         >
@@ -179,6 +179,20 @@ const testimonials = [
           <p class="text-4xl font-bold text-blue-600 mb-2">9 Min</p>
           <p class="text-gray-700 font-semibold">Walk from station</p>
           <p class="text-sm text-gray-500 mt-2">{course.location_main}</p>
+        </div>
+        <div
+          class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
+        >
+          <p class="text-4xl font-bold text-blue-600 mb-2">48h</p>
+          <p class="text-gray-700 font-semibold">Cancellation</p>
+          <p class="text-sm text-gray-500 mt-2">Free up to 48h before course start</p>
+        </div>
+        <div
+          class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
+        >
+          <p class="text-4xl font-bold text-blue-600 mb-2">🅿️</p>
+          <p class="text-gray-700 font-semibold">GIBZ Parking</p>
+          <p class="text-sm text-gray-500 mt-2">Opposite (cars & motorcycles)</p>
         </div>
       </div>
     </div>

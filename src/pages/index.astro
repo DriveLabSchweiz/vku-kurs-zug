@@ -9,28 +9,28 @@ const { course, locations } = vkuData;
 
 const galleryImages = [
   {
-    src: "/vku-kursraum-aussenansicht.webp",
-    alt: "Moderner VKU Kursraum in Zug mit Blick nach draussen",
+    src: "/vku-lokal-aussenansicht-neu.jpg",
+    alt: "Aussenansicht des VKU Lokals an der Industriestrasse 50 in Zug",
+  },
+  {
+    src: "/vku-klassenzimmer-1.jpg",
+    alt: "Moderner VKU Kursraum in Zug mit U-förmiger Bestuhlung",
+  },
+  {
+    src: "/vku-klassenzimmer-2.jpg",
+    alt: "VKU Klassenzimmer mit Whiteboard und Projektor",
+  },
+  {
+    src: "/vku-klassenzimmer-3.jpg",
+    alt: "VKU Schulungsraum mit moderner Ausstattung",
+  },
+  {
+    src: "/vku-whiteboard-programm.jpg",
+    alt: "VKU Unterrichtsprogramm auf Whiteboard mit Lernzielen",
   },
   {
     src: "/vku-lehrerin-unterricht.webp",
     alt: "VKU Lehrerin erklärt den Kursteilnehmern die Verkehrsregeln",
-  },
-  {
-    src: "/vku-klassenzimmer-u-form.webp",
-    alt: "VKU Klassenzimmer in U-Form mit modernen Tischen und Stühlen",
-  },
-  {
-    src: "/vku-schulungsraum-fenster.webp",
-    alt: "VKU Schulungsraum mit grossem Fenster und Blick auf die Strasse",
-  },
-  {
-    src: "/vku-gratis-getraenke.webp",
-    alt: "Kostenlose Getränke und Snacks im VKU Kurs inbegriffen",
-  },
-  {
-    src: "/vku-lokal-aussenansicht.webp",
-    alt: "Aussenansicht des VKU Lokals an der Industriestrasse in Zug",
   },
 ];
 
@@ -63,7 +63,7 @@ const testimonials = [
   <!-- Hero Section with Background Image -->
   <section
     class="relative h-96 md:h-[500px] bg-cover bg-center"
-    style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/vku-kursraum-aussenansicht.webp'); background-size: cover; background-position: center;"
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/vku-lokal-aussenansicht-neu.jpg'); background-size: cover; background-position: center;"
   >
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="text-center text-white px-4">
@@ -153,7 +153,7 @@ const testimonials = [
       <h2 class="text-3xl font-bold mb-8 text-center">
         VKU Zug auf einen Blick
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div
           class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
         >
@@ -185,6 +185,20 @@ const testimonials = [
           <p class="text-4xl font-bold text-blue-600 mb-2">9 Min</p>
           <p class="text-gray-700 font-semibold">Zu Fuss vom Bahnhof</p>
           <p class="text-sm text-gray-500 mt-2">{course.location_main}</p>
+        </div>
+        <div
+          class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
+        >
+          <p class="text-4xl font-bold text-blue-600 mb-2">48h</p>
+          <p class="text-gray-700 font-semibold">Stornierung</p>
+          <p class="text-sm text-gray-500 mt-2">Kostenlos bis 48h vor Kursbeginn</p>
+        </div>
+        <div
+          class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
+        >
+          <p class="text-4xl font-bold text-blue-600 mb-2">🅿️</p>
+          <p class="text-gray-700 font-semibold">Parkhaus GIBZ</p>
+          <p class="text-sm text-gray-500 mt-2">Direkt gegenüber (auch für Motorräder)</p>
         </div>
       </div>
     </div>
