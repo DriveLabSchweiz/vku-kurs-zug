@@ -1,0 +1,382 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import OptimizedImage from "../components/OptimizedImage.astro";
+
+const title = "Der komplette Guide zum Schweizer Führerschein 2025 | Schritt für Schritt";
+const description = "Alles was du über den Schweizer Führerschein wissen musst: Von der Nothelferkurs über Theorieprüfung bis zum praktischen Führerschein. Mit Zeitplan, Kosten und Checklisten.";
+---
+
+<BaseLayout title={title} description={description} canonical="https://vku-kurs-zug.ch/fuehrerschein-guide">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Der komplette Guide zum Schweizer Führerschein</h1>
+      <p class="text-xl text-blue-100 mb-8">
+        Von der ersten Anmeldung bis zum Führerschein in der Tasche – 
+        der ultimative Schritt-für-Schritt-Guide mit allen Infos, Kosten und Zeitplan.
+      </p>
+      <a href="#timeline" class="bg-white text-blue-600 px-8 py-3 rounded font-bold hover:bg-gray-100 inline-block">
+        Zum Zeitplan
+      </a>
+    </div>
+  </section>
+
+  <!-- Table of Contents -->
+  <nav class="bg-gray-50 py-8">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-4">Inhalt</h2>
+      <ul class="grid md:grid-cols-2 gap-2">
+        <li><a href="#ueberblick" class="text-blue-600 hover:underline">Überblick: Die 6 Schritte</a></li>
+        <li><a href="#nothelfer" class="text-blue-600 hover:underline">1. Nothelferkurs</a></li>
+        <li><a href="#theorie" class="text-blue-600 hover:underline">2. Theorieprüfung</a></li>
+        <li><a href="#lernfahrausweis" class="text-blue-600 hover:underline">3. Lernfahrausweis</a></li>
+        <li><a href="#vku" class="text-blue-600 hover:underline">4. Verkehrskundeunterricht (VKU)</a></li>
+        <li><a href="#fahrstunden" class="text-blue-600 hover:underline">5. Fahrstunden</a></li>
+        <li><a href="#praxis" class="text-blue-600 hover:underline">6. Praktische Prüfung</a></li>
+        <li><a href="#kosten" class="text-blue-600 hover:underline">Gesamtkosten</a></li>
+        <li><a href="#timeline" class="text-blue-600 hover:underline">Zeitplan</a></li>
+        <li><a href="#checkliste" class="text-blue-600 hover:underline">Download-Checkliste</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    
+    <!-- Intro -->
+    <section id="ueberblick" class="mb-16">
+      <h2 class="text-3xl font-bold mb-6">Der Weg zum Führerschein in 6 Schritten</h2>
+      <p class="text-lg text-gray-700 mb-6">
+        Der Schweizer Führerschein ist ein strukturierter Prozess, der in der Regel 
+        <strong>3-6 Monate</strong> dauert. Mit der richtigen Planung und Vorbereitung 
+        sparst du Zeit und Geld. Hier ist der komplette Überblick:
+      </p>
+      
+      <div class="grid md:grid-cols-3 gap-6 my-8">
+        <div class="bg-blue-50 p-6 rounded-lg text-center">
+          <div class="text-4xl font-bold text-blue-600 mb-2">6</div>
+          <p class="font-semibold">Schritte</p>
+        </div>
+        <div class="bg-green-50 p-6 rounded-lg text-center">
+          <div class="text-4xl font-bold text-green-600 mb-2">3-6</div>
+          <p class="font-semibold">Monate</p>
+        </div>
+        <div class="bg-orange-50 p-6 rounded-lg text-center">
+          <div class="text-4xl font-bold text-orange-600 mb-2">CHF 3'500</div>
+          <p class="font-semibold">Durchschnittskosten</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 1: Nothelferkurs -->
+    <section id="nothelfer" class="mb-16">
+      <div class="flex items-center mb-6">
+        <div class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mr-4">1</div>
+        <h2 class="text-3xl font-bold">Nothelferkurs (Erste Hilfe)</h2>
+      </div>
+      
+      <div class="bg-gray-50 p-6 rounded-lg mb-6">
+        <p class="text-gray-700 mb-4">
+          Der <strong>Nothelferkurs</strong> ist der erste Pflichtschritt auf dem Weg zum Führerschein. 
+          In 10 Lektionen (à 45 Minuten) lernst du die Grundlagen der Ersten Hilfe im Strassenverkehr.
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+          <li>Dauer: 1 Tag (ca. 8 Stunden)</li>
+          <li>Kosten: CHF 80-120</li>
+          <li>Gültigkeit: 6 Jahre</li>
+          <li>Prüfung: Keine, nur Anwesenheitspflicht</li>
+        </ul>
+        
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+          <p class="text-sm">
+            <strong>Tipp:</strong> Buche den Nothelferkurs frühzeitig, da beliebte Termine schnell ausgebucht sind. 
+            Der Kurs kann auch vor deinem 18. Geburtstag absolviert werden.
+          </p>
+        </div>
+      </div>
+      
+      <p class="text-gray-700">
+        Empfohlener Anbieter in Zürich: 
+        <a href="https://nothelferkurs-zuerich.ch" class="text-blue-600 hover:underline font-semibold">Nothelferkurs Zürich</a>
+      </p>
+    </section>
+
+    <!-- Step 2: Theorie -->
+    <section id="theorie" class="mb-16">
+      <div class="flex items-center mb-6">
+        <div class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mr-4">2</div>
+        <h2 class="text-3xl font-bold">Theorieprüfung</h2>
+      </div>
+      
+      <div class="bg-gray-50 p-6 rounded-lg mb-6">
+        <p class="text-gray-700 mb-4">
+          Nach dem Nothelferkurs kannst du dich zur <strong>Theorieprüfung</strong> anmelden. 
+          Die Prüfung besteht aus 50 Fragen zu Verkehrsregeln, Verkehrszeichen und Verhalten.
+        </p>
+        
+        <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+          <li>Anmeldung: Online beim Strassenverkehrsamt</li>
+          <li>Kosten: CHF 30-50 (kantonsabhängig)</li>
+          <li>Fragen: 50 Multiple-Choice</li>
+          <li>Bestanden: Max. 10 Fehlerpunkte</li>
+          <li>Gültigkeit: Unbeschränkt</li>
+        </ul>
+        
+        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+          <p class="text-sm">
+            <strong>Lerntipp:</strong> Mit Apps wie "Führerschein CH" oder "iTheorie" kannst du optimal vorbereiten. 
+            Plane mindestens 2-3 Wochen Lernzeit ein.
+          </p>
+        </div>
+      </div>
+      
+      <p class="text-gray-700">
+        Offizielle Infos: 
+        <a href="https://www.astra.admin.ch/astra/de/home.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Bundesamt für Strassen (ASTRA)</a>
+      </p>
+    </section>
+
+    <!-- Step 3: Lernfahrausweis -->
+    <section id="lernfahrausweis" class="mb-16">
+      <div class="flex items-center mb-6">
+        <div class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mr-4">3</div>
+        <h2 class="text-3xl font-bold">Lernfahrausweis beantragen</h2>
+      </div>
+      
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <p class="text-gray-700 mb-4">
+          Nach bestandener Theorieprüfung beantragst du den <strong>Lernfahrausweis</strong> 
+          beim Strassenverkehrsamt. Damit darfst du mit einer Begleitperson üben.
+        </p>
+        
+        <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+          <li>Kosten: CHF 30-50</li>
+          <li>Gültigkeit: 2 Jahre (verlängerbar)</li>
+          <li>Begleitperson: Min. 3 Jahre im Besitz des gleichen Führerscheins</li>
+          <li>Theoriebögen: 2 rote L-Platten für das Auto</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Step 4: VKU -->
+    <section id="vku" class="mb-16">
+      <div class="flex items-center mb-6">
+        <div class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mr-4">4</div>
+        <h2 class="text-3xl font-bold">Verkehrskundeunterricht (VKU)</h2>
+      </div>
+      
+      <div class="bg-gray-50 p-6 rounded-lg mb-6">
+        <p class="text-gray-700 mb-4">
+          Der <strong>VKU (Verkehrskundeunterricht)</strong> ist ein 8-stündiger Pflichtkurs, 
+          der die Brücke zwischen Theorie und Praxis schlägt. Er behandelt Verkehrssehen, 
+          Verkehrsumwelt, Verkehrsdynamik und Verkehrstaktik.
+        </p>
+        
+        <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+          <li>Dauer: 8 Stunden (2 × 4 Stunden)</li>
+          <li>Kosten: CHF 200-250</li>
+          <li>Gültigkeit: Unbeschränkt</li>
+          <li>Prüfung: Keine, nur Anwesenheitspflicht</li>
+        </ul>
+        
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+          <p class="text-sm">
+            <strong>Wichtig:</strong> Der VKU kann erst nach bestandener Theorieprüfung besucht werden. 
+            Empfohlen wird der Kurs direkt nach der Theorie oder während der Fahrstunden.
+          </p>
+        </div>
+      </div>
+      
+      <p class="text-gray-700">
+        Buche deinen VKU in Zug: 
+        <a href="/" class="text-blue-600 hover:underline font-semibold">VKU Zug – Jetzt anmelden</a>
+      </p>
+    </section>
+
+    <!-- Step 5: Fahrstunden -->
+    <section id="fahrstunden" class="mb-16">
+      <div class="flex items-center mb-6">
+        <div class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mr-4">5</div>
+        <h2 class="text-3xl font-bold">Fahrstunden</h2>
+      </div>
+      
+      <div class="bg-gray-50 p-6 rounded-lg mb-6">
+        <p class="text-gray-700 mb-4">
+          Die <strong>Fahrstunden</strong> sind der aufwendigste Teil – sowohl zeitlich als auch finanziell. 
+          Die Anzahl variiert je nach Lerntempo und Vorerfahrung.
+        </p>
+        
+        <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+          <li>Durchschnitt: 30-40 Fahrstunden</li>
+          <li>Kosten pro Stunde: CHF 80-100</li>
+          <li>Mindestalter: 17 Jahre (mit Begleitperson), 18 Jahre (allein)</li>
+          <li>Übungsfahrten: Empfohlen mit Begleitperson zwischen den Fahrstunden</li>
+        </ul>
+        
+        <div class="bg-orange-50 border-l-4 border-orange-400 p-4">
+          <p class="text-sm">
+            <strong>Spartipp:</strong> Übe regelmässig mit einer Begleitperson zwischen den Fahrstunden. 
+            Das reduziert die benötigte Anzahl professioneller Fahrstunden erheblich.
+          </p>
+        </div>
+      </div>
+      
+      <p class="text-gray-700">
+        Empfohlene Fahrschule: 
+        <a href="https://drivelab.ch" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-semibold">DriveLab Fahrschule</a>
+      </p>
+    </section>
+
+    <!-- Step 6: Praxis -->
+    <section id="praxis" class="mb-16">
+      <div class="flex items-center mb-6">
+        <div class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mr-4">6</div>
+        <h2 class="text-3xl font-bold">Praktische Führerscheinprüfung</h2>
+      </div>
+      
+      <div class="bg-gray-50 p-6 rounded-lg mb-6">
+        <p class="text-gray-700 mb-4">
+          Die <strong>praktische Prüfung</strong> ist der finale Schritt. Dein Fahrlehrer meldet dich an, 
+          wenn du bereit bist. Die Prüfung dauert ca. 45-60 Minuten.
+        </p>
+        
+        <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+          <li>Anmeldung: Durch Fahrlehrer beim Strassenverkehrsamt</li>
+          <li>Kosten: CHF 100-150</li>
+          <li>Dauer: 45-60 Minuten</li>
+          <li>Prüfungsinhalt: Stadt, Land, Autobahn, Manöver</li>
+          <li>Bestanden: Max. 10 Fehlerpunkte, keine schwerwiegenden Fehler</li>
+        </ul>
+        
+        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+          <p class="text-sm">
+            <strong>Nach der Prüfung:</strong> Bei Bestehen erhältst du eine vorläufige Bescheinigung. 
+            Der echte Führerschein (rosa Karte) wird dir innerhalb weniger Tage zugestellt.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Costs -->
+    <section id="kosten" class="mb-16">
+      <h2 class="text-3xl font-bold mb-6">Gesamtkosten im Überblick</h2>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white rounded-lg shadow">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="p-4 text-left">Position</th>
+              <th class="p-4 text-right">Kosten (CHF)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b"><td class="p-4">Nothelferkurs</td><td class="p-4 text-right">80-120</td></tr>
+            <tr class="border-b"><td class="p-4">Theorieprüfung</td><td class="p-4 text-right">30-50</td></tr>
+            <tr class="border-b"><td class="p-4">Lernfahrausweis</td><td class="p-4 text-right">30-50</td></tr>
+            <tr class="border-b"><td class="p-4">VKU</td><td class="p-4 text-right">200-250</td></tr>
+            <tr class="border-b"><td class="p-4">Fahrstunden (35 × CHF 90)</td><td class="p-4 text-right">3'150</td></tr>
+            <tr class="border-b"><td class="p-4">Praktische Prüfung</td><td class="p-4 text-right">100-150</td></tr>
+            <tr class="border-b"><td class="p-4">Führerschein-Ausstellung</td><td class="p-4 text-right">30-50</td></tr>
+            <tr class="bg-blue-50 font-bold"><td class="p-4">Gesamtkosten</td><td class="p-4 text-right">CHF 3'500-4'000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p class="text-sm text-gray-600 mt-4">
+        * Die tatsächlichen Kosten können je nach Kanton, Fahrschule und individuellem Lernfortschritt variieren.
+      </p>
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline" class="mb-16">
+      <h2 class="text-3xl font-bold mb-6">Optimaler Zeitplan</h2>
+      
+      <div class="space-y-6">
+        <div class="flex">
+          <div class="w-24 flex-shrink-0 font-bold text-blue-600">Monat 1</div>
+          <div class="bg-gray-50 p-4 rounded-lg flex-grow">
+            <p>Nothelferkurs → Theorie lernen → Theorieprüfung</p>
+          </div>
+        </div>
+        
+        <div class="flex">
+          <div class="w-24 flex-shrink-0 font-bold text-blue-600">Monat 2</div>
+          <div class="bg-gray-50 p-4 rounded-lg flex-grow">
+            <p>Lernfahrausweis beantragen → Erste Fahrstunden → VKU besuchen</p>
+          </div>
+        </div>
+        
+        <div class="flex">
+          <div class="w-24 flex-shrink-0 font-bold text-blue-600">Monat 3-4</div>
+          <div class="bg-gray-50 p-4 rounded-lg flex-grow">
+            <p>Regelmässige Fahrstunden + Übungsfahrten mit Begleitperson</p>
+          </div>
+        </div>
+        
+        <div class="flex">
+          <div class="w-24 flex-shrink-0 font-bold text-blue-600">Monat 5</div>
+          <div class="bg-gray-50 p-4 rounded-lg flex-grow">
+            <p>Praktische Prüfung → Führerschein erhalten! 🎉</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-blue-600 text-white p-8 rounded-lg text-center">
+      <h2 class="text-2xl font-bold mb-4">Bereit für deinen VKU in Zug?</h2>
+      <p class="mb-6">Sichere dir jetzt deinen Platz im nächsten Kurs.</p>
+      <a href="/#booking" class="bg-white text-blue-600 px-8 py-3 rounded font-bold hover:bg-gray-100 inline-block">
+        Jetzt VKU buchen
+      </a>
+    </section>
+
+    <!-- Related Links -->
+    <section class="mt-16 pt-8 border-t">
+      <h3 class="text-xl font-bold mb-4">Weiterführende Links</h3>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="https://www.astra.admin.ch/astra/de/home.html" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 bg-gray-50 rounded hover:bg-gray-100">
+          <span class="font-semibold text-blue-600">Bundesamt für Strassen (ASTRA)</span>
+          <span class="ml-auto text-gray-400">→</span>
+        </a>
+        <a href="https://www.bfu.ch/" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 bg-gray-50 rounded hover:bg-gray-100">
+          <span class="font-semibold text-blue-600">BFU – Unfallverhütung</span>
+          <span class="ml-auto text-gray-400">→</span>
+        </a>
+        <a href="https://nothelferkurs-zuerich.ch" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 bg-gray-50 rounded hover:bg-gray-100">
+          <span class="font-semibold text-blue-600">Nothelferkurs Zürich</span>
+          <span class="ml-auto text-gray-400">→</span>
+        </a>
+        
+        <a href="https://drivelab.ch" target="_blank" rel="noopener noreferrer" class="flex items-center p-4 bg-gray-50 rounded hover:bg-gray-100">
+          <span class="font-semibold text-blue-600">DriveLab Fahrschule</span>
+          <span class="ml-auto text-gray-400">→</span>
+        </a>
+      </div>
+    </section>
+
+  </article>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "author": {
+      "@type": "Organization",
+      "name": "VKU Zug"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "VKU Zug",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vku-kurs-zug.ch/logo.webp"
+      }
+    },
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-01-01"
+  })} />
+
+</BaseLayout>
