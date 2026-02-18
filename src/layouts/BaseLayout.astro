@@ -62,6 +62,23 @@ const footerLinks = {
       { href: isEn ? '/en/datenschutz' : '/datenschutz', label: isEn ? 'Privacy Policy' : 'Datenschutz' },
       { href: isEn ? '/en/impressum' : '/impressum', label: isEn ? 'Imprint' : 'Impressum' },
     ]
+  },
+  related: {
+    title: isEn ? 'Related Services' : 'Weitere Angebote',
+    links: [
+      { href: 'https://nothelferkurs-zuerich.ch', label: isEn ? 'First Aid Course Zurich' : 'Nothelferkurs Zürich', external: true },
+      { href: 'https://english-vku-zurich.ch', label: 'VKU English Zurich', external: true },
+      { href: 'https://drivelab.ch', label: isEn ? 'DriveLab Driving School' : 'DriveLab Fahrschule', external: true },
+    ]
+  },
+  resources: {
+    title: isEn ? 'Official Resources' : 'Offizielle Ressourcen',
+    links: [
+      { href: 'https://www.astra.admin.ch/', label: 'Bundesamt für Strassen (ASTRA)', external: true },
+      { href: 'https://www.bfu.ch/', label: 'BFU - Beratungsstelle für Unfallverhütung', external: true },
+      { href: 'https://www.zg.ch/behoerden/sicherheitsdirektion/strassenverkehrsamt', label: isEn ? 'Strassenverkehrsamt Zug' : 'Strassenverkehrsamt Zug', external: true },
+      { href: 'https://www.zh.ch/de/mobilitaet/strassenverkehr.html', label: isEn ? 'Strassenverkehr Kanton Zürich' : 'Strassenverkehr Kanton Zürich', external: true },
+    ]
   }
 };
 ---
@@ -98,13 +115,20 @@ const footerLinks = {
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="alternate icon" href="/favicon.svg" />
   
-  <!-- Schema.org Markup -->
+  <!-- Schema.org Markup - LocalBusiness -->
   <script type="application/ld+json" is:inline set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "VKU Zug – Verkehrskundeunterricht",
+    "alternateName": "DriveLab VKU Zug",
     "image": fullImage,
     "description": description,
+    "url": canonical,
+    "telephone": "+41 41 219 36 60",
+    "email": "info@drivelab.ch",
+    "priceRange": "CHF 230",
+    "currenciesAccepted": "CHF",
+    "paymentAccepted": "Cash, Credit Card, TWINT",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Industriestrasse 50",
@@ -112,9 +136,6 @@ const footerLinks = {
       "postalCode": "6300",
       "addressCountry": "CH"
     },
-    "url": canonical,
-    "telephone": "+41 41 219 36 60",
-    "priceRange": "CHF 230",
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": 47.1736, 
@@ -127,6 +148,57 @@ const footerLinks = {
         "opens": "08:00",
         "closes": "18:00"
       }
+    ],
+    "areaServed": {
+      "@type": "City",
+      "name": "Zug",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Kanton Zug"
+      }
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "VKU Kurse",
+      "itemListElement": {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Course",
+          "name": "Verkehrskundeunterricht (VKU)",
+          "description": "8-stündiger obligatorischer Verkehrskundeunterricht",
+          "duration": "PT8H"
+        },
+        "price": "230",
+        "priceCurrency": "CHF"
+      }
+    },
+    "sameAs": [
+      "https://drivelab.ch",
+      "https://nothelferkurs-zuerich.ch",
+      "https://english-vku-zurich.ch"
+    ]
+  })} />
+  
+  <!-- Schema.org Markup - Organization -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "DriveLab GmbH",
+    "alternateName": "VKU Zug",
+    "url": "https://vku-kurs-zug.ch",
+    "logo": "https://vku-kurs-zug.ch/logo.webp",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+41-41-219-36-60",
+      "contactType": "customer service",
+      "email": "info@drivelab.ch",
+      "areaServed": "CH",
+      "availableLanguage": ["de", "en"]
+    },
+    "sameAs": [
+      "https://drivelab.ch",
+      "https://nothelferkurs-zuerich.ch",
+      "https://english-vku-zurich.ch"
     ]
   })} />
 </head>
@@ -160,8 +232,8 @@ const footerLinks = {
   <!-- Footer -->
   <footer class="bg-gray-900 text-white mt-12">
     <div class="max-w-6xl mx-auto px-4 py-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-        <div>
+      <div class="grid grid-cols-1 md:grid-cols-6 gap-8 mb-8">
+        <div class="md:col-span-2">
           <h3 class="font-bold text-lg mb-4">{footerLinks.vku.title}</h3>
           <p class="text-gray-400">{footerLinks.vku.desc}</p>
           <p class="text-gray-400 mt-2">{footerLinks.vku.addr}</p>
@@ -184,16 +256,29 @@ const footerLinks = {
           </ul>
         </div>
         <div>
-          <h3 class="font-bold text-lg mb-4">{footerLinks.legal.title}</h3>
+          <h3 class="font-bold text-lg mb-4">{footerLinks.related.title}</h3>
           <ul class="space-y-2 text-gray-400">
-            {footerLinks.legal.links.map(link => (
-              <li><a href={link.href} class="hover:text-white">{link.label}</a></li>
+            {footerLinks.related.links.map(link => (
+              <li><a href={link.href} class="hover:text-white" target="_blank" rel="noopener noreferrer">{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">{footerLinks.resources.title}</h3>
+          <ul class="space-y-2 text-gray-400">
+            {footerLinks.resources.links.map(link => (
+              <li><a href={link.href} class="hover:text-white" target="_blank" rel="noopener noreferrer">{link.label}</a></li>
             ))}
           </ul>
         </div>
       </div>
-      <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+      <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400">
         <p>&copy; 2025 VKU Zug. {isEn ? 'All rights reserved.' : 'Alle Rechte vorbehalten.'}</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          {footerLinks.legal.links.map(link => (
+            <a href={link.href} class="hover:text-white text-sm">{link.label}</a>
+          ))}
+        </div>
       </div>
     </div>
   </footer>
