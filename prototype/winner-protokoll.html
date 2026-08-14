@@ -135,7 +135,10 @@ h2{font-weight:900;font-size:var(--t-h2);line-height:1.03;letter-spacing:-.04em;
 .ledger tr.det p{margin:0 0 var(--s3);color:var(--mute);max-width:60ch;font-size:var(--t-sm)}
 
 /* ── plates ── */
-.plates{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.5rem,1.5vw,var(--s4));margin-top:var(--s2)}
+/* Asymmetric on purpose: the room gets the wide plate, the details sit
+   beside it. Three equal frames read as a gallery; this reads as evidence. */
+.plates{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:clamp(.5rem,1.5vw,var(--s4));margin-top:var(--s2)}
+.plates figure:first-child .fr{aspect-ratio:4/3}
 .plates figure{margin:0}
 .fr{position:relative;aspect-ratio:5/4;overflow:hidden;border:1px solid var(--hair);background:var(--paper-2)}
 .fr img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);
@@ -145,6 +148,33 @@ h2{font-weight:900;font-size:var(--t-h2);line-height:1.03;letter-spacing:-.04em;
                    color:var(--faint);font-weight:700;margin-top:var(--s2);display:flex;
                    justify-content:space-between;gap:var(--s2)}
 .plates figcaption b{color:var(--stamp)}
+
+/* ── walk: minutes as a measured column, not a decorative timeline ── */
+.walk{list-style:none;margin:var(--s2) 0 0;padding:0;border-top:2px solid var(--rule)}
+.walk li{display:grid;grid-template-columns:3.25rem 1fr;gap:var(--s4);align-items:baseline;
+         padding:var(--s3) 0;border-bottom:1px solid var(--hair)}
+.walk .min{font-family:var(--disp);font-weight:900;font-size:var(--t-sm);color:var(--stamp);
+           font-variant-numeric:tabular-nums;text-align:right}
+.walk .min::after{content:" Min";font-weight:700;font-size:var(--t-xs);color:var(--faint)}
+.walk .pt{font-family:var(--disp);font-weight:700;letter-spacing:-.015em}
+.walk .pt em{display:block;font-style:normal;font-family:var(--body);font-weight:400;
+             font-size:var(--t-sm);color:var(--mute);margin-top:.1rem}
+.walk .dest .min{color:var(--alert)}
+.walk .dest .pt{color:var(--alert)}
+
+/* ── question register ── */
+.qreg{border-top:2px solid var(--rule);margin-top:var(--s2)}
+.qreg details{border-bottom:1px solid var(--hair)}
+.qreg summary{font-family:var(--disp);font-weight:700;font-size:var(--t-md);letter-spacing:-.015em;
+              padding:var(--s3) 2rem var(--s3) 0;cursor:pointer;list-style:none;position:relative;
+              min-height:2.75rem;display:flex;align-items:center;transition:color var(--fast)}
+.qreg summary::-webkit-details-marker{display:none}
+.qreg summary::after{content:"+";position:absolute;right:0;font-family:var(--disp);font-weight:900;
+                     color:var(--stamp);transition:transform var(--fast) var(--ease)}
+.qreg details[open] summary{color:var(--stamp)}
+.qreg details[open] summary::after{transform:rotate(45deg)}
+.qreg summary:hover{color:var(--stamp)}
+.qreg p{margin:0 0 var(--s3);color:var(--mute);font-size:var(--t-sm);max-width:58ch}
 
 /* ── register ── */
 .reg{width:100%;border-collapse:collapse;font-size:var(--t-md);margin-top:var(--s2)}
@@ -173,6 +203,7 @@ h2{font-weight:900;font-size:var(--t-h2);line-height:1.03;letter-spacing:-.04em;
   .rec{grid-template-columns:2.25rem 1fr}
   .aside{grid-column:2;margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--hair-2)}
   .plates{grid-template-columns:1fr 1fr}
+  .plates figure:first-child{grid-column:1 / -1}
   .mast nav{display:none}
   .qs{grid-template-columns:1fr}
   .ledger th:nth-child(3),.ledger .hr{display:none}
@@ -197,7 +228,7 @@ h2{font-weight:900;font-size:var(--t-h2);line-height:1.03;letter-spacing:-.04em;
   <div class="mast-main">
     <a class="wordmark" href="#top"><img src="assets/logo.webp" alt=""> VKU&nbsp;Zug</a>
     <nav aria-label="Abschnitte">
-      <a href="#r1">Pflicht</a><a href="#r2">Ablauf</a><a href="#r3">Ort</a><a href="#r4">Termine</a>
+      <a href="#r1">Pflicht</a><a href="#r2">Ablauf</a><a href="#r3">Ort</a><a href="#r5">Anfahrt</a><a href="#r4">Termine</a><a href="#r6">Fragen</a>
     </nav>
   </div>
 </header>
@@ -315,6 +346,44 @@ h2{font-weight:900;font-size:var(--t-h2);line-height:1.03;letter-spacing:-.04em;
     <div class="aside">
       <dl><dt>Storno</dt><dd>48 Std. gratis</dd><dt>Kategorien</dt><dd>A1 · A · B1 · B</dd></dl>
       <p class="src">Die Anmeldung erfolgt im externen Buchungssystem.</p>
+    </div>
+  </article>
+
+  <article class="rec" id="r5">
+    <span class="no" aria-hidden="true">05</span>
+    <div>
+      <h2>Anfahrt und Ankunft</h2>
+      <p class="lede">Neun Minuten zu Fuss ab Bahnhof Zug. Wer fährt, stellt im Parkhaus GIBZ direkt gegenüber ab.</p>
+      <ol class="walk">
+        <li><span class="min">0</span><span class="pt">Bahnhof Zug<em>Ausgang Nord</em></span></li>
+        <li><span class="min">3</span><span class="pt">Industriestrasse<em>stadtauswärts</em></span></li>
+        <li><span class="min">7</span><span class="pt">Parkhaus GIBZ<em>direkt gegenüber</em></span></li>
+        <li class="dest"><span class="min">9</span><span class="pt">Industriestrasse 50<em>Kursraum, 6300 Zug</em></span></li>
+      </ol>
+    </div>
+    <div class="aside">
+      <dl><dt>Zu Fuss</dt><dd>9 Min</dd><dt>Parkhaus</dt><dd>GIBZ</dd><dt>Beginn</dt><dd>18:00</dd></dl>
+      <p class="src">Gehzeit ab Bahnhof Zug, Ausgang Nord. Bitte einige Minuten früher eintreffen.</p>
+    </div>
+  </article>
+
+  <article class="rec" id="r6">
+    <span class="no" aria-hidden="true">06</span>
+    <div>
+      <h2>Register der Fragen</h2>
+      <p class="lede">Acht Fragen, acht Antworten. Ohne Verkaufstext.</p>
+      <div class="qreg" id="qreg">
+        <details><summary>Wann muss ich den VKU besuchen?</summary><p>Direkt nach der bestandenen Theorieprüfung. Der VKU ist unbeschränkt gültig und ermöglicht die Anmeldung zur praktischen Prüfung.</p></details>
+        <details><summary>Wie lange dauert der VKU?</summary><p>Acht Stunden, bei uns an zwei Abenden von 18:00 bis 22:00 Uhr.</p></details>
+        <details><summary>Wie teuer ist der VKU?</summary><p>In Zug CHF 230.–. Darin enthalten sind Lernmaterial, Zertifikat, Getränke und Früchte.</p></details>
+        <details><summary>Wie lange ist die Verkehrskunde gültig?</summary><p>Unbeschränkt. Ein abgeschlossener VKU bleibt gültig.</p></details>
+        <details><summary>Was muss ich mitnehmen?</summary><p>Nur das Handy — einige Inhalte sind online abrufbar. Lehrmittel, Getränke, Früchte und Schreibzeug stellen wir.</p></details>
+        <details><summary>Was ist der Unterschied zwischen VKU und WAB?</summary><p>Der VKU ist der obligatorische Achtstundenkurs vor der praktischen Prüfung. Der WAB ist die Weiterausbildung danach.</p></details>
+      </div>
+    </div>
+    <div class="aside">
+      <dl><dt>Gültigkeit</dt><dd>unbeschränkt</dd><dt>Mitbringen</dt><dd>Handy</dd><dt>Inklusive</dt><dd>Material</dd></dl>
+      <p class="src">Antworten aus dem Kursbetrieb. Verbindlich sind Preis und Termine im Buchungssystem.</p>
     </div>
   </article>
 
