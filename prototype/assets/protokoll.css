@@ -1,0 +1,347 @@
+/* ══════════════════════════════════════════════════════════════════════
+   PROTOKOLL — shared record system for VKU Zug
+   The course is a legal requirement. So every page is the record of one:
+   numbered entries, a fixed margin column of facts, sources under every
+   claim, hairlines instead of cards. Nothing persuades; everything states.
+
+   Sheets built on this system
+     winner-protokoll.html   the course record        (Hauptprotokoll)
+     ort-baar.html           journey record, Baar     (Anfahrtsprotokoll)
+     ort-steinhausen.html    journey record, Steinh.  (Anfahrtsprotokoll)
+
+   Each sheet carries exactly one signature: an "Eintrag 00" that completes
+   itself for the reader from published rules only — never from invented
+   dates, prices, timetables or availability.
+   ══════════════════════════════════════════════════════════════════════ */
+/* ── faces, self-hosted ───────────────────────────────────────────────
+   Both are variable fonts: one file each covers the whole 100–900 range,
+   so the sheet loads 93 KB of type instead of six static cuts — and no
+   request leaves the site. Latin subset only; the sheets are German.
+   Inter and Inter Tight are SIL Open Font License 1.1.
+   Glyphs outside the range (↔, ≠) fall to the system face by design. */
+@font-face{
+  font-family:"Inter Tight";font-style:normal;font-weight:100 900;font-display:swap;
+  src:url("fonts/InterTight-latin-var.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,
+                U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;
+  src:url("fonts/Inter-latin-var.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,
+                U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+:root{
+  /* colour roles */
+  --paper:#fbfbf9; --paper-2:#f2f2ee; --ink:#0b0b0c; --mute:#63636a; --faint:#9d9da3;
+  --rule:#0b0b0c; --hair:rgb(11 11 12/.16); --hair-2:rgb(11 11 12/.08);
+  --stamp:#0d3b8f;                 /* record marks, numerals, links */
+  --alert:#b3261e;                 /* the obligation, used 3× at most */
+  --ok:#1b6b4a;                    /* "identisch" — findings that match */
+  /* type */
+  --disp:"Inter Tight",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif;
+  --t-xs:.68rem; --t-sm:.82rem; --t-md:.94rem; --t-lg:1.05rem;
+  --t-h2:clamp(1.45rem,3.1vw,2.15rem); --t-h1:clamp(2.2rem,6.2vw,5rem);
+  /* space scale: 4 8 12 16 24 32 48 64 */
+  --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem; --s6:1.5rem; --s8:2rem; --s12:3rem; --s16:4rem;
+  --gut:clamp(1rem,3.5vw,2.5rem); --ease:cubic-bezier(.3,.7,.4,1); --fast:.2s; --slow:.42s;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);background:var(--paper);color:var(--ink);
+     font-size:var(--t-md);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--disp);margin:0}
+p{margin:0 0 var(--s3)}
+
+/* ── masthead ── */
+.mast{border-bottom:2px solid var(--rule);padding:var(--s2) var(--gut);position:sticky;top:0;z-index:20;
+      background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(8px)}
+.mast-row{display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;
+          font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.15em;text-transform:uppercase;
+          font-weight:700;color:var(--mute)}
+.mast-row .id{color:var(--stamp)}
+.mast-main{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s4);
+           padding:var(--s2) 0 var(--s1);flex-wrap:wrap}
+.wordmark{display:flex;align-items:center;gap:var(--s2);font-family:var(--disp);font-weight:900;
+          font-size:clamp(1.25rem,2.8vw,1.8rem);letter-spacing:-.04em;text-decoration:none;color:inherit}
+.wordmark img{width:1.5rem;border-radius:2px}
+.mast nav{display:flex;gap:var(--s6);font-family:var(--disp);font-size:var(--t-xs);font-weight:700;
+          letter-spacing:.1em;text-transform:uppercase}
+/* Padded to clear the 24px minimum target size (WCAG 2.5.8) while the rule
+   still reads as a tight underline. */
+.mast nav a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;min-height:1.75rem;
+            padding:.25rem 0 .3rem;border-bottom:2px solid transparent;
+            transition:color var(--fast),border-color var(--fast)}
+.mast nav a:hover,.mast nav a:focus-visible{color:var(--stamp);border-color:var(--stamp)}
+
+/* ── record grid ── */
+.sheet{max-width:78rem;margin:0 auto;padding:0 var(--gut)}
+.rec{display:grid;grid-template-columns:4rem minmax(0,1fr) minmax(0,19rem);
+     gap:0 clamp(1rem,3vw,2.5rem);border-bottom:1px solid var(--hair);
+     padding:clamp(1.5rem,4vh,var(--s12)) 0;align-items:start}
+/* Grid children default to min-width:auto and refuse to shrink below their
+   content, which pushed the record 5px past the viewport at 360. */
+.rec > *{min-width:0}
+.no{font-family:var(--disp);font-weight:900;font-size:var(--t-sm);letter-spacing:.06em;color:var(--stamp);
+    font-variant-numeric:tabular-nums;padding-top:.3rem}
+.aside{font-size:var(--t-sm);color:var(--mute)}
+.aside dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:var(--s1) var(--s4)}
+.aside dt{font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.13em;text-transform:uppercase;
+          color:var(--faint);font-weight:700;padding-top:.12rem}
+.aside dd{margin:0;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.src{font-size:var(--t-xs);color:var(--faint);margin:var(--s3) 0 0;border-top:1px solid var(--hair-2);
+     padding-top:var(--s2);line-height:1.45}
+h1{font-weight:900;font-size:var(--t-h1);line-height:.92;letter-spacing:-.05em;margin:0 0 var(--s4);max-width:13ch}
+/* The headline's marked word is the record colour on every sheet — the
+   main record and the two journey records read as one document. Red stays
+   reserved for the § badge, so it means "obligation" and nothing else. */
+h1 .req,h1 .loc{color:var(--stamp)}
+h2{font-weight:900;font-size:var(--t-h2);line-height:1.03;letter-spacing:-.04em;margin:0 0 var(--s3)}
+.lede{font-size:var(--t-lg);color:var(--mute);max-width:52ch;margin:0 0 var(--s4)}
+.oblig{display:inline-flex;align-items:center;gap:var(--s2);border:2px solid var(--alert);color:var(--alert);
+       font-family:var(--disp);font-weight:900;font-size:var(--t-xs);letter-spacing:.15em;
+       text-transform:uppercase;padding:.3rem .55rem;margin:0 0 var(--s4)}
+.oblig::before{content:"§";font-size:.95rem;line-height:1}
+
+/* ── SIGNATURE · Eintrag 00 ── */
+.entry00{background:var(--paper-2);border:1px solid var(--hair);margin-top:var(--s6)}
+.e-head{display:flex;justify-content:space-between;gap:var(--s4);align-items:baseline;
+        padding:var(--s3) var(--s4);border-bottom:1px solid var(--hair);
+        font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.15em;text-transform:uppercase;font-weight:700}
+.e-head .lbl{color:var(--stamp)}
+.e-head .state{color:var(--faint)}
+.qs{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair)}
+.qs.one{grid-template-columns:1fr}
+.q{background:var(--paper-2);padding:var(--s4)}
+.q > p{font-family:var(--disp);font-weight:700;font-size:var(--t-sm);margin:0 0 var(--s3);letter-spacing:-.01em}
+.opts{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.opt{font-family:var(--disp);font-weight:700;font-size:var(--t-xs);letter-spacing:.06em;
+     background:transparent;color:var(--ink);border:1.5px solid var(--hair);padding:.42rem .7rem;
+     cursor:pointer;transition:all var(--fast) var(--ease);min-height:2rem}
+.opt:hover{border-color:var(--stamp);color:var(--stamp)}
+.opt[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.opt:active{transform:translateY(1px)}
+.verdict{padding:var(--s4);border-top:1px solid var(--hair);display:flex;gap:var(--s4);
+         align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.v-text{max-width:44ch;font-size:var(--t-sm);color:var(--mute)}
+.v-text b{color:var(--ink)}
+.v-text .hit{color:var(--alert);font-weight:700}
+.chop{font-family:var(--disp);font-weight:900;font-size:var(--t-xs);letter-spacing:.16em;
+      text-transform:uppercase;border:2px solid var(--faint);color:var(--faint);padding:.45rem .7rem;
+      transform:rotate(-2deg);white-space:nowrap;transition:all var(--slow) var(--ease);opacity:.5}
+.entry00[data-done="1"] .chop{border-color:var(--alert);color:var(--alert);opacity:1;transform:rotate(-3.5deg) scale(1.04)}
+.entry00[data-done="1"] .e-head .state{color:var(--alert)}
+/* A journey record is not an obligation: its completed stamp is a record
+   mark, not an alarm. */
+.entry00.plan[data-done="1"] .chop{border-color:var(--stamp);color:var(--stamp)}
+.entry00.plan[data-done="1"] .e-head .state{color:var(--stamp)}
+
+/* ── ledger ── */
+.ledger{width:100%;border-collapse:collapse;font-size:var(--t-md);margin-top:var(--s1)}
+.ledger th{font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.15em;text-transform:uppercase;
+           color:var(--faint);font-weight:700;text-align:left;padding:var(--s2) var(--s3) var(--s2) 0;
+           border-bottom:2px solid var(--rule)}
+.ledger th:last-child,.ledger td:last-child{text-align:right;padding-right:0}
+.ledger td{padding:0;border-bottom:1px solid var(--hair);vertical-align:top}
+.ledger tr.row{cursor:pointer;transition:background var(--fast) var(--ease)}
+.ledger tr.row:hover{background:rgb(13 59 143/.05)}
+.ledger tr.row td{padding:var(--s3) var(--s3) var(--s3) 0}
+.ledger .k{font-family:var(--disp);font-weight:900;color:var(--stamp);font-variant-numeric:tabular-nums}
+.ledger .nm{font-family:var(--disp);font-weight:700;letter-spacing:-.015em}
+.ledger .hr{font-variant-numeric:tabular-nums;color:var(--mute)}
+.ledger tr.det td{padding:0 var(--s3) 0 0}
+.ledger tr.det .in{max-height:0;overflow:hidden;transition:max-height var(--slow) var(--ease)}
+.ledger tr.row[aria-expanded="true"] + tr.det .in{max-height:8rem}
+.ledger tr.row[aria-expanded="true"] .k{color:var(--alert)}
+.ledger tr.det p{margin:0 0 var(--s3);color:var(--mute);max-width:60ch;font-size:var(--t-sm)}
+
+/* ── plates ── */
+/* Asymmetric on purpose: the room gets the wide plate, the details sit
+   beside it. Three equal frames read as a gallery; this reads as evidence. */
+/* Five exhibits in one row shrank four of them to thumbnails. Two rows
+   instead: the room takes a double-width plate, the details sit under it. */
+/* Three columns, asymmetric: the room takes a double-width plate and the
+   second exhibit stands beside it, full height of that row. Three equal
+   frames read as a gallery; this reads as evidence.
+   The lead plate is 3/2 rather than 16/9 — same placement, more picture. */
+.plates{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.5rem,1.5vw,var(--s4));margin-top:var(--s2)}
+.plates figure:first-child{grid-column:span 2}
+.plates figure:first-child .fr{aspect-ratio:3/2}
+/* Plate 2 drops its own ratio and fills the row instead, so it stands as
+   tall as the room next to it rather than sitting as a small square.
+   Only where that row actually exists — below 900 the plates stack and a
+   ratio-less frame would have nothing to take its height from. */
+@media (min-width:901px){
+  .plates figure:nth-child(2){display:flex;flex-direction:column}
+  .plates figure:nth-child(2) .fr{aspect-ratio:auto;flex:1;min-height:0}
+}
+.plates figure{margin:0}
+.fr{position:relative;aspect-ratio:5/4;overflow:hidden;border:1px solid var(--hair);background:var(--paper-2)}
+.fr img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);
+        transition:filter var(--slow) var(--ease)}
+.plates figure:hover .fr img,.plates figure:focus-within .fr img,
+.exh:hover .fr img,.exh:focus-within .fr img{filter:grayscale(0) contrast(1)}
+.plates figcaption{font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.12em;text-transform:uppercase;
+                   color:var(--faint);font-weight:700;margin-top:var(--s2);display:flex;
+                   justify-content:space-between;gap:var(--s2)}
+.plates figcaption b{color:var(--stamp)}
+
+/* ── exhibits ──────────────────────────────────────────────────────────
+   Photographs enter this document as numbered exhibits, not as scenery.   */
+/* margin, not margin-top: the UA stylesheet gives <figure> 40px of left
+   and right margin, which quietly inset every band inside its column. */
+.band{position:relative;margin:var(--s6) 0 0;border:1px solid var(--hair);overflow:hidden}
+/* height:auto is load-bearing — the img width/height attributes carry the
+   real intrinsic size (so the browser reserves the right box before load)
+   and map to CSS as presentational hints. Without this the attribute
+   height wins and the band stretches to the photo's own proportions. */
+.band img{width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;filter:grayscale(1) contrast(1.05);
+          transition:filter var(--slow) var(--ease)}
+.band:hover img,.band:focus-within img{filter:grayscale(0) contrast(1)}
+.band figcaption{display:flex;justify-content:space-between;gap:var(--s4);padding:var(--s2) var(--s3);
+                 border-top:1px solid var(--hair);font-family:var(--disp);font-size:var(--t-xs);
+                 letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--faint)}
+.band figcaption b{color:var(--stamp)}
+
+/* portrait exhibit, sits in the margin column */
+.exh{margin:0 0 var(--s4)}
+.exh .fr{aspect-ratio:4/5}
+.exh figcaption{font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.12em;text-transform:uppercase;
+                font-weight:700;color:var(--faint);margin-top:var(--s2);display:flex;
+                justify-content:space-between;gap:var(--s2)}
+.exh figcaption b{color:var(--stamp)}
+
+/* ── walk: minutes as a measured column, not a decorative timeline ── */
+.walk{list-style:none;margin:var(--s2) 0 0;padding:0;border-top:2px solid var(--rule)}
+.walk li{display:grid;grid-template-columns:3.25rem 1fr;gap:var(--s4);align-items:baseline;
+         padding:var(--s3) 0;border-bottom:1px solid var(--hair)}
+.walk .min{font-family:var(--disp);font-weight:900;font-size:var(--t-sm);color:var(--stamp);
+           font-variant-numeric:tabular-nums;text-align:right}
+.walk .min::after{content:" Min";font-weight:700;font-size:var(--t-xs);color:var(--faint)}
+.walk .pt{font-family:var(--disp);font-weight:700;letter-spacing:-.015em}
+.walk .pt em{display:block;font-style:normal;font-family:var(--body);font-weight:400;
+             font-size:var(--t-sm);color:var(--mute);margin-top:.1rem}
+.walk .dest .min{color:var(--alert)}
+.walk .dest .pt{color:var(--alert)}
+/* An unmeasured leg. The dash is the point: this record does not hold a
+   timetable, and will not pretend to. */
+.walk .open .min{color:var(--faint)}
+.walk .open .min::after{content:""}
+.walk .open .pt{color:var(--mute)}
+
+/* ── Abgleich: what differs between a municipality and the course room ──
+   Almost every row matches. The one that does not is the whole page. */
+.match{width:100%;border-collapse:collapse;font-size:var(--t-md);margin-top:var(--s2)}
+.match th{font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.15em;text-transform:uppercase;
+          color:var(--faint);font-weight:700;text-align:left;padding:var(--s2) var(--s3) var(--s2) 0;
+          border-bottom:2px solid var(--rule)}
+.match th:last-child,.match td:last-child{text-align:right;padding-right:0}
+.match td{padding:var(--s3) var(--s3) var(--s3) 0;border-bottom:1px solid var(--hair);vertical-align:baseline}
+.match .f{font-family:var(--disp);font-weight:700;letter-spacing:-.015em}
+.match .v{font-variant-numeric:tabular-nums;color:var(--mute)}
+.mark{font-family:var(--disp);font-weight:700;font-size:var(--t-xs);letter-spacing:.13em;
+      text-transform:uppercase;white-space:nowrap;color:var(--ok)}
+.mark::before{content:"= ";font-weight:900}
+.match tr.differs .f,.match tr.differs .v{color:var(--ink)}
+.match tr.differs .v{font-weight:600}
+.match tr.differs .mark{color:var(--stamp)}
+.match tr.differs .mark::before{content:"≠ "}
+
+/* ── arrival plan: the output of a journey record ── */
+.plan-out{margin:0;border-top:2px solid var(--rule)}
+.plan-out div{display:grid;grid-template-columns:4.25rem 1fr;gap:var(--s4);align-items:baseline;
+              padding:var(--s3) 0;border-bottom:1px solid var(--hair)}
+.plan-out dt{font-family:var(--disp);font-weight:900;font-size:var(--t-sm);color:var(--stamp);
+             font-variant-numeric:tabular-nums;text-align:right}
+.plan-out dd{margin:0;font-family:var(--disp);font-weight:700;letter-spacing:-.015em}
+.plan-out dd em{display:block;font-style:normal;font-family:var(--body);font-weight:400;
+                font-size:var(--t-sm);color:var(--mute);margin-top:.1rem}
+.plan-out .last dt{color:var(--alert)}
+.plan-out .last dd{color:var(--alert)}
+.plan-out .open dt{color:var(--faint);font-weight:700}
+.plan-out .open dd{color:var(--mute)}
+
+/* ── question register ── */
+.qreg{border-top:2px solid var(--rule);margin-top:var(--s2)}
+.qreg details{border-bottom:1px solid var(--hair)}
+.qreg summary{font-family:var(--disp);font-weight:700;font-size:var(--t-md);letter-spacing:-.015em;
+              padding:var(--s3) 2rem var(--s3) 0;cursor:pointer;list-style:none;position:relative;
+              min-height:2.75rem;display:flex;align-items:center;transition:color var(--fast)}
+.qreg summary::-webkit-details-marker{display:none}
+.qreg summary::after{content:"+";position:absolute;right:0;font-family:var(--disp);font-weight:900;
+                     color:var(--stamp);transition:transform var(--fast) var(--ease)}
+.qreg details[open] summary{color:var(--stamp)}
+.qreg details[open] summary::after{transform:rotate(45deg)}
+.qreg summary:hover{color:var(--stamp)}
+.qreg p{margin:0 0 var(--s3);color:var(--mute);font-size:var(--t-sm);max-width:58ch}
+
+/* ── register ── */
+.reg{width:100%;border-collapse:collapse;font-size:var(--t-md);margin-top:var(--s2)}
+.reg th{font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.15em;text-transform:uppercase;
+        color:var(--faint);font-weight:700;text-align:left;padding:var(--s2) var(--s3) var(--s2) 0;
+        border-bottom:2px solid var(--rule)}
+.reg td{padding:var(--s3) var(--s3) var(--s3) 0;border-bottom:1px solid var(--hair);vertical-align:middle}
+/* Keep each date half intact so a wrap falls between the two days, never
+   inside one ("Mo 31.08.–Di / 01.09.2026"). */
+.reg .dt{font-family:var(--disp);font-weight:700;letter-spacing:-.015em;font-variant-numeric:tabular-nums}
+.reg .dt .day{white-space:nowrap}
+.reg .sub{display:block;color:var(--faint);font-weight:500;font-size:var(--t-xs);margin-top:.1rem}
+.reg .pr{font-family:var(--disp);font-weight:900;font-variant-numeric:tabular-nums}
+.reg td:last-child{text-align:right;padding-right:0}
+.sign{font-family:var(--disp);font-weight:700;font-size:var(--t-xs);letter-spacing:.1em;text-transform:uppercase;
+      background:var(--ink);color:var(--paper);padding:.6rem 1rem;text-decoration:none;display:inline-block;
+      min-height:2.25rem;transition:background var(--fast) var(--ease),transform var(--fast) var(--ease)}
+.sign:hover{background:var(--stamp)}
+.sign:active{transform:translateY(1px)}
+/* the same control, stated rather than sold — used where the sheet hands
+   the reader on to the main record instead of repeating it */
+.sign.quiet{background:transparent;color:var(--ink);border:2px solid var(--rule)}
+.sign.quiet:hover{background:var(--ink);color:var(--paper)}
+/* cross-reference between sheets of the same record */
+.xref{font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.12em;text-transform:uppercase;
+      font-weight:700;margin:var(--s3) 0 0;display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4)}
+.xref a{color:var(--stamp);text-decoration:none;border-bottom:1px solid transparent;
+        display:inline-flex;align-items:center;min-height:1.75rem;transition:border-color var(--fast)}
+.xref a:hover,.xref a:focus-visible{border-color:var(--stamp)}
+
+.colophon{border-top:2px solid var(--rule);padding:var(--s6) var(--gut) var(--s12);
+          font-size:var(--t-xs);color:var(--faint);display:flex;justify-content:space-between;
+          gap:var(--s4);flex-wrap:wrap;max-width:78rem;margin:0 auto}
+.colophon a{color:inherit}
+:focus-visible{outline:2px solid var(--stamp);outline-offset:3px}
+
+@media (max-width:900px){
+  .rec{grid-template-columns:2.25rem 1fr}
+  .aside{grid-column:2;margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--hair-2)}
+  .plates{grid-template-columns:1fr 1fr}
+  .plates figure:first-child{grid-column:1 / -1}
+  .mast nav{display:none}
+  .qs{grid-template-columns:1fr}
+  .ledger th:nth-child(3),.ledger .hr{display:none}
+  .verdict{flex-direction:column-reverse;align-items:flex-start}
+}
+@media (max-width:420px){
+  .plates{grid-template-columns:1fr}
+  .reg th:nth-child(2),.reg td:nth-child(2){display:none}
+  /* The Abgleich keeps all three columns down to 360: the one differing
+     row is the page's argument, and it is unreadable without its value.
+     "Teilnahmebestätigung" and "Industriestrasse" are longer than the
+     column at 360 and held the table 3px past the viewport, so the value
+     column is allowed to hyphenate there. */
+  .match{font-size:var(--t-sm)}
+  /* anywhere, not break-word: only "anywhere" shrinks the column's
+     min-content width, which is what the table sizes itself from.
+     hyphens gives the nicer break when a German dictionary is present. */
+  .match .v{hyphens:auto;overflow-wrap:anywhere}
+  .mark{font-size:.62rem;letter-spacing:.06em}
+}
+/* On a touchscreen there is nothing to point with, so the exhibits would
+   stay grey forever. Where hover does not exist, the room is simply in
+   colour. */
+@media (hover:none){
+  .fr img,.band img{filter:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}}
