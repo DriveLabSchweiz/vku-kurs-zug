@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>VKU Kurs Zug – Verkehrskundeunterricht, 2 Abende | Protokoll</title>
+<meta name="description" content="VKU Kurs Zug: der obligatorische Verkehrskundeunterricht, 8 Stunden an 2 Abenden, CHF 230, 9 Minuten vom Bahnhof. Termine und Anmeldung.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════════════════
+   PROTOKOLL — VKU Zug
+   The course is a legal requirement. So the page is the record of one:
+   numbered entries, a fixed margin column of facts, sources under every
+   claim, hairlines instead of cards. Nothing persuades; everything states.
+
+   SIGNATURE — "Eintrag 00": the document writes the reader into itself.
+   Three answers produce a stamped, personal entry with the correct
+   deadline. An official form that fills itself in.
+   ══════════════════════════════════════════════════════════════════════ */
+:root{
+  /* colour roles */
+  --paper:#fbfbf9; --paper-2:#f2f2ee; --ink:#0b0b0c; --mute:#63636a; --faint:#9d9da3;
+  --rule:#0b0b0c; --hair:rgb(11 11 12/.16); --hair-2:rgb(11 11 12/.08);
+  --stamp:#0d3b8f;                 /* record marks, numerals, links */
+  --alert:#b3261e;                 /* the obligation, used 3× at most */
+  --ok:#1b6b4a;
+  /* type */
+  --disp:"Inter Tight",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif;
+  --t-xs:.68rem; --t-sm:.82rem; --t-md:.94rem; --t-lg:1.05rem;
+  --t-h2:clamp(1.45rem,3.1vw,2.15rem); --t-h1:clamp(2.2rem,6.2vw,5rem);
+  /* space scale: 4 8 12 16 24 32 48 64 */
+  --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem; --s6:1.5rem; --s8:2rem; --s12:3rem; --s16:4rem;
+  --gut:clamp(1rem,3.5vw,2.5rem); --ease:cubic-bezier(.3,.7,.4,1); --fast:.2s; --slow:.42s;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);background:var(--paper);color:var(--ink);
+     font-size:var(--t-md);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--disp);margin:0}
+p{margin:0 0 var(--s3)}
+
+/* ── masthead ── */
+.mast{border-bottom:2px solid var(--rule);padding:var(--s2) var(--gut);position:sticky;top:0;z-index:20;
+      background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(8px)}
+.mast-row{display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;
+          font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.15em;text-transform:uppercase;
+          font-weight:700;color:var(--mute)}
+.mast-row .id{color:var(--stamp)}
+.mast-main{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s4);
+           padding:var(--s2) 0 var(--s1);flex-wrap:wrap}
+.wordmark{display:flex;align-items:center;gap:var(--s2);font-family:var(--disp);font-weight:900;
+          font-size:clamp(1.25rem,2.8vw,1.8rem);letter-spacing:-.04em;text-decoration:none;color:inherit}
+.wordmark img{width:1.5rem;border-radius:2px}
+.mast nav{display:flex;gap:var(--s6);font-family:var(--disp);font-size:var(--t-xs);font-weight:700;
+          letter-spacing:.1em;text-transform:uppercase}
+/* Padded to clear the 24px minimum target size (WCAG 2.5.8) while the rule
+   still reads as a tight underline. */
+.mast nav a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;min-height:1.75rem;
+            padding:.25rem 0 .3rem;border-bottom:2px solid transparent;
+            transition:color var(--fast),border-color var(--fast)}
+.mast nav a:hover,.mast nav a:focus-visible{color:var(--stamp);border-color:var(--stamp)}
+
+/* ── record grid ── */
+.sheet{max-width:78rem;margin:0 auto;padding:0 var(--gut)}
+.rec{display:grid;grid-template-columns:4rem minmax(0,1fr) minmax(0,19rem);
+     gap:0 clamp(1rem,3vw,2.5rem);border-bottom:1px solid var(--hair);
+     padding:clamp(1.5rem,4vh,var(--s12)) 0;align-items:start}
+.no{font-family:var(--disp);font-weight:900;font-size:var(--t-sm);letter-spacing:.06em;color:var(--stamp);
+    font-variant-numeric:tabular-nums;padding-top:.3rem}
+.aside{font-size:var(--t-sm);color:var(--mute)}
+.aside dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:var(--s1) var(--s4)}
+.aside dt{font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.13em;text-transform:uppercase;
+          color:var(--faint);font-weight:700;padding-top:.12rem}
+.aside dd{margin:0;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.src{font-size:var(--t-xs);color:var(--faint);margin:var(--s3) 0 0;border-top:1px solid var(--hair-2);
+     padding-top:var(--s2);line-height:1.45}
+h1{font-weight:900;font-size:var(--t-h1);line-height:.92;letter-spacing:-.05em;margin:0 0 var(--s4);max-width:13ch}
+h1 .req{color:var(--alert)}
+h2{font-weight:900;font-size:var(--t-h2);line-height:1.03;letter-spacing:-.04em;margin:0 0 var(--s3)}
+.lede{font-size:var(--t-lg);color:var(--mute);max-width:52ch;margin:0 0 var(--s4)}
+.oblig{display:inline-flex;align-items:center;gap:var(--s2);border:2px solid var(--alert);color:var(--alert);
+       font-family:var(--disp);font-weight:900;font-size:var(--t-xs);letter-spacing:.15em;
+       text-transform:uppercase;padding:.3rem .55rem;margin:0 0 var(--s4)}
+.oblig::before{content:"§";font-size:.95rem;line-height:1}
+
+/* ── SIGNATURE · Eintrag 00 ── */
+.entry00{background:var(--paper-2);border:1px solid var(--hair);margin-top:var(--s6)}
+.e-head{display:flex;justify-content:space-between;gap:var(--s4);align-items:baseline;
+        padding:var(--s3) var(--s4);border-bottom:1px solid var(--hair);
+        font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.15em;text-transform:uppercase;font-weight:700}
+.e-head .lbl{color:var(--stamp)}
+.e-head .state{color:var(--faint)}
+.qs{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair)}
+.q{background:var(--paper-2);padding:var(--s4)}
+.q > p{font-family:var(--disp);font-weight:700;font-size:var(--t-sm);margin:0 0 var(--s3);letter-spacing:-.01em}
+.opts{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.opt{font-family:var(--disp);font-weight:700;font-size:var(--t-xs);letter-spacing:.06em;
+     background:transparent;color:var(--ink);border:1.5px solid var(--hair);padding:.42rem .7rem;
+     cursor:pointer;transition:all var(--fast) var(--ease);min-height:2rem}
+.opt:hover{border-color:var(--stamp);color:var(--stamp)}
+.opt[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.opt:active{transform:translateY(1px)}
+.verdict{padding:var(--s4);border-top:1px solid var(--hair);display:flex;gap:var(--s4);
+         align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.v-text{max-width:44ch;font-size:var(--t-sm);color:var(--mute)}
+.v-text b{color:var(--ink)}
+.v-text .hit{color:var(--alert);font-weight:700}
+.chop{font-family:var(--disp);font-weight:900;font-size:var(--t-xs);letter-spacing:.16em;
+      text-transform:uppercase;border:2px solid var(--faint);color:var(--faint);padding:.45rem .7rem;
+      transform:rotate(-2deg);white-space:nowrap;transition:all var(--slow) var(--ease);opacity:.5}
+.entry00[data-done="1"] .chop{border-color:var(--alert);color:var(--alert);opacity:1;transform:rotate(-3.5deg) scale(1.04)}
+.entry00[data-done="1"] .e-head .state{color:var(--alert)}
+
+/* ── ledger ── */
+.ledger{width:100%;border-collapse:collapse;font-size:var(--t-md);margin-top:var(--s1)}
+.ledger th{font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.15em;text-transform:uppercase;
+           color:var(--faint);font-weight:700;text-align:left;padding:var(--s2) var(--s3) var(--s2) 0;
+           border-bottom:2px solid var(--rule)}
+.ledger th:last-child,.ledger td:last-child{text-align:right;padding-right:0}
+.ledger td{padding:0;border-bottom:1px solid var(--hair);vertical-align:top}
+.ledger tr.row{cursor:pointer;transition:background var(--fast) var(--ease)}
+.ledger tr.row:hover{background:rgb(13 59 143/.05)}
+.ledger tr.row td{padding:var(--s3) var(--s3) var(--s3) 0}
+.ledger .k{font-family:var(--disp);font-weight:900;color:var(--stamp);font-variant-numeric:tabular-nums}
+.ledger .nm{font-family:var(--disp);font-weight:700;letter-spacing:-.015em}
+.ledger .hr{font-variant-numeric:tabular-nums;color:var(--mute)}
+.ledger tr.det td{padding:0 var(--s3) 0 0}
+.ledger tr.det .in{max-height:0;overflow:hidden;transition:max-height var(--slow) var(--ease)}
+.ledger tr.row[aria-expanded="true"] + tr.det .in{max-height:8rem}
+.ledger tr.row[aria-expanded="true"] .k{color:var(--alert)}
+.ledger tr.det p{margin:0 0 var(--s3);color:var(--mute);max-width:60ch;font-size:var(--t-sm)}
+
+/* ── plates ── */
+.plates{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.5rem,1.5vw,var(--s4));margin-top:var(--s2)}
+.plates figure{margin:0}
+.fr{position:relative;aspect-ratio:5/4;overflow:hidden;border:1px solid var(--hair);background:var(--paper-2)}
+.fr img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);
+        transition:filter var(--slow) var(--ease)}
+.plates figure:hover .fr img,.plates figure:focus-within .fr img{filter:grayscale(0) contrast(1)}
+.plates figcaption{font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.12em;text-transform:uppercase;
+                   color:var(--faint);font-weight:700;margin-top:var(--s2);display:flex;
+                   justify-content:space-between;gap:var(--s2)}
+.plates figcaption b{color:var(--stamp)}
+
+/* ── register ── */
+.reg{width:100%;border-collapse:collapse;font-size:var(--t-md);margin-top:var(--s2)}
+.reg th{font-family:var(--disp);font-size:var(--t-xs);letter-spacing:.15em;text-transform:uppercase;
+        color:var(--faint);font-weight:700;text-align:left;padding:var(--s2) var(--s3) var(--s2) 0;
+        border-bottom:2px solid var(--rule)}
+.reg td{padding:var(--s3) var(--s3) var(--s3) 0;border-bottom:1px solid var(--hair);vertical-align:middle}
+/* Keep each date half intact so a wrap falls between the two days, never
+   inside one ("Mo 31.08.–Di / 01.09.2026"). */
+.reg .dt{font-family:var(--disp);font-weight:700;letter-spacing:-.015em;font-variant-numeric:tabular-nums}
+.reg .dt .day{white-space:nowrap}
+.reg .sub{display:block;color:var(--faint);font-weight:500;font-size:var(--t-xs);margin-top:.1rem}
+.reg .pr{font-family:var(--disp);font-weight:900;font-variant-numeric:tabular-nums}
+.reg td:last-child{text-align:right;padding-right:0}
+.sign{font-family:var(--disp);font-weight:700;font-size:var(--t-xs);letter-spacing:.1em;text-transform:uppercase;
+      background:var(--ink);color:var(--paper);padding:.6rem 1rem;text-decoration:none;display:inline-block;
+      min-height:2.25rem;transition:background var(--fast) var(--ease),transform var(--fast) var(--ease)}
+.sign:hover{background:var(--stamp)}
+.sign:active{transform:translateY(1px)}
+.colophon{border-top:2px solid var(--rule);padding:var(--s6) var(--gut) var(--s12);
+          font-size:var(--t-xs);color:var(--faint);display:flex;justify-content:space-between;
+          gap:var(--s4);flex-wrap:wrap;max-width:78rem;margin:0 auto}
+:focus-visible{outline:2px solid var(--stamp);outline-offset:3px}
+
+@media (max-width:900px){
+  .rec{grid-template-columns:2.25rem 1fr}
+  .aside{grid-column:2;margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--hair-2)}
+  .plates{grid-template-columns:1fr 1fr}
+  .mast nav{display:none}
+  .qs{grid-template-columns:1fr}
+  .ledger th:nth-child(3),.ledger .hr{display:none}
+  .verdict{flex-direction:column-reverse;align-items:flex-start}
+}
+@media (max-width:420px){
+  .plates{grid-template-columns:1fr}
+  .reg th:nth-child(2),.reg td:nth-child(2){display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast-row">
+    <span class="id">Verkehrskundeunterricht · VKUV</span>
+    <span>Kanton Zug</span>
+    <span>Ausgabe 2026</span>
+  </div>
+  <div class="mast-main">
+    <a class="wordmark" href="#top"><img src="assets/logo.webp" alt=""> VKU&nbsp;Zug</a>
+    <nav aria-label="Abschnitte">
+      <a href="#r1">Pflicht</a><a href="#r2">Ablauf</a><a href="#r3">Ort</a><a href="#r4">Termine</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet" id="top">
+
+  <article class="rec" id="r1">
+    <span class="no" aria-hidden="true">01</span>
+    <div>
+      <p class="oblig">Gesetzlich vorgeschrieben</p>
+      <h1>Ohne VKU <span class="req">keine</span> Prüfung.</h1>
+      <p class="lede">Wer den Führerausweis der Kategorien A1, A, B1 oder B erwerben will, muss den Verkehrskundeunterricht besuchen. Acht Stunden, zwei Abende, eine Teilnahmebestätigung.</p>
+
+      <!-- SIGNATURE -->
+      <section class="entry00" id="e00" data-done="0" aria-labelledby="e00h">
+        <div class="e-head">
+          <span class="lbl" id="e00h">Eintrag 00 · Deine Pflicht</span>
+          <span class="state" id="e00s">unvollständig</span>
+        </div>
+        <div class="qs">
+          <div class="q">
+            <p>Welche Kategorie?</p>
+            <div class="opts" data-g="kat">
+              <button class="opt" data-v="B" aria-pressed="false">B — Auto</button>
+              <button class="opt" data-v="A" aria-pressed="false">A1 / A — Motorrad</button>
+              <button class="opt" data-v="C" aria-pressed="false">C / D</button>
+            </div>
+          </div>
+          <div class="q">
+            <p>Prüfung wann?</p>
+            <div class="opts" data-g="jahr">
+              <button class="opt" data-v="vor" aria-pressed="false">2026</button>
+              <button class="opt" data-v="ab" aria-pressed="false">2027 oder später</button>
+            </div>
+          </div>
+        </div>
+        <div class="verdict">
+          <p class="v-text" id="e00v" role="status" aria-live="polite">Beantworte beide Felder — der Eintrag wird ausgefüllt.</p>
+          <span class="chop" id="e00c">ohne Befund</span>
+        </div>
+      </section>
+    </div>
+    <div class="aside">
+      <dl>
+        <dt>Preis</dt><dd>CHF 230</dd>
+        <dt>Dauer</dt><dd>8 Std.</dd>
+        <dt>Form</dt><dd>2 Abende</dd>
+        <dt>Zeit</dt><dd>18:00–22:00</dd>
+        <dt>Ort</dt><dd>Industriestr. 50</dd>
+        <dt>Bahnhof</dt><dd>9 Min zu Fuss</dd>
+      </dl>
+      <p class="src">Alle Angaben verbindlich im Buchungssystem. Grundlage: Verordnung des UVEK über den Verkehrskundeunterricht.</p>
+    </div>
+  </article>
+
+  <article class="rec" id="r2">
+    <span class="no" aria-hidden="true">02</span>
+    <div>
+      <h2>Ablauf des Unterrichts</h2>
+      <p class="lede">Vier Module zu je zwei Stunden, verteilt auf zwei Abende. Zeile öffnen für den Inhalt.</p>
+      <table class="ledger">
+        <caption class="src" style="caption-side:bottom;text-align:left;border:0;padding-top:var(--s3)">Dauer und Aufbau sind schweizweit einheitlich geregelt.</caption>
+        <thead><tr><th scope="col">Nr.</th><th scope="col">Modul</th><th scope="col">Beginn</th><th scope="col">Dauer</th></tr></thead>
+        <tbody id="led">
+          <tr class="row" aria-expanded="false" tabindex="0"><td class="k">01</td><td class="nm">Verkehrssehen</td><td class="hr">18:00</td><td>2 Std.</td></tr>
+          <tr class="det"><td></td><td colspan="3"><div class="in"><p>Blickführung, Sichtweiten und tote Winkel. Danach erkennst du Gefahren, bevor die Lage eng wird.</p></div></td></tr>
+          <tr class="row" aria-expanded="false" tabindex="0"><td class="k">02</td><td class="nm">Verkehrsumwelt</td><td class="hr">20:00</td><td>2 Std.</td></tr>
+          <tr class="det"><td></td><td colspan="3"><div class="in"><p>Strasse, Wetter, Tageszeit und die übrigen Verkehrsteilnehmenden als zusammenhängendes System.</p></div></td></tr>
+          <tr class="row" aria-expanded="false" tabindex="0"><td class="k">03</td><td class="nm">Verkehrsdynamik</td><td class="hr">18:00</td><td>2 Std.</td></tr>
+          <tr class="det"><td></td><td colspan="3"><div class="in"><p>Geschwindigkeit, Abstand und Bremsweg. Danach schätzt du Abstände ein, statt sie zu raten.</p></div></td></tr>
+          <tr class="row" aria-expanded="false" tabindex="0"><td class="k">04</td><td class="nm">Verkehrstaktik</td><td class="hr">20:00</td><td>2 Std.</td></tr>
+          <tr class="det"><td></td><td colspan="3"><div class="in"><p>Vorausschauend entscheiden und Reserven behalten, auch wenn es im Verkehr eng wird.</p></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="aside">
+      <dl><dt>Gesamt</dt><dd>8 Std.</dd><dt>Module</dt><dd>4</dd><dt>Pause</dt><dd>10 Min je Modul</dd><dt>Sprache</dt><dd>Deutsch</dd></dl>
+      <p class="src">Die Teilnahmebestätigung wird am Ende des zweiten Abends ausgestellt.</p>
+    </div>
+  </article>
+
+  <article class="rec" id="r3">
+    <span class="no" aria-hidden="true">03</span>
+    <div>
+      <h2>Nachweis des Kursorts</h2>
+      <p class="lede">Eigene Aufnahmen der Industriestrasse 50. Kein Bildagenturmaterial, keine gestellten Szenen.</p>
+      <div class="plates">
+        <figure><div class="fr"><img src="assets/vku-klassenzimmer-u-form.webp" alt="Kursraum in U-Form bestuhlt, Industriestrasse 50 Zug" loading="lazy" width="900" height="720"></div>
+          <figcaption><span>Kursraum</span><b>03.1</b></figcaption></figure>
+        <figure><div class="fr"><img src="assets/vku-whiteboard-programm.webp" alt="Kursprogramm handschriftlich am Whiteboard" loading="lazy" width="900" height="720"></div>
+          <figcaption><span>Programm</span><b>03.2</b></figcaption></figure>
+        <figure><div class="fr"><img src="assets/vku-lokal-aussenansicht-neu.webp" alt="Gebäude an der Industriestrasse 50 in Zug von aussen" loading="lazy" width="900" height="720"></div>
+          <figcaption><span>Eingang</span><b>03.3</b></figcaption></figure>
+      </div>
+    </div>
+    <div class="aside">
+      <dl><dt>Adresse</dt><dd>Industriestrasse 50</dd><dt>PLZ</dt><dd>6300 Zug</dd><dt>Parkhaus</dt><dd>GIBZ, gegenüber</dd></dl>
+      <p class="src">Aufnahmen aus dem eigenen Kursraum, unbearbeitet ausser Zuschnitt und Kompression.</p>
+    </div>
+  </article>
+
+  <article class="rec" id="r4">
+    <span class="no" aria-hidden="true">04</span>
+    <div>
+      <h2>Register der Termine</h2>
+      <p class="lede">Verbindlich sind Preis, Kursort und freie Plätze im Buchungssystem.</p>
+      <table class="reg">
+        <thead><tr><th scope="col">Termin</th><th scope="col">Preis</th><th scope="col"><span class="src" style="border:0;padding:0;margin:0">Aktion</span></th></tr></thead>
+        <tbody>
+          <tr><td class="dt"><span class="day">Mo 31.08.</span> – <span class="day">Di 01.09.2026</span><span class="sub">18:00–22:00 · Industriestrasse 50 · CHF 230</span></td><td class="pr">CHF 230</td><td><a class="sign" href="#">Anmelden</a></td></tr>
+          <tr><td class="dt"><span class="day">Mo 05.10.</span> – <span class="day">Di 06.10.2026</span><span class="sub">18:00–22:00 · Industriestrasse 50 · CHF 230</span></td><td class="pr">CHF 230</td><td><a class="sign" href="#">Anmelden</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="aside">
+      <dl><dt>Storno</dt><dd>48 Std. gratis</dd><dt>Kategorien</dt><dd>A1 · A · B1 · B</dd></dl>
+      <p class="src">Die Anmeldung erfolgt im externen Buchungssystem.</p>
+    </div>
+  </article>
+
+</main>
+
+<footer class="colophon">
+  <span>VKU Zug · Industriestrasse 50, 6300 Zug · +41 41 219 36 60</span>
+  <span>Prototyp — Richtung „Protokoll“</span>
+</footer>
+
+<script>
+(() => {
+  /* ── Signature: Eintrag 00 ─────────────────────────────────────────
+     The document completes itself for the reader. Pure rule logic — no
+     invented dates, prices or availability.                            */
+  const e = document.getElementById('e00');
+  const out = document.getElementById('e00v');
+  const chop = document.getElementById('e00c');
+  const state = document.getElementById('e00s');
+  const answer = { kat:null, jahr:null };
+
+  e.querySelectorAll('.opts').forEach(group => {
+    group.addEventListener('click', ev => {
+      const btn = ev.target.closest('.opt'); if (!btn) return;
+      group.querySelectorAll('.opt').forEach(o => o.setAttribute('aria-pressed', String(o === btn)));
+      answer[group.dataset.g] = btn.dataset.v;
+      render();
+    });
+  });
+
+  function render(){
+    const done = answer.kat && answer.jahr;
+    e.dataset.done = done ? '1' : '0';
+    if (!done) {
+      out.textContent = 'Beantworte beide Felder — der Eintrag wird ausgefüllt.';
+      chop.textContent = 'ohne Befund'; state.textContent = 'unvollständig';
+      return;
+    }
+    state.textContent = 'ausgefüllt';
+    if (answer.kat === 'C') {
+      chop.textContent = 'nicht zutreffend';
+      out.innerHTML = 'Für <b>C und D</b> gilt ein eigener Weg. Der VKU ist hier nicht die Grundlage — frag uns, welcher Kurs zählt.';
+      return;
+    }
+    chop.textContent = 'Pflicht';
+    out.innerHTML = answer.jahr === 'ab'
+      ? 'Der VKU ist für dich <span class="hit">Pflicht</span> — und ab dem <b>1. Januar 2027</b> muss er <b>vor der Theorieprüfung</b> abgeschlossen sein, nicht erst vor der praktischen.'
+      : 'Der VKU ist für dich <span class="hit">Pflicht</span> und muss <b>vor der praktischen Prüfung</b> abgeschlossen sein. Wer bis Ende 2026 fertig ist, muss ihn 2027 nicht wiederholen.';
+  }
+
+  /* ── ledger rows ── */
+  const led = document.getElementById('led');
+  const toggle = row => {
+    const open = row.getAttribute('aria-expanded') === 'true';
+    led.querySelectorAll('.row').forEach(r => r.setAttribute('aria-expanded','false'));
+    row.setAttribute('aria-expanded', String(!open));
+  };
+  led.addEventListener('click', ev => { const r = ev.target.closest('.row'); if (r) toggle(r); });
+  led.addEventListener('keydown', ev => {
+    const r = ev.target.closest('.row'); if (!r) return;
+    if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggle(r); }
+  });
+})();
+</script>
+</body>
+</html>

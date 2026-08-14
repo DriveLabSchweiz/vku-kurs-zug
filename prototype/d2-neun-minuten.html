@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>VKU Kurs Zug — Neun Minuten (Richtung 2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══ NEUN MINUTEN ═══ The 9-minute walk from Zug station is the page's spine.
+   Every section is a stop on the route; the line draws as you scroll.      */
+:root{
+  --paper:#eceae4; --card:#f6f5f1; --ink:#16181c; --mute:#5f625f;
+  --route:#1b6b4a;            /* wayfinding green — signage, not brand blue */
+  --route-soft:rgb(27 107 74/.12);
+  --mark:#e4572e;             /* the destination marker only */
+  --rule:rgb(22 24 28/.16);
+  --sans:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --spine:clamp(2.5rem,7vw,5rem); --gut:clamp(1.25rem,4vw,3rem);
+  --ease:cubic-bezier(.4,.1,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.55;
+     -webkit-font-smoothing:antialiased;
+     background-image:radial-gradient(rgb(22 24 28/.05) 1px,transparent 1px);background-size:22px 22px}
+img{display:block;max-width:100%}
+
+/* ── nav ── */
+.nav{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;
+     gap:1rem;padding:.85rem var(--gut);background:color-mix(in srgb,var(--paper) 92%,transparent);
+     backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.02em;
+       text-decoration:none;color:inherit;font-size:1rem}
+.brand img{width:1.4rem;border-radius:3px}
+.nav ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0;font-family:var(--mono);font-size:.78rem}
+.nav a{color:inherit;text-decoration:none;opacity:.7}
+.nav a:hover{opacity:1;color:var(--route)}
+.cta{font-family:var(--mono);font-size:.78rem;font-weight:600;background:var(--route);color:#fff;
+     padding:.5rem .9rem;text-decoration:none;border-radius:2px}
+.cta:hover{background:#14563b}
+
+/* ── the route spine ── */
+.route{position:relative;padding-left:var(--spine)}
+.route::before{content:"";position:absolute;left:calc(var(--spine) / 2);top:0;bottom:0;width:2px;
+               background:var(--rule)}
+.route::after{content:"";position:absolute;left:calc(var(--spine) / 2);top:0;width:2px;
+              height:var(--drawn,0%);background:var(--route);transition:height .12s linear}
+.stop{position:relative;padding:clamp(2.75rem,7vh,5rem) var(--gut) clamp(2.75rem,7vh,5rem) 0}
+.stop::before{content:"";position:absolute;left:calc(var(--spine) / -2 - 1px);top:clamp(3.1rem,7.4vh,5.4rem);
+              width:.7rem;height:.7rem;border-radius:50%;background:var(--paper);
+              border:2px solid var(--rule);transform:translateX(-50%);z-index:2;transition:all .4s var(--ease)}
+.stop[data-live="1"]::before{background:var(--route);border-color:var(--route);
+                             box-shadow:0 0 0 5px var(--route-soft)}
+.stop:last-child::before{background:var(--mark);border-color:var(--mark);
+                         box-shadow:0 0 0 5px rgb(228 87 46/.14)}
+.leg{position:absolute;left:calc(var(--spine) / -2);top:clamp(4.4rem,9vh,6.6rem);transform:translateX(-50%);
+     font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--mute);
+     background:var(--paper);padding:.25rem 0;writing-mode:vertical-rl}
+.lim{max-width:64rem}
+
+/* ── type ── */
+.kick{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
+      color:var(--route);margin:0 0 1rem;font-weight:600}
+h1{font-size:clamp(2.2rem,5.4vw,4rem);line-height:1.02;letter-spacing:-.035em;font-weight:700;
+   margin:0 0 1.1rem;max-width:16ch}
+h2{font-size:clamp(1.5rem,3vw,2.15rem);line-height:1.1;letter-spacing:-.03em;font-weight:700;margin:0 0 .8rem}
+.lede{margin:0 0 1.6rem;color:var(--mute);max-width:46ch;font-size:1.02rem}
+
+/* ── hero map ── */
+.mapwrap{display:grid;grid-template-columns:1.05fr .95fr;gap:1.5rem;align-items:stretch;margin-top:1.5rem}
+.mapcard{background:var(--card);border:1px solid var(--rule);padding:1.35rem;border-radius:2px}
+.mapcard h3{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+            color:var(--mute);margin:0 0 1rem;font-weight:600}
+.walk{list-style:none;margin:0;padding:0;font-family:var(--mono);font-size:.82rem}
+.walk li{display:grid;grid-template-columns:3.2rem 1fr;gap:.8rem;padding:.55rem 0;border-bottom:1px dashed var(--rule)}
+.walk li:last-child{border-bottom:0}
+.walk .m{color:var(--route);font-weight:600}
+.walk li:last-child .m{color:var(--mark)}
+.shot{position:relative;overflow:hidden;border:1px solid var(--rule);border-radius:2px;min-height:15rem}
+.shot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:.6rem .8rem;font-family:var(--mono);
+                 font-size:.66rem;letter-spacing:.08em;color:#fff;background:rgb(22 24 28/.72)}
+
+/* ── data table ── */
+.tbl{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.84rem;margin-top:.5rem}
+.tbl th{text-align:left;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);
+        font-weight:600;padding:.5rem .6rem .5rem 0;border-bottom:1px solid var(--rule)}
+.tbl td{padding:.62rem .6rem .62rem 0;border-bottom:1px solid var(--rule)}
+.tbl td:first-child{color:var(--mute)}
+.tbl td:last-child{font-weight:600;text-align:right}
+
+/* ── modules ── */
+.mods{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);
+      border:1px solid var(--rule);margin-top:1.4rem}
+.mod{background:var(--card);padding:1.15rem}
+.mod .n{font-family:var(--mono);font-size:.68rem;color:var(--route);letter-spacing:.12em;font-weight:600}
+.mod h4{margin:.45rem 0 .35rem;font-size:1rem;letter-spacing:-.015em}
+.mod p{margin:0;font-size:.88rem;color:var(--mute);line-height:1.5}
+
+/* ── evidence strip ── */
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);
+       border:1px solid var(--rule);margin-top:1.3rem}
+.strip figure{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--card)}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.strip figure:hover img{transform:scale(1.04)}
+.strip figcaption{position:absolute;inset:auto 0 0 0;padding:.5rem .7rem;font-family:var(--mono);
+                  font-size:.62rem;color:#fff;background:rgb(22 24 28/.7)}
+
+/* ── booking ── */
+.slots{border-top:1px solid var(--rule);margin-top:1.2rem}
+.slot{display:grid;grid-template-columns:1fr auto auto;gap:1rem;align-items:center;padding:.95rem 0;
+      border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:.86rem}
+.slot .d{font-weight:600}
+.slot .d small{display:block;font-weight:400;color:var(--mute);font-size:.74rem;margin-top:.15rem}
+.go{font-family:var(--mono);font-size:.76rem;font-weight:600;background:var(--mark);color:#fff;
+    padding:.5rem .9rem;text-decoration:none;border-radius:2px;transition:filter .2s}
+.go:hover{filter:brightness(1.08)}
+.foot{padding:2rem var(--gut) 3rem;font-family:var(--mono);font-size:.72rem;color:var(--mute);
+      border-top:1px solid var(--rule)}
+:focus-visible{outline:2px solid var(--route);outline-offset:3px}
+
+@media (max-width:900px){
+  .mapwrap,.mods,.strip{grid-template-columns:1fr}
+  .strip{grid-template-columns:1fr 1fr}
+  .leg{display:none}
+  .nav ul{display:none}
+  .slot{grid-template-columns:1fr auto}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}
+  .route::after{height:100%!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#top"><img src="assets/logo.webp" alt=""> VKU Zug</a>
+  <ul>
+    <li><a href="#weg">Anfahrt</a></li>
+    <li><a href="#kurs">Kurs</a></li>
+    <li><a href="#raum">Raum</a></li>
+    <li><a href="#termine">Termine</a></li>
+  </ul>
+  <a class="cta" href="#termine">Platz sichern</a>
+</header>
+
+<div class="route" id="route">
+
+  <section class="stop" id="top">
+    <span class="leg">Start · Bahnhof</span>
+    <div class="lim">
+      <p class="kick">Verkehrskunde · Kanton Zug</p>
+      <h1>Neun Minuten vom Bahnhof Zug.</h1>
+      <p class="lede">Der obligatorische VKU, 8 Stunden an zwei Abenden. Du steigst aus, läufst neun Minuten und bist da — Industriestrasse 50.</p>
+      <div class="mapwrap">
+        <div class="mapcard">
+          <h3>Der Weg</h3>
+          <ul class="walk">
+            <li><span class="m">0 Min</span><span>Bahnhof Zug, Ausgang Nord</span></li>
+            <li><span class="m">3 Min</span><span>Industriestrasse, stadtauswärts</span></li>
+            <li><span class="m">7 Min</span><span>Parkhaus GIBZ (direkt gegenüber)</span></li>
+            <li><span class="m">9 Min</span><span>Industriestrasse 50 — Kursraum</span></li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="assets/vku-lokal-aussenansicht-neu.webp" alt="Gebäude an der Industriestrasse 50 in Zug">
+          <figcaption>Ziel · Industriestrasse 50, 6300 Zug</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="stop" id="weg">
+    <span class="leg">3 Min</span>
+    <div class="lim">
+      <h2>Was der Kurs kostet und dauert.</h2>
+      <p class="lede">Alles verbindlich im Buchungssystem — hier steht, was feststeht.</p>
+      <table class="tbl">
+        <thead><tr><th>Position</th><th style="text-align:right">Wert</th></tr></thead>
+        <tbody>
+          <tr><td>Preis, all inclusive</td><td>CHF 230</td></tr>
+          <tr><td>Dauer</td><td>8 Std. · 2 Abende</td></tr>
+          <tr><td>Zeit</td><td>18:00 – 22:00</td></tr>
+          <tr><td>Kategorien</td><td>A1 · A · B1 · B</td></tr>
+          <tr><td>Stornofrist</td><td>48 Std. kostenlos</td></tr>
+          <tr><td>Parkhaus</td><td>GIBZ, gegenüber</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="stop" id="kurs">
+    <span class="leg">7 Min</span>
+    <div class="lim">
+      <h2>Vier Module, zwei Abende.</h2>
+      <p class="lede">Jedes Modul zwei Stunden, mit Pause.</p>
+      <div class="mods">
+        <div class="mod"><span class="n">01 · 18:00</span><h4>Verkehrssehen</h4><p>Blickführung, Sichtweiten, tote Winkel — Gefahren erkennen, bevor es eng wird.</p></div>
+        <div class="mod"><span class="n">02 · 20:00</span><h4>Verkehrsumwelt</h4><p>Strasse, Wetter, Tageszeit und die anderen als ein System lesen.</p></div>
+        <div class="mod"><span class="n">03 · 18:00</span><h4>Verkehrsdynamik</h4><p>Geschwindigkeit, Abstand, Bremsweg — Abstände einschätzen statt raten.</p></div>
+        <div class="mod"><span class="n">04 · 20:00</span><h4>Verkehrstaktik</h4><p>Vorausschauend entscheiden und Reserven behalten.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stop" id="raum">
+    <span class="leg">9 Min</span>
+    <div class="lim">
+      <h2>Angekommen.</h2>
+      <p class="lede">Der Kursraum an der Industriestrasse 50 — eigene Aufnahmen, keine Bildagentur.</p>
+      <div class="strip">
+        <figure><img src="assets/vku-klassenzimmer-u-form.webp" alt="Kursraum in U-Form"><figcaption>Kursraum</figcaption></figure>
+        <figure><img src="assets/vku-whiteboard-programm.webp" alt="Kursprogramm am Whiteboard"><figcaption>Programm</figcaption></figure>
+        <figure><img src="assets/vku-schulungsraum-fenster.webp" alt="Schulungsraum mit Fensterfront"><figcaption>Tageslicht</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="stop" id="termine">
+    <span class="leg">Ziel</span>
+    <div class="lim">
+      <h2>Nächste Termine.</h2>
+      <p class="lede">Verbindlich sind Preis, Kursort und freie Plätze im Buchungssystem.</p>
+      <div class="slots">
+        <div class="slot"><span class="d">Mo 31.08. – Di 01.09.2026<small>18:00 – 22:00 · Industriestrasse 50</small></span><span>CHF 230</span><a class="go" href="#">Anmelden</a></div>
+        <div class="slot"><span class="d">Mo 05.10. – Di 06.10.2026<small>18:00 – 22:00 · Industriestrasse 50</small></span><span>CHF 230</span><a class="go" href="#">Anmelden</a></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<footer class="foot">VKU Zug · Industriestrasse 50, 6300 Zug · +41 41 219 36 60 — Prototyp, Richtung 2 „Neun Minuten“.</footer>
+
+<script>
+(() => {
+  const route = document.getElementById('route');
+  const stops = [...document.querySelectorAll('.stop')];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { route.style.setProperty('--drawn','100%'); stops.forEach(s=>s.dataset.live='1'); return; }
+
+  // Signature: the route line draws itself as you walk down the page.
+  function draw(){
+    const r = route.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (innerHeight * .55 - r.top) / r.height));
+    route.style.setProperty('--drawn', (p * 100).toFixed(2) + '%');
+    stops.forEach(s => {
+      const t = s.getBoundingClientRect().top;
+      s.dataset.live = t < innerHeight * .6 ? '1' : '0';
+    });
+  }
+  addEventListener('scroll', draw, {passive:true});
+  addEventListener('resize', draw);
+  draw();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>VKU Kurs Zug — Protokoll (Richtung 3)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══ PROTOKOLL ═══ The course is a legal requirement. The page is the record
+   of it: numbered entries, sources, hairlines, no persuasion.            */
+:root{
+  --paper:#fbfbf9; --ink:#0b0b0c; --mute:#6a6a6d; --faint:#a3a3a6;
+  --rule:#0b0b0c; --hair:rgb(11 11 12/.18);
+  --stamp:#0d3b8f;               /* official blue, used only for record marks */
+  --alert:#b3261e;               /* the obligation */
+  --disp:"Inter Tight",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif;
+  --gut:clamp(1rem,3.5vw,2.5rem); --ease:cubic-bezier(.3,.7,.4,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.5;
+     -webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+
+/* ── masthead: an official header, not a nav bar ── */
+.mast{border-bottom:2px solid var(--rule);padding:.7rem var(--gut)}
+.mast-row{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+          font-family:var(--disp);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.mast-row .id{color:var(--stamp)}
+.mast-main{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;
+           padding:.5rem 0 .2rem;flex-wrap:wrap}
+.wordmark{display:flex;align-items:center;gap:.6rem;font-family:var(--disp);font-weight:900;
+          font-size:clamp(1.3rem,3vw,1.9rem);letter-spacing:-.04em;text-decoration:none;color:inherit}
+.wordmark img{width:1.6rem;border-radius:2px}
+.mast nav{display:flex;gap:1.2rem;font-family:var(--disp);font-size:.74rem;font-weight:700;
+          letter-spacing:.08em;text-transform:uppercase}
+.mast nav a{color:inherit;text-decoration:none;padding-bottom:2px;border-bottom:2px solid transparent}
+.mast nav a:hover{border-color:var(--stamp);color:var(--stamp)}
+
+/* ── the record grid ── */
+.sheet{max-width:78rem;margin:0 auto;padding:0 var(--gut)}
+.rec{display:grid;grid-template-columns:4.5rem minmax(0,1fr) minmax(0,20rem);gap:0 clamp(1rem,3vw,2.5rem);
+     border-bottom:1px solid var(--hair);padding:clamp(1.5rem,4vh,2.75rem) 0;align-items:start}
+.rec > .no{font-family:var(--disp);font-weight:900;font-size:.8rem;letter-spacing:.06em;color:var(--stamp);
+           font-variant-numeric:tabular-nums;padding-top:.35rem}
+.rec .aside{font-size:.82rem;color:var(--mute)}
+.rec .aside dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.3rem .9rem}
+.rec .aside dt{font-family:var(--disp);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+               color:var(--faint);font-weight:700;padding-top:.15rem}
+.rec .aside dd{margin:0;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.src{font-size:.7rem;color:var(--faint);margin-top:.9rem;border-top:1px solid var(--hair);padding-top:.5rem}
+
+h1{font-family:var(--disp);font-weight:900;font-size:clamp(2.4rem,6.6vw,5.4rem);line-height:.92;
+   letter-spacing:-.05em;margin:0 0 1rem;max-width:14ch}
+h1 .req{color:var(--alert)}
+h2{font-family:var(--disp);font-weight:900;font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.02;
+   letter-spacing:-.04em;margin:0 0 .7rem}
+.lede{font-size:1.02rem;color:var(--mute);max-width:52ch;margin:0 0 1rem}
+p{margin:0 0 .8rem}
+
+/* ── obligation banner ── */
+.oblig{display:inline-flex;align-items:center;gap:.55rem;border:2px solid var(--alert);color:var(--alert);
+       font-family:var(--disp);font-weight:900;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+       padding:.32rem .6rem;margin:0 0 1.2rem}
+.oblig::before{content:"§";font-size:.95rem;line-height:1}
+
+/* ── module ledger: the signature ── */
+.ledger{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.4rem}
+.ledger th{font-family:var(--disp);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+           color:var(--faint);font-weight:700;text-align:left;padding:.45rem .8rem .45rem 0;
+           border-bottom:2px solid var(--rule)}
+.ledger th:last-child,.ledger td:last-child{text-align:right;padding-right:0}
+.ledger td{padding:0;border-bottom:1px solid var(--hair);vertical-align:top}
+.ledger tr.row{cursor:pointer;transition:background .2s var(--ease)}
+.ledger tr.row:hover{background:rgb(13 59 143/.05)}
+.ledger tr.row td{padding:.75rem .8rem .75rem 0}
+.ledger .k{font-family:var(--disp);font-weight:900;color:var(--stamp);font-variant-numeric:tabular-nums}
+.ledger .nm{font-family:var(--disp);font-weight:700;letter-spacing:-.015em}
+.ledger .hr{font-variant-numeric:tabular-nums;color:var(--mute)}
+.ledger tr.det td{padding:0 .8rem 0 0}
+.ledger tr.det .in{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.ledger tr.row[aria-expanded="true"] + tr.det .in{max-height:8rem}
+.ledger tr.det p{margin:0 0 .9rem;color:var(--mute);max-width:60ch;font-size:.88rem}
+.ledger tr.row[aria-expanded="true"] .k{color:var(--alert)}
+
+/* ── evidence plates ── */
+.plates{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.6rem,1.6vw,1.1rem);margin-top:.6rem}
+.plates figure{margin:0}
+.plates .fr{position:relative;aspect-ratio:5/4;overflow:hidden;border:1px solid var(--hair);background:#eee}
+.plates img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06);
+            transition:filter .55s var(--ease)}
+.plates figure:hover img{filter:grayscale(0) contrast(1)}
+.plates figcaption{font-family:var(--disp);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;
+                   color:var(--faint);font-weight:700;margin-top:.45rem;display:flex;justify-content:space-between;gap:.5rem}
+.plates figcaption b{color:var(--stamp)}
+
+/* ── booking register ── */
+.reg{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:.5rem}
+.reg th{font-family:var(--disp);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
+        font-weight:700;text-align:left;padding:.45rem .8rem .45rem 0;border-bottom:2px solid var(--rule)}
+.reg td{padding:.85rem .8rem .85rem 0;border-bottom:1px solid var(--hair);vertical-align:middle}
+.reg .dt{font-family:var(--disp);font-weight:700;letter-spacing:-.015em;font-variant-numeric:tabular-nums}
+.reg .sub{display:block;color:var(--faint);font-weight:500;font-size:.76rem;margin-top:.15rem}
+.reg .pr{font-family:var(--disp);font-weight:900;font-variant-numeric:tabular-nums}
+.reg td:last-child{text-align:right;padding-right:0}
+.sign{font-family:var(--disp);font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+      background:var(--ink);color:var(--paper);padding:.55rem 1rem;text-decoration:none;display:inline-block;
+      transition:background .2s var(--ease)}
+.sign:hover{background:var(--stamp)}
+.colophon{border-top:2px solid var(--rule);margin-top:1rem;padding:1.2rem var(--gut) 2.5rem;
+          font-size:.72rem;color:var(--faint);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+:focus-visible{outline:2px solid var(--stamp);outline-offset:3px}
+
+@media (max-width:900px){
+  .rec{grid-template-columns:2.5rem 1fr}
+  .rec .aside{grid-column:2;margin-top:1.1rem}
+  .plates{grid-template-columns:1fr 1fr}
+  .mast nav{display:none}
+  .ledger .hr{display:none}
+  .ledger th:nth-child(3){display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast-row">
+    <span class="id">Verkehrskundeunterricht · VKUV Art. 17–19</span>
+    <span>Kanton Zug</span>
+    <span>Ausgabe 2026</span>
+  </div>
+  <div class="mast-main">
+    <a class="wordmark" href="#top"><img src="assets/logo.webp" alt=""> VKU&nbsp;Zug</a>
+    <nav>
+      <a href="#r1">Pflicht</a><a href="#r2">Ablauf</a><a href="#r3">Ort</a><a href="#r4">Termine</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet" id="top">
+
+  <article class="rec" id="r1">
+    <span class="no">01</span>
+    <div>
+      <p class="oblig">Gesetzlich vorgeschrieben</p>
+      <h1>Ohne VKU <span class="req">keine</span> Prüfung.</h1>
+      <p class="lede">Wer den Führerausweis der Kategorien A1, A, B1 oder B erwerben will, muss den Verkehrskundeunterricht besuchen. Acht Stunden, zwei Abende, eine Teilnahmebestätigung.</p>
+    </div>
+    <div class="aside">
+      <dl>
+        <dt>Preis</dt><dd>CHF 230</dd>
+        <dt>Dauer</dt><dd>8 Std.</dd>
+        <dt>Form</dt><dd>2 Abende</dd>
+        <dt>Zeit</dt><dd>18:00–22:00</dd>
+        <dt>Ort</dt><dd>Industriestr. 50</dd>
+        <dt>Bahnhof</dt><dd>9 Min zu Fuss</dd>
+      </dl>
+      <p class="src">Alle Angaben verbindlich im Buchungssystem. Grundlage: Verordnung des UVEK über den Verkehrskundeunterricht.</p>
+    </div>
+  </article>
+
+  <article class="rec" id="r2">
+    <span class="no">02</span>
+    <div>
+      <h2>Ablauf des Unterrichts</h2>
+      <p class="lede">Vier Module zu je zwei Stunden, verteilt auf zwei Abende. Zeile anklicken für den Inhalt.</p>
+      <table class="ledger">
+        <thead><tr><th>Nr.</th><th>Modul</th><th>Beginn</th><th>Dauer</th></tr></thead>
+        <tbody id="led">
+          <tr class="row" aria-expanded="false" tabindex="0"><td class="k">01</td><td class="nm">Verkehrssehen</td><td class="hr">18:00</td><td>2 Std.</td></tr>
+          <tr class="det"><td></td><td colspan="3"><div class="in"><p>Blickführung, Sichtweiten und tote Winkel. Danach erkennst du Gefahren, bevor die Lage eng wird.</p></div></td></tr>
+          <tr class="row" aria-expanded="false" tabindex="0"><td class="k">02</td><td class="nm">Verkehrsumwelt</td><td class="hr">20:00</td><td>2 Std.</td></tr>
+          <tr class="det"><td></td><td colspan="3"><div class="in"><p>Strasse, Wetter, Tageszeit und die übrigen Verkehrsteilnehmenden als zusammenhängendes System.</p></div></td></tr>
+          <tr class="row" aria-expanded="false" tabindex="0"><td class="k">03</td><td class="nm">Verkehrsdynamik</td><td class="hr">18:00</td><td>2 Std.</td></tr>
+          <tr class="det"><td></td><td colspan="3"><div class="in"><p>Geschwindigkeit, Abstand und Bremsweg. Danach schätzt du Abstände ein, statt sie zu raten.</p></div></td></tr>
+          <tr class="row" aria-expanded="false" tabindex="0"><td class="k">04</td><td class="nm">Verkehrstaktik</td><td class="hr">20:00</td><td>2 Std.</td></tr>
+          <tr class="det"><td></td><td colspan="3"><div class="in"><p>Vorausschauend entscheiden und Reserven behalten, auch wenn es im Verkehr eng wird.</p></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="aside">
+      <dl><dt>Gesamt</dt><dd>8 Std.</dd><dt>Module</dt><dd>4</dd><dt>Pause</dt><dd>10 Min je Modul</dd><dt>Sprache</dt><dd>Deutsch</dd></dl>
+      <p class="src">Dauer und Aufbau sind schweizweit einheitlich geregelt.</p>
+    </div>
+  </article>
+
+  <article class="rec" id="r3">
+    <span class="no">03</span>
+    <div>
+      <h2>Nachweis des Kursorts</h2>
+      <p class="lede">Eigene Aufnahmen der Industriestrasse 50. Kein Bildagenturmaterial, keine gestellten Szenen.</p>
+      <div class="plates">
+        <figure><div class="fr"><img src="assets/vku-klassenzimmer-u-form.webp" alt="Kursraum in U-Form bestuhlt"></div>
+          <figcaption><span>Kursraum</span><b>03.1</b></figcaption></figure>
+        <figure><div class="fr"><img src="assets/vku-whiteboard-programm.webp" alt="Kursprogramm am Whiteboard"></div>
+          <figcaption><span>Programm</span><b>03.2</b></figcaption></figure>
+        <figure><div class="fr"><img src="assets/vku-lokal-aussenansicht-neu.webp" alt="Gebäude an der Industriestrasse 50"></div>
+          <figcaption><span>Eingang</span><b>03.3</b></figcaption></figure>
+      </div>
+    </div>
+    <div class="aside">
+      <dl><dt>Adresse</dt><dd>Industriestrasse 50</dd><dt>PLZ</dt><dd>6300 Zug</dd><dt>Parkhaus</dt><dd>GIBZ, gegenüber</dd></dl>
+      <p class="src">Aufnahmen aus dem eigenen Kursraum, unbearbeitet ausser Zuschnitt und Kompression.</p>
+    </div>
+  </article>
+
+  <article class="rec" id="r4">
+    <span class="no">04</span>
+    <div>
+      <h2>Register der Termine</h2>
+      <p class="lede">Verbindlich sind Preis, Kursort und freie Plätze im Buchungssystem.</p>
+      <table class="reg">
+        <thead><tr><th>Termin</th><th>Preis</th><th></th></tr></thead>
+        <tbody>
+          <tr><td class="dt">Mo 31.08. – Di 01.09.2026<span class="sub">18:00–22:00 · Industriestrasse 50</span></td><td class="pr">CHF 230</td><td><a class="sign" href="#">Anmelden</a></td></tr>
+          <tr><td class="dt">Mo 05.10. – Di 06.10.2026<span class="sub">18:00–22:00 · Industriestrasse 50</span></td><td class="pr">CHF 230</td><td><a class="sign" href="#">Anmelden</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="aside">
+      <dl><dt>Storno</dt><dd>48 Std. gratis</dd><dt>Kategorien</dt><dd>A1 · A · B1 · B</dd></dl>
+      <p class="src">Die Teilnahmebestätigung wird am Ende des zweiten Abends ausgestellt.</p>
+    </div>
+  </article>
+
+</main>
+
+<footer class="colophon">
+  <span>VKU Zug · Industriestrasse 50, 6300 Zug · +41 41 219 36 60</span>
+  <span>Prototyp — Richtung 3 „Protokoll“</span>
+</footer>
+
+<script>
+(() => {
+  const led = document.getElementById('led');
+  const toggle = (row) => {
+    const open = row.getAttribute('aria-expanded') === 'true';
+    led.querySelectorAll('.row').forEach(r => r.setAttribute('aria-expanded','false'));
+    row.setAttribute('aria-expanded', String(!open));
+  };
+  led.addEventListener('click', e => { const r = e.target.closest('.row'); if (r) toggle(r); });
+  led.addEventListener('keydown', e => {
+    const r = e.target.closest('.row'); if (!r) return;
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(r); }
+  });
+})();
+</script>
+</body>
+</html>
