@@ -18,9 +18,12 @@
   </div>
   <div class="mast-main">
     <a class="wordmark" href="#top"><img src="assets/logo.webp" alt=""> VKU&nbsp;Zug</a>
-    <nav aria-label="Abschnitte">
-      <a href="#r1">Pflicht</a><a href="#r2">Ablauf</a><a href="#r3">Ort</a><a href="#r5">Anfahrt</a><a href="#r4">Termine</a><a href="#r6">Fragen</a>
-    </nav>
+    <div class="mast-end">
+      <nav aria-label="Abschnitte">
+        <a href="#r1">Pflicht</a><a href="#r2">Ablauf</a><a href="#r3">Ort</a><a href="#r5">Anfahrt</a><a href="#r4">Termine</a><a href="#r6">Fragen</a>
+      </nav>
+      <a class="sign" href="anmeldung.html">Anmelden</a>
+    </div>
   </div>
 </header>
 
@@ -61,6 +64,11 @@
           <span class="chop" id="e00c">ohne Befund</span>
         </div>
       </section>
+
+      <p class="act">
+        <a class="sign" href="anmeldung.html">Zur Anmeldung</a>
+        <span class="note"><b>CHF 230</b> · Storno bis 48 Std. vor Kursbeginn kostenlos</span>
+      </p>
 
       <!-- The establishing exhibit sits in the text column, so it lines up
            with Eintrag 00 above it. Exported at 1440px — twice the column —
@@ -141,18 +149,18 @@
     <span class="no" aria-hidden="true">04</span>
     <div>
       <h2>Register der Termine</h2>
-      <p class="lede">Verbindlich sind Preis, Kursort und freie Plätze im Buchungssystem.</p>
-      <table class="reg">
-        <thead><tr><th scope="col">Termin</th><th scope="col">Preis</th><th scope="col"><span class="src" style="border:0;padding:0;margin:0">Aktion</span></th></tr></thead>
-        <tbody>
-          <tr><td class="dt"><span class="day">Mo 31.08.</span> – <span class="day">Di 01.09.2026</span><span class="sub">18:00–22:00 · Industriestrasse 50 · CHF 230</span></td><td class="pr">CHF 230</td><td><a class="sign" href="#">Anmelden</a></td></tr>
-          <tr><td class="dt"><span class="day">Mo 05.10.</span> – <span class="day">Di 06.10.2026</span><span class="sub">18:00–22:00 · Industriestrasse 50 · CHF 230</span></td><td class="pr">CHF 230</td><td><a class="sign" href="#">Anmelden</a></td></tr>
-        </tbody>
-      </table>
+      <p class="lede">Die freien Plätze stehen im Buchungssystem der Strassenverkehrsämter. Das Register hat eine eigene Seite — es ist das Einzige hier, das sich von selbst ändert.</p>
+      <!-- No date table on this sheet on purpose: a hand-kept copy is wrong
+           within a week. The register lives once, on anmeldung.html, where
+           it is the association's own system rather than our transcript. -->
+      <p class="act">
+        <a class="sign" href="anmeldung.html">Termine &amp; Anmeldung</a>
+        <span class="note"><b>CHF 230</b> · zwei Abende, 18:00–22:00 · Storno bis 48 Std. kostenlos</span>
+      </p>
     </div>
     <div class="aside">
-      <dl><dt>Storno</dt><dd>48 Std. gratis</dd><dt>Kategorien</dt><dd>A1 · A · B1 · B</dd></dl>
-      <p class="src">Die Anmeldung erfolgt im externen Buchungssystem.</p>
+      <dl><dt>Preis</dt><dd>CHF 230</dd><dt>Storno</dt><dd>48 Std. gratis</dd><dt>Kategorien</dt><dd>A1 · A · B1 · B</dd><dt>Ort</dt><dd>Industriestr. 50</dd></dl>
+      <p class="src">Externes System (vku-pgs.asa.ch). Verbindlich sind Preis, Kursort und freie Plätze dort, nicht die Angaben auf dieser Seite.</p>
     </div>
   </article>
 
@@ -171,6 +179,10 @@
         <img src="assets/vku-zug-bahnhof-zug-anfahrt.webp" alt="Anfahrt zum Bahnhof Zug" loading="lazy" width="900" height="600">
         <figcaption><span>Anfahrt · Bahnhof Zug</span><b>Exhibit 05.1</b></figcaption>
       </figure>
+      <p class="act">
+        <a class="sign" href="anmeldung.html">Anmelden</a>
+        <span class="note">Beginn <b>18:00</b> — bitte einige Minuten früher eintreffen</span>
+      </p>
     </div>
     <div class="aside">
       <dl><dt>Zu Fuss</dt><dd>9 Min</dd><dt>Parkhaus</dt><dd>GIBZ</dd><dt>Beginn</dt><dd>18:00</dd></dl>
@@ -195,6 +207,10 @@
         <details><summary>Was muss ich mitnehmen?</summary><p>Nur das Handy — einige Inhalte sind online abrufbar. Lehrmittel, Getränke, Früchte und Schreibzeug stellen wir.</p></details>
         <details><summary>Was ist der Unterschied zwischen VKU und WAB?</summary><p>Der VKU ist der obligatorische Achtstundenkurs vor der praktischen Prüfung. Der WAB ist die Weiterausbildung danach.</p></details>
       </div>
+      <p class="act">
+        <a class="sign" href="anmeldung.html">Platz sichern</a>
+        <span class="note">Kursgruppe wählen, anmelden, Bestätigung am zweiten Abend</span>
+      </p>
     </div>
     <div class="aside">
       <dl><dt>Gültigkeit</dt><dd>unbeschränkt</dd><dt>Mitbringen</dt><dd>Handy</dd><dt>Inklusive</dt><dd>Material</dd></dl>
@@ -261,6 +277,20 @@
     const r = ev.target.closest('.row'); if (!r) return;
     if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggle(r); }
   });
+
+  /* ── live register ──────────────────────────────────────────────────
+     The waiting state is added by script, never in the markup: without
+     JavaScript the frame is simply visible, which is the behaviour that
+     matters most on the one control that takes bookings. A timeout
+     clears the state even if the load event never arrives.            */
+  const box = document.getElementById('asaBox');
+  if (box) {
+    const frame = box.querySelector('iframe');
+    const ready = () => { box.classList.remove('loading'); box.classList.add('ready'); };
+    box.classList.add('loading');
+    frame.addEventListener('load', ready, { once: true });
+    setTimeout(() => { if (!box.classList.contains('ready')) ready(); }, 12000);
+  }
 })();
 </script>
 </body>
