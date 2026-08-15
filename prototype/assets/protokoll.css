@@ -37,7 +37,12 @@
 
 :root{
   /* colour roles */
-  --paper:#fbfbf9; --paper-2:#f2f2ee; --ink:#0b0b0c; --mute:#63636a; --faint:#9d9da3;
+  --paper:#fbfbf9; --paper-2:#f2f2ee; --ink:#0b0b0c; --mute:#63636a;
+  /* the quiet tier. Was #9d9da3, which measured 2.60:1 on paper — under
+     the 3.0 floor even for large text, and this token carries the source
+     lines, which are content. 5.08:1 now; the hierarchy is held by size,
+     weight and tracking instead of by washing the ink out. */
+  --faint:#6b6b76;
   --rule:#0b0b0c; --hair:rgb(11 11 12/.16); --hair-2:rgb(11 11 12/.08);
   --stamp:#0d3b8f;                 /* record marks, numerals, links */
   --alert:#b3261e;                 /* the obligation, used 3× at most */
@@ -69,7 +74,9 @@ p{margin:0 0 var(--s3)}
            padding:var(--s2) 0 var(--s1);flex-wrap:wrap}
 .wordmark{display:flex;align-items:center;gap:var(--s2);font-family:var(--disp);font-weight:900;
           font-size:clamp(1.25rem,2.8vw,1.8rem);letter-spacing:-.04em;text-decoration:none;color:inherit}
-.wordmark img{width:1.5rem;border-radius:2px}
+/* height:auto so the intrinsic height attribute cannot win as a
+   presentational hint and blow the mark up to 1024px. */
+.wordmark img{width:1.5rem;height:auto;border-radius:2px}
 .mast nav{display:flex;gap:var(--s6);font-family:var(--disp);font-size:var(--t-xs);font-weight:700;
           letter-spacing:.1em;text-transform:uppercase}
 /* Padded to clear the 24px minimum target size (WCAG 2.5.8) while the rule
@@ -137,8 +144,8 @@ h2{font-weight:900;font-size:var(--t-h2);line-height:1.03;letter-spacing:-.04em;
 .v-text .hit{color:var(--alert);font-weight:700}
 .chop{font-family:var(--disp);font-weight:900;font-size:var(--t-xs);letter-spacing:.16em;
       text-transform:uppercase;border:2px solid var(--faint);color:var(--faint);padding:.45rem .7rem;
-      transform:rotate(-2deg);white-space:nowrap;transition:all var(--slow) var(--ease);opacity:.5}
-.entry00[data-done="1"] .chop{border-color:var(--alert);color:var(--alert);opacity:1;transform:rotate(-3.5deg) scale(1.04)}
+      transform:rotate(-2deg);white-space:nowrap;transition:all var(--slow) var(--ease)}
+.entry00[data-done="1"] .chop{border-color:var(--alert);color:var(--alert);transform:rotate(-3.5deg) scale(1.04)}
 .entry00[data-done="1"] .e-head .state{color:var(--alert)}
 /* A journey record is not an obligation: its completed stamp is a record
    mark, not an alarm. */
