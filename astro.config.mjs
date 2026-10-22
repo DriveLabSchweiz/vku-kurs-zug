@@ -8,13 +8,15 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  compressHTML: true,
   site: 'https://vku-kurs-zug.ch',
   output: 'server',
+  session: false,
   vite: {
     plugins: [tailwindcss()]
   },
   adapter: cloudflare({
-    sessions: false
+    imageService: 'compile'
   }),
   integrations: [sitemap({
     i18n: {

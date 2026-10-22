@@ -1,3 +1,4 @@
+import { env as cloudflareEnv } from 'cloudflare:workers';
 import type { APIRoute } from 'astro';
 
 // Validierung der Eingabedaten
@@ -72,7 +73,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
     // Store in Cloudflare KV (if available)
     try {
-      const kv = locals.runtime?.env?.CONTACTS_KV;
+      const kv = (cloudflareEnv as any).CONTACTS_KV;
       if (kv) {
         const id = `contact_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
         await kv.put(id, JSON.stringify(sanitizedData), {
