@@ -31,3 +31,11 @@ test('omits closed, unverified, started and incomplete groups',()=>{
   }
   assert.equal(mapCourse(group,'2026-12-14 18:00:00'),null);
 });
+
+test('unavailable data stays distinct from a verified empty timetable', async t=>{
+  const {getCourses} = await import('../src/lib/amelia.ts');
+  const upstream = t.mock.method(globalThis,'fetch',async()=>new Response(null,{status:503}));
+  assert.equal(await getCourses(),null);
+  upstream.mock.mockImplementation(async()=>Response.json({data:{events:[],count:0}}));
+  assert.deepEqual(await getCourses(),[]);
+});

@@ -89,6 +89,10 @@ const footerLinks = {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
+  {(currentPath==='/' || currentPath==='/en') && <>
+    <link rel="preload" as="image" type="image/webp" href="/images/eingang-mobil.webp" media="(max-width:720px)" fetchpriority="high" />
+    <link rel="preload" as="image" type="image/webp" href="/images/eingang.webp" media="(min-width:721px)" fetchpriority="high" />
+  </>}
   <meta name="description" content={description} />
   <meta name="robots" content={robots} />
   <link rel="canonical" href={canonical} />

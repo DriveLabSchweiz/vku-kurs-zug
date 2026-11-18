@@ -137,3 +137,7 @@ html {scroll-padding-top:76px}
 @media(max-width:900px){.wide-nav{display:none}.mobile-menu{display:block}.switch{margin-left:auto}.site-head nav{gap:14px}}
 @media(max-width:720px){.site-head nav,.wrap{width:calc(100% - 32px)}.site-head nav{min-height:61px}.wordmark{font-size:23px}.wordmark img{width:47px}.header-cta{font-size:.88rem;padding:10px 13px}.zug-hero,.split-plan{grid-template-columns:1fr}.hero-copy{padding:30px 20px}.hero-photo{min-height:195px;background-position:center 54%}.page-top{padding:32px 0}.split-plan aside{border:0;padding:0}.plan-section{padding:30px 0}.session-list li{align-items:start;flex-wrap:wrap;gap:0 10px}.course-filter{gap:10px}.course-head{gap:8px}.course-head .overline{letter-spacing:.06em}.switch{padding-left:0;border:0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+.hero-photo {background-image:url('/images/eingang.webp')}
+@media(max-width:720px){.hero-photo{background-image:url('/images/eingang-mobil.webp')}}
+main p a:not(.action){text-decoration:underline;text-underline-offset:3px}
