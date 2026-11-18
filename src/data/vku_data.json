@@ -7,14 +7,19 @@
   },
   "course": {
     "name": "Verkehrskundeunterricht (VKU) Zug",
-    "price": "CHF 230.-",
+    "price": "CHF 230 (2026)",
     "duration": "8 Stunden",
-    "duration_days": "2 Tage",
+    "duration_days": "2026 an zwei Tagen, ab 2027 an vier Tagen",
     "location_main": "Industriestrasse 50, 6300 Zug",
     "location_detail": "Ca. 9 Minuten zu Fuss vom Zug Bahnhof.",
     "parking": "Parkhaus GIBZ gegenüber (auch für Motorräder)",
-    "cancellation_policy": "Kostenlose Stornierung bis 48 Stunden vor Kursbeginn",
-    "inclusions": ["Lernmaterial", "Zertifikat", "Getränke", "Früchte"],
+    "cancellation_policy": "Kostenlos bis 6 Tage vor Kursbeginn gemäss DriveLab-AGB",
+    "inclusions": [
+      "Lernmaterial",
+      "Zertifikat",
+      "Getränke",
+      "Früchte"
+    ],
     "modules": [
       {
         "title": "Verkehrssehen",
@@ -36,23 +41,23 @@
     "faq": [
       {
         "question": "Wann sollte ich die Verkehrskunde besuchen?",
-        "answer": "Direkt nach der bestandenen Theorieprüfung. Der VKU ist unbeschränkt gültig und ermöglicht die Anmeldung zur praktischen Führerprüfung (falls keine Jahresfrist besteht)."
+        "answer": "Im Ausbildungsweg 2026 kannst du nach bestandener Theorie mit Lernfahrausweis teilnehmen. Ab Januar 2027 kommt der VKU im neuen Ausbildungsweg vor der Basistheorieprüfung."
       },
       {
         "question": "Was ist Verkehrskundeunterricht?",
-        "answer": "Der VKU ist ein zweitägiger Kurs, der die Brücke zwischen Theorie und den praktischen Fahrstunden schlägt, um die Verkehrssicherheit zu erhöhen. Er widmet sich der Entwicklung des Verkehrssinnes und der Fahrschuldidaktik."
+        "answer": "Verkehrskunde schult deinen Blick für Gefahren. Im Präsenzunterricht übst du, andere Verkehrsteilnehmende einzuschätzen und deine Geschwindigkeit, Abstände und Aufmerksamkeit anzupassen."
       },
       {
         "question": "Wann muss ich den VKU besuchen?",
-        "answer": "Der VKU ist obligatorisch für alle, die zum ersten Mal einen Führerschein der Kategorie B (Auto) oder Kategorie A1/A (Motorrad) machen. Ein gültiger Lernfahrausweis ist zur Anmeldung erforderlich."
+        "answer": "Der vollständige Kurs gehört beim erstmaligen Erwerb der Kategorien A, A1, B und B1 zur Ausbildung. Wer die Basistheorie vor 2027 bestanden hat, weist die Teilnahme vor der praktischen Prüfung nach."
       },
       {
         "question": "Wie lange dauert der VKU?",
-        "answer": "Der VKU dauert 8 Stunden, bei DriveLab intensiv an zwei Tagen."
+        "answer": "Insgesamt acht Stunden. Die Zuger Gruppen 2026 sind auf zwei Tage verteilt. Ab 2027 finden die vier Einheiten an vier separaten Tagen statt."
       },
       {
         "question": "Wie teuer ist ein VKU?",
-        "answer": "Der VKU kostet in Zug CHF 230.-. Das beinhaltet alle Kosten wie Lernmaterial, Zertifikat, Getränke und Früchte."
+        "answer": "Beim ausgeschriebenen Angebot 2026 sind CHF 230 für alle Kursteile inklusive Lernmaterial, Nachweis, Getränken und Früchten vorgesehen. Den Preis deiner Gruppe siehst du vor der Anmeldung."
       },
       {
         "question": "Wie lange ist die Verkehrskunde gültig?",
@@ -60,11 +65,11 @@
       },
       {
         "question": "Was muss man beim VKU mitnehmen?",
-        "answer": "Nur das Handy, da einige Inhalte online abrufbar sind. Lehrmittel, Getränke, Früchte, Schreibzeug und Notizmaterial werden gestellt und sind im Preis inbegriffen."
+        "answer": "Für einen Kurs 2026 nimm deinen Lernfahrausweis und dein geladenes Handy mit. Schreibzeug, Lernmaterial und Getränke sind vor Ort. Prüfe für 2027 die FABER-PIN und die Angaben in der Bestätigung."
       },
       {
         "question": "Was ist der Unterschied zwischen VKU und WAB?",
-        "answer": "Der VKU (Verkehrskundeunterricht) ist der obligatorische 8-Stunden-Kurs VOR der praktischen Prüfung. Der WAB (Weiterbildungskurs) ist ein 2-tägiger Kurs, den du innerhalb der ersten 2 Jahre NACH Erhalt des Führerscheins absolvieren musst."
+        "answer": "Der VKU gehört zur Fahrausbildung. Der eintägige WAB-Kurs gehört zur anschliessenden Probezeit und ist grundsätzlich innerhalb von zwölf Monaten nach Erteilung des Führerausweises auf Probe zu besuchen."
       },
       {
         "question": "Kann ich den VKU online machen?",
@@ -76,15 +81,15 @@
       },
       {
         "question": "Wie melde ich mich zur praktischen Prüfung an?",
-        "answer": "Nach dem VKU kannst du dich beim Strassenverkehrsamt Zug zur praktischen Prüfung anmelden. Du benötigst dafür dein VKU-Zertifikat und den Lernfahrausweis."
+        "answer": "DriveLab bestätigt die vollständige Teilnahme digital. Für die Prüfungsanmeldung gelten ausserdem die kantonalen Voraussetzungen und gegebenenfalls die Mindestlernphase."
       },
       {
         "question": "Gibt es eine Abbruchfrist für die VKU-Anmeldung?",
-        "answer": "Ja, du kannst bis 48 Stunden vor Kursbeginn kostenlos absagen. Bei späterer Absage oder Nichterscheinen fällt die volle Kursgebühr an."
+        "answer": "Bei DriveLab kannst du bis sechs Tage vor Kursbeginn kostenlos stornieren oder verschieben. Für spätere Änderungen gelten die Kursbedingungen in Ziffer 6 der DriveLab-AGB."
       },
       {
         "question": "Ist der VKU auch auf Englisch verfügbar?",
-        "answer": "Ja, wir bieten den VKU in Zug auf Deutsch und Englisch an. Bei der Buchung kannst du deine bevorzugte Sprache angeben."
+        "answer": "Der Kursplan nennt die Unterrichtssprache jeder Gruppe. Wähle den Sprachfilter Englisch. Ist in Zug keine englische Gruppe frei, findest du über den Planer englischsprachige Termine in Zürich."
       },
       {
         "question": "Kann ich mit dem Motorradführerschein am Auto-VKU teilnehmen?",
@@ -108,11 +113,11 @@
       },
       {
         "question": "Wie erhalte ich mein VKU-Zertifikat?",
-        "answer": "Das Zertifikat erhältst du direkt nach Abschluss des Kurses vor Ort. Es ist sofort gültig und berechtigt zur Anmeldung zur praktischen Prüfung."
+        "answer": "Nach vollständiger Teilnahme trägt der Anbieter deinen Kursbesuch digital ein. Bewahre deine Buchungsbestätigung für Rückfragen auf."
       },
       {
         "question": "Was ist der Ablauf eines typischen VKU-Tages?",
-        "answer": "Der Kurs dauert jeweils 4 Stunden (mit Pausen). Wir behandeln 2 Module pro Tag mit interaktiven Präsentationen, Videos, Gruppendiskussionen und praktischen Übungen."
+        "answer": "Beim Zuger Abendkurs 2026 bearbeitest du pro Abend zwei Themenblöcke mit einer kurzen Pause. Ab 2027 verteilen sich die vier zweistündigen Einheiten auf vier Tage."
       }
     ]
   },
@@ -120,25 +125,43 @@
     {
       "slug": "zug-hauptbahnhof",
       "name": "Zug Hauptbahnhof",
-      "description": "Beschreibung VKU Kursraum Zug HB, Anreise ÖV, Besonderheiten."
+      "description": "Rund neun Minuten zu Fuss vom Bahnhof zur Industriestrasse 50."
     },
     {
       "slug": "baar",
       "name": "Baar (Kanton Zug)",
-      "description": "VKU in Baar im Kanton Zug."
+      "description": "Ab Baar Bahnhof mit dem Bus bis Zug, Göbli oder mit der Bahn nach Zug."
     },
     {
       "slug": "steinhausen",
       "name": "Steinhausen",
-      "description": "VKU in Steinhausen (Kanton Zug)."
+      "description": "Verbindung von Steinhausen nach Zug und Fussweg zum Schulungsraum."
     }
   ],
   "external_links": [
-    {"text": "Bundesamt für Strassen (ASTRA)", "url": "https://www.astra.admin.ch/astra/de/home.html"},
-    {"text": "Kantonales Strassenverkehrsamt Zug", "url": "https://www.zg.ch/behoerden/sicherheitsdirektion/strassenverkehrsamt"},
-    {"text": "DriveLab Fahrstunden", "url": "https://drivelab.ch/fahrstunden"},
-    {"text": "DriveLab Intensivkurs", "url": "https://drivelab.ch/intensivkurs"},
-    {"text": "DriveLab Motorrad", "url": "https://drivelab.ch/motorrad"},
-    {"text": "Nothelferkurs Zürich", "url": "https://www.nothelferkurs-zuerich.ch/"}
+    {
+      "text": "Bundesamt für Strassen (ASTRA)",
+      "url": "https://www.astra.admin.ch/astra/de/home.html"
+    },
+    {
+      "text": "Kantonales Strassenverkehrsamt Zug",
+      "url": "https://www.zg.ch/behoerden/sicherheitsdirektion/strassenverkehrsamt"
+    },
+    {
+      "text": "DriveLab Fahrstunden",
+      "url": "https://drivelab.ch/fahrstunden"
+    },
+    {
+      "text": "DriveLab Intensivkurs",
+      "url": "https://drivelab.ch/intensivkurs"
+    },
+    {
+      "text": "DriveLab Motorrad",
+      "url": "https://drivelab.ch/motorrad"
+    },
+    {
+      "text": "Nothelferkurs Zürich",
+      "url": "https://www.nothelferkurs-zuerich.ch/"
+    }
   ]
 }

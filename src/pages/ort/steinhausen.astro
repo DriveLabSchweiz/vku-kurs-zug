@@ -9,16 +9,15 @@ const otherLocations = locations.filter((l) => l.slug !== "steinhausen");
 ---
 
 <BaseLayout
-  title="VKU Steinhausen ZG – Verkehrskunde im Raum Zug"
-  description="VKU Kurs in Steinhausen ZG: Verkehrskundeunterricht für Fahrschüler aus Steinhausen und Umgebung. Kurze Wege, praxisnaher Unterricht, offizielle Bestätigung inklusive."
+  title="VKU ab Steinhausen – so kommst du zum Kurs"
+  description="Dein Ziel ist die Industriestrasse 50 in Zug. Plane den Weg mit Bahn, Bus oder Auto und wähle deinen Kursabend."
   canonical="https://vku-kurs-zug.ch/ort/steinhausen"
   lang="de"
 >
   <!-- Hero Section -->
   <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
     <div class="max-w-6xl mx-auto px-4">
-      <h1 class="text-4xl font-bold mb-4">VKU Steinhausen</h1>
-      <p class="text-xl">Verkehrskundeunterricht in Steinhausen, Kanton Zug</p>
+      <h1 class="text-4xl font-bold mb-4">VKU ab Steinhausen – so kommst du zum Kurs</h1><p class="text-xl">Dein Ziel ist die Industriestrasse 50 in Zug.</p>
     </div>
   </section>
 
@@ -37,44 +36,19 @@ const otherLocations = locations.filter((l) => l.slug !== "steinhausen");
       <div>
         <OptimizedImage
           src="/vku-klassenzimmer-u-form.webp"
-          alt="VKU Klassenzimmer in Steinhausen in U-Form mit modernen Tischen und Stuehlen"
+          alt="Unterrichtsraum in Zug"
           width={600}
           height={400}
           class="rounded-lg shadow-lg mb-6 w-full object-cover"
           loading="eager"
         />
-        <h2 class="text-3xl font-bold mb-6">VKU in Steinhausen</h2>
-        <p class="text-lg text-gray-700 mb-4">
-          Steinhausen ist eine wachsende Gemeinde im Kanton Zug mit guter
-          Infrastruktur. Unser Standort Steinhausen bietet dir eine komfortable
-          Umgebung für deinen Verkehrskundeunterricht.
-        </p>
-        <p class="text-lg text-gray-700 mb-4">
-          Mit modernen Lernmaterialien und erfahrenen Kursleitern bereiten wir
-          dich optimal auf deine Fahrprüfung vor. Der Standort ist leicht
-          erreichbar und bietet gute Verkehrsanbindungen.
-        </p>
-        <p class="text-lg text-gray-700 mb-6">
-          Wie an allen unseren Standorten sind Getränke und Früchte im Kurspreis
-          inbegriffen.
-        </p>
-
-        <h3 class="text-2xl font-bold mb-4">Anreise</h3>
-        <ul class="text-gray-700 space-y-2 mb-6">
-          <li><strong>Mit dem Auto:</strong> Zentrale Lage mit Parkplätzen</li>
-          <li><strong>Mit dem Bus:</strong> Gute Busanbindung</li>
-          <li><strong>Mit dem Zug:</strong> Bahnhof Steinhausen in der Nähe</li>
-        </ul>
-
-        <h3 class="text-2xl font-bold mb-4">Adresse</h3>
-        <p class="text-gray-700 mb-6">
-          Steinhausen<br />
-          Kanton Zug<br />
-          Schweiz
-        </p>
-
-        <a
-          href="/kontakt"
+        <h2 class="text-3xl font-bold mb-4">Von Steinhausen zum Kursraum</h2><p class="mb-4">Fahre ab Bahnhof Steinhausen bis Zug. Rechne ab Bahnhof Zug rund neun Minuten Fussweg und einen Puffer für die Ankunft ein.</p>
+       <h3 class="text-xl font-bold">Anreise mit dem Bus</h3><p class="mb-4">Vergleiche im Fahrplan die Verbindungen von deiner Haltestelle nach Zug, Göbli und nach Zug Bahnhof. Nach einem Abendkurs kann eine andere Verbindung schneller sein.</p>
+       <h3 class="text-xl font-bold">Mit Auto oder Motorrad</h3><p class="mb-4">Plane das Parkhaus GIBZ gegenüber dem Kurslokal ein. Getränke, Früchte und Unterrichtsmaterial stehen im Kursraum bereit.</p>
+       <h3 class="text-xl font-bold">Adresse und Fahrplan</h3><p>Industriestrasse 50, 6300 Zug</p>
+       <p class="inline-links mb-6"><a href="https://www.sbb.ch/de">Verbindung bei der SBB suchen</a></p>
+       <a
+          href="/kurstermine"
           class="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 inline-block"
         >
           Jetzt anmelden
@@ -116,7 +90,7 @@ const otherLocations = locations.filter((l) => l.slug !== "steinhausen");
 
     <!-- Weitere Standorte -->
     <div class="mt-12">
-      <h2 class="text-3xl font-bold mb-8">Weitere VKU-Standorte in Zug</h2>
+      <h2 class="text-3xl font-bold mb-8">Weitere Wege zum Kurslokal</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {
           otherLocations.map((location) => (

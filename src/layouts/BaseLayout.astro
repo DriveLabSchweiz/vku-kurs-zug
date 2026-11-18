@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { translations } from '../lib/translations.mjs';
 
 interface Props {
   title?: string;
@@ -13,8 +14,8 @@ interface Props {
 const { 
   title = 'VKU Zug – Verkehrskundeunterricht im Kanton Zug', 
   description = 'Jetzt Ihren VKU Zug Kurs in Zug buchen: 8 Stunden Verkehrskunde, zentrale Lage, inkl. Material. Plätze sichern!', 
-  image = '/vku-zug-hero.png', 
-  canonical = 'https://vku-kurs-zug.ch',
+  image = '/images/kursraum.webp',
+
   robots = 'index, follow',
   lang = 'de'
 } = Astro.props;
@@ -22,34 +23,33 @@ const {
 const origin = 'https://vku-kurs-zug.ch';
 const fullImage = image.startsWith('http') ? image : `${origin}${image}`;
 
-const currentPath = new URL(Astro.request.url).pathname;
-
-// Language Switcher Logic
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonical = origin + (currentPath === '/en' ? '/en/' : currentPath);
 const isEn = lang === 'en';
-const dePath = isEn ? currentPath.replace(/^\/en/, '') || '/' : currentPath;
-const enPath = isEn ? currentPath : `/en${currentPath === '/' ? '' : currentPath}`;
-
-// Navigation Links
+const dePath = isEn ? Object.keys(translations).find(k=>translations[k].replace(/\/$/,'') === currentPath) || '/' : currentPath;
+const enPath = translations[dePath];
+const dates = isEn ? '/en/course-dates' : '/kurstermine';
 const navLinks = [
-  { href: isEn ? '/en' : '/', label: isEn ? 'Home' : 'Startseite' },
-  { href: isEn ? '/en/kursinhalt' : '/kursinhalt', label: isEn ? 'Course Content' : 'Kursinhalt' },
-  { href: isEn ? '/en/faq' : '/faq', label: 'FAQ' },
-  { href: isEn ? '/en/kontakt' : '/kontakt', label: isEn ? 'Contact' : 'Kontakt' },
+  {href:dates,label:isEn?'Course dates':'Kurstermine'},
+  {href:isEn?'/en/ort/zug-hauptbahnhof':'/ort/zug-hauptbahnhof', label:isEn?'Getting here':'Anfahrt'},
+  {href:isEn?'/en/preparation':'/vorbereitung',label:isEn?'Preparation':'Vorbereitung'},
+  {href:isEn?'/en/kursinhalt':'/kursinhalt',label:isEn?'Course content':'Kursinhalt'},
+  {href:isEn?'/en/faq':'/faq',label:'FAQ'},
+  {href:isEn?'/en/kontakt':'/kontakt',label:isEn?'Contact':'Kontakt'},
 ];
-
 const footerLinks = {
   vku: {
     title: 'VKU Zug',
     desc: isEn ? 'Traffic theory course in the center of Zug.' : 'Verkehrskundeunterricht im Zentrum von Zug.',
     addr: 'Industriestrasse 50, 6300 Zug',
-    tel: 'Tel: +41 41 219 36 60'
+    tel: 'DriveLab GmbH'
   },
   nav: {
     title: 'Navigation',
-    links: navLinks
+    links: [...navLinks, ...(isEn ? [{href:'/en/traffic-vision', label:'Traffic vision'}] : [{href:'/vku-preis', label:'Preis und Leistungen'}, {href:'/fuehrerschein-guide',label:'Weg zum Führerausweis'}])]
   },
   loc: {
-    title: isEn ? 'Locations' : 'Standorte',
+    title: isEn ? 'Getting here from' : 'Anreise aus der Region',
     links: [
       { href: isEn ? '/en/ort/zug-hauptbahnhof' : '/ort/zug-hauptbahnhof', label: 'Zug Hauptbahnhof' },
       { href: isEn ? '/en/ort/baar' : '/ort/baar', label: 'Baar' },
@@ -68,7 +68,7 @@ const footerLinks = {
     links: [
       { href: 'https://nothelferkurs-zuerich.ch', label: isEn ? 'First Aid Course Zurich' : 'Nothelferkurs Zürich', external: true },
       { href: 'https://english-vku-zurich.ch', label: 'VKU English Zurich', external: true },
-      { href: 'https://drivelab.ch', label: isEn ? 'DriveLab Driving School' : 'DriveLab Fahrschule', external: true },
+      { href: 'https://drivelab.ch/fahrschule/zug/', label: isEn ? 'DriveLab Driving School' : 'DriveLab Fahrschule', external: true },
     ]
   },
   resources: {
@@ -94,9 +94,11 @@ const footerLinks = {
   <link rel="canonical" href={canonical} />
   
   <!-- Hreflang Tags -->
-  <link rel="alternate" hreflang="de-CH" href={`https://vku-kurs-zug.ch${dePath === '/' ? '' : dePath}`} />
-  <link rel="alternate" hreflang="en-CH" href={`https://vku-kurs-zug.ch${enPath === '/' ? '' : enPath}`} />
-  
+  {enPath && <>
+    <link rel="alternate" hreflang="de-CH" href={origin + dePath} />
+    <link rel="alternate" hreflang="en-CH" href={origin + enPath} />
+    <link rel="alternate" hreflang="x-default" href={origin + dePath} />
+  </>}
   <!-- Open Graph -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
@@ -115,117 +117,28 @@ const footerLinks = {
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="alternate icon" href="/favicon.svg" />
   
-  <!-- Schema.org Markup - LocalBusiness -->
+  <meta name="theme-color" content="#102f40" />
   <script type="application/ld+json" is:inline set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "VKU Zug – Verkehrskundeunterricht",
-    "alternateName": "DriveLab VKU Zug",
-    "image": fullImage,
-    "description": description,
-    "url": canonical,
-    "telephone": "+41 41 219 36 60",
-    "email": "info@drivelab.ch",
-    "priceRange": "CHF 230",
-    "currenciesAccepted": "CHF",
-    "paymentAccepted": "Cash, Credit Card, TWINT",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Industriestrasse 50",
-      "addressLocality": "Zug",
-      "postalCode": "6300",
-      "addressCountry": "CH"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 47.1736, 
-      "longitude": 8.5167 
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "08:00",
-        "closes": "18:00"
-      }
-    ],
-    "areaServed": {
-      "@type": "City",
-      "name": "Zug",
-      "containedInPlace": {
-        "@type": "State",
-        "name": "Kanton Zug"
-      }
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "VKU Kurse",
-      "itemListElement": {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Course",
-          "name": "Verkehrskundeunterricht (VKU)",
-          "description": "8-stündiger obligatorischer Verkehrskundeunterricht",
-          "duration": "PT8H"
-        },
-        "price": "230",
-        "priceCurrency": "CHF"
-      }
-    },
-    "sameAs": [
-      "https://drivelab.ch",
-      "https://nothelferkurs-zuerich.ch",
-      "https://english-vku-zurich.ch"
-    ]
-  })} />
-  
-  <!-- Schema.org Markup - Organization -->
-  <script type="application/ld+json" is:inline set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "DriveLab GmbH",
-    "alternateName": "VKU Zug",
-    "url": "https://vku-kurs-zug.ch",
-    "logo": "https://vku-kurs-zug.ch/logo.webp",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+41-41-219-36-60",
-      "contactType": "customer service",
-      "email": "info@drivelab.ch",
-      "areaServed": "CH",
-      "availableLanguage": ["de", "en"]
-    },
-    "sameAs": [
-      "https://drivelab.ch",
-      "https://nothelferkurs-zuerich.ch",
-      "https://english-vku-zurich.ch"
-    ]
+    '@context':'https://schema.org','@type':'WebPage',url:canonical,name:title,inLanguage:lang,
+    publisher:{'@type':'Organization',name:'DriveLab GmbH',url:'https://drivelab.ch/'}
   })} />
 </head>
 <body class="bg-white text-gray-900 font-sans">
   <!-- Header & Navigation -->
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href={isEn ? '/en' : '/'} class="flex items-center gap-2">
-        <img src="/logo.webp" alt="VKU Zug Logo" class="h-8" />
-      </a>
-      <div class="hidden md:flex space-x-6 items-center">
-        {navLinks.map(link => (
-          <a href={link.href} class={`hover:text-blue-600 ${currentPath === link.href ? 'text-blue-600 font-semibold' : ''}`}>{link.label}</a>
-        ))}
-        <!-- Language Switcher -->
-        <div class="flex items-center space-x-2 border-l pl-4 ml-4">
-          <a href={dePath} class={`text-sm ${!isEn ? 'font-bold text-blue-600' : 'text-gray-500 hover:text-blue-600'}`}>DE</a>
-          <span class="text-gray-300">|</span>
-          <a href={enPath} class={`text-sm ${isEn ? 'font-bold text-blue-600' : 'text-gray-500 hover:text-blue-600'}`}>EN</a>
-        </div>
-      </div>
-      <a href="#booking" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">{isEn ? 'Book Now' : 'Jetzt buchen'}</a>
+  <a class="skip" href="#main">{isEn?'Skip to content':'Zum Inhalt'}</a>
+  <header class="site-head">
+    <nav aria-label={isEn?'Main navigation':'Hauptnavigation'}>
+      <a class="wordmark" href={isEn?'/en/':'/'} aria-label="VKU Zug"><img src="/logo.webp" width="62" height="31" alt="VKU" /><strong>Zug</strong></a>
+      <div class="wide-nav">{navLinks.slice(0,4).map(l=><a aria-current={currentPath===l.href?'page':undefined} href={l.href}>{l.label}</a>)}</div>
+      <a class="switch" href={isEn?dePath:enPath||'/en/'} lang={isEn?'de':'en'}>{isEn?'DE':'EN'}</a>
+      <a class="action header-cta" href={dates}>{isEn?'Find a date':'Termin finden'} <span aria-hidden="true">↗</span></a>
+      <details class="mobile-menu"><summary aria-label={isEn?'Navigation menu':'Navigationsmenü'}>☰</summary>
+        <div>{navLinks.map(l=><a href={l.href}>{l.label}</a>)}</div>
+      </details>
     </nav>
   </header>
-
   <!-- Main Content -->
-  <main class="min-h-screen">
+  <main id="main" class="min-h-screen">
     <slot />
   </main>
 
@@ -273,7 +186,7 @@ const footerLinks = {
         </div>
       </div>
       <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400">
-        <p>&copy; 2025 VKU Zug. {isEn ? 'All rights reserved.' : 'Alle Rechte vorbehalten.'}</p>
+        <p>&copy; {new Date().getFullYear()} DriveLab GmbH. {isEn ? 'All rights reserved.' : 'Alle Rechte vorbehalten.'}</p>
         <div class="flex space-x-4 mt-4 md:mt-0">
           {footerLinks.legal.links.map(link => (
             <a href={link.href} class="hover:text-white text-sm">{link.label}</a>

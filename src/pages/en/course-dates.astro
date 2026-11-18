@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CourseList from '../../components/CourseList.astro';
+---
+<BaseLayout lang="en" title="VKU Zug course dates – compare times and teaching languages" description="Choose a complete Zug VKU by language and time. Check every session at Industriestrasse 50 and book the selected group directly with DriveLab." robots={Astro.url.search ? "noindex, follow" : "index, follow"}>
+ <header class="page-top"><div class="wrap"><p class="overline">DriveLab · Zug</p><h1>VKU Zug course dates – which group fits?</h1><p>Choose when you can attend. Each available group shows every session, the teaching language and the full course price.</p></div></header>
+
+ <section class="plan-section wrap"><h2>Available course groups in Zug</h2>
+ <p>Course venue · Industriestrasse 50, 6300 Zug</p>
+ <CourseList lang="en" filters /></section>
+ <section class="plan-section" style="background:var(--warm)"><div class="wrap split-plan"><div>
+ <h2>Planning the whole course</h2>
+ <p>Evening groups start at 17:00 or later on every course day. Weekend groups include at least one Saturday or Sunday, so a group can combine a weekday evening with a Saturday.</p>
+ <p>Check the start and finish of each session against your work or school timetable. Add about nine minutes to walk from Zug station. The booking link takes you to the selected group at DriveLab, where you can check places and payment options.</p></div>
+ <aside><h3>Before you book</h3><a href="/en/ort/baar">Directions from Baar →</a><a href="/en/preparation">Preparation and documents →</a><a href="https://drivelab.ch/en/contact/">Ask DriveLab a course question ↗</a></aside></div></section>
+</BaseLayout>

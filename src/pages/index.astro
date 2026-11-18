@@ -2,30 +2,29 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import vkuData from "../data/vku_data.json";
 import OptimizedImage from "../components/OptimizedImage.astro";
-import CourseIframe from "../components/CourseIframe.astro";
 import CourseList from "../components/CourseList.astro";
 
 const { course, locations } = vkuData;
 
 const galleryImages = [
   {
-    src: "/vku-lokal-aussenansicht-neu.jpg",
+    src: "/images/eingang.webp",
     alt: "Aussenansicht des VKU Lokals an der Industriestrasse 50 in Zug",
   },
   {
-    src: "/vku-klassenzimmer-1.jpg",
+    src: "/images/kursraum.webp",
     alt: "Moderner VKU Kursraum in Zug mit U-förmiger Bestuhlung",
   },
   {
-    src: "/vku-klassenzimmer-2.jpg",
+    src: "/images/vku-klassenzimmer-2.webp",
     alt: "VKU Klassenzimmer mit Whiteboard und Projektor",
   },
   {
-    src: "/vku-klassenzimmer-3.jpg",
+    src: "/images/vku-klassenzimmer-3.webp",
     alt: "VKU Schulungsraum mit moderner Ausstattung",
   },
   {
-    src: "/vku-whiteboard-programm.jpg",
+    src: "/images/vku-whiteboard-programm.webp",
     alt: "VKU Unterrichtsprogramm auf Whiteboard mit Lernzielen",
   },
   {
@@ -34,56 +33,31 @@ const galleryImages = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Sarah M.",
-    text: "Super Kurs! Die 8 Stunden vergingen wie im Flug. Sehr praxisnah und verständlich erklärt.",
-    role: "Fahrschülerin",
-  },
-  {
-    name: "Luca B.",
-    text: "Tolle Atmosphäre und coole Instruktoren. Kann ich nur empfehlen für den VKU in Zug.",
-    role: "Fahrschüler",
-  },
-  {
-    name: "Jana K.",
-    text: "Zentral gelegen und gut organisiert. Die Snacks waren ein nettes Extra!",
-    role: "Fahrschülerin",
-  },
-];
 ---
 
 <BaseLayout
-  title="VKU Zug 2025 – Verkehrskundeunterricht ab CHF 230 | Jetzt buchen"
-  description="VKU Zug: 8 Stunden Verkehrskundeunterricht ✓ Zentral am Bahnhof ✓ CHF 230 inkl. Material ✓ Intensivkurs an 2 Tagen ✓ Jetzt online anmelden!"
+  title="VKU Zug – passende Kursabende finden und buchen"
+  description="Vergleiche freie VKU-Kurse in Zug nach Zeitfenster und Sprache. Alle Kurstage, Preis und Anfahrt ab Baar im Überblick. Deinen Block direkt bei DriveLab buchen."
   canonical="https://vku-kurs-zug.ch/"
   lang="de"
-  image="/vku-zug-social-share.webp"
+  image="/images/kursraum.webp"
 >
-  <!-- Hero Section with Background Image -->
-  <section
-    class="relative h-96 md:h-[500px] bg-cover bg-center"
-    style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/vku-lokal-aussenansicht-neu.jpg'); background-size: cover; background-position: center;"
-  >
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="text-center text-white px-4">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">
-          VKU Kurs Zug – Verkehrskundeunterricht
-        </h1>
-        <p class="text-xl md:text-2xl mb-8">
-          Dein Weg zum Führerschein: 8 Stunden Intensivkurs im Zentrum von Zug
-        </p>
-        <a
-          href="#booking"
-          class="bg-white text-blue-600 px-8 py-3 rounded font-bold hover:bg-gray-100 inline-block transition transform hover:scale-105"
-          >Jetzt Kursdatum wählen</a
-        >
-      </div>
-    </div>
+  <section class="zug-hero">
+    <div class="hero-copy"><p class="overline">DriveLab · Verkehrskunde</p>
+      <h1>VKU Zug – finde deinen Kursabend.</h1>
+      <p>Vergleiche alle Kurstage und finde den Block, der nach der Lehre, Schule oder Arbeit in deinen Kalender passt.</p>
+      <a class="action sun" href="/kurstermine">Kurstermine vergleichen <span aria-hidden="true">→</span></a>
+    </div><div class="hero-photo" role="img" aria-label="Eingang des Kurslokals" style="background-image:url('/images/eingang.webp')"><span>Industriestrasse 50 · Zug</span></div>
   </section>
-
+  <section id="termine" class="plan-section wrap split-plan">
+    <div><h2>Nächste Kurstermine</h2><CourseList lang="de" /></div>
+    <aside><h2>Dein Kursbesuch</h2>
+    <a href="/kurstermine?zeit=evening&amp;sprache=all">Kurse nach Feierabend →</a>
+    <a href="/ort/baar">Vom Bahnhof Baar zum Kurs →</a>
+    <a href="/vorbereitung">Was muss ich mitbringen? →</a></aside>
+  </section>
   <!-- Table of Contents -->
-  <nav class="bg-gray-50 py-4 sticky top-20 z-40 shadow-sm">
+  <nav class="bg-gray-50 py-4 border-y border-gray-200">
     <div class="max-w-6xl mx-auto px-4">
       <p class="text-sm font-semibold text-gray-600 mb-2">Auf dieser Seite:</p>
       <ul class="flex flex-wrap gap-4 text-sm">
@@ -143,7 +117,7 @@ const testimonials = [
       Portemonnaie für den VKU also zu Hause lassen. Auch Getränke und Früchte
       gehen auf unsere Kosten. Wir bieten dir einen modernen <strong
         >VKU Intensivkurs</strong
-      >, den du bequem an zwei Abenden absolvieren kannst.
+      >, der im Kursplan 2026 auf zwei Tage verteilt ist.
     </p>
   </section>
 
@@ -189,9 +163,9 @@ const testimonials = [
         <div
           class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
         >
-          <p class="text-4xl font-bold text-blue-600 mb-2">48h</p>
+          <p class="text-4xl font-bold text-blue-600 mb-2">6 Tage</p>
           <p class="text-gray-700 font-semibold">Stornierung</p>
-          <p class="text-sm text-gray-500 mt-2">Kostenlos bis 48h vor Kursbeginn</p>
+          <p class="text-sm text-gray-500 mt-2">Kostenlose Stornierung bis 6 Tage vor Kursbeginn</p>
         </div>
         <div
           class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
@@ -202,17 +176,6 @@ const testimonials = [
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Upcoming Courses List -->
-  <section id="termine" class="py-12 max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-8">Nächste Kurstermine</h2>
-    <p class="text-lg text-gray-700 mb-6">
-      Sichere dir jetzt deinen Platz für den nächsten <strong
-        >VKU Kurs in Zug</strong
-      >. Unsere Kurse sind oft schnell ausgebucht.
-    </p>
-    <CourseList lang="de" />
   </section>
 
   <!-- Module -->
@@ -246,13 +209,7 @@ const testimonials = [
 
   <!-- Standorte -->
   <section id="standorte" class="py-12 max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-8 text-center">VKU Standorte in Zug</h2>
-    <p class="text-center text-gray-700 mb-8 max-w-2xl mx-auto">
-      Wir bieten unsere Kurse an verschiedenen zentralen Standorten an, damit du
-      den <strong>VKU Zug</strong>, <strong>VKU Baar</strong> oder <strong
-        >VKU Steinhausen</strong
-      > bequem erreichen kannst.
-    </p>
+    <h2 class="text-3xl font-bold mb-8 text-center">Deine Anfahrt zum VKU in Zug</h2><p class="text-center mb-8">Alle Wege führen zum Kurslokal an der Industriestrasse 50 in Zug. Wähle deinen Ausgangspunkt.</p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
         locations.map((location) => (
@@ -285,29 +242,7 @@ const testimonials = [
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section id="testimonials" class="bg-blue-600 py-12 text-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-10 text-center">
-        Das sagen unsere Teilnehmer
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {
-          testimonials.map((t) => (
-            <div class="bg-blue-700 p-6 rounded-lg shadow-lg">
-              <div class="flex items-center mb-4">
-                <div class="text-yellow-400 flex">{"★".repeat(5)}</div>
-              </div>
-              <p class="italic mb-4">"{t.text}"</p>
-              <p class="font-bold">{t.name}</p>
-              <p class="text-blue-200 text-sm">{t.role}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
+  <section id="testimonials" class="plan-section bg-gray-50"><div class="wrap"><h2>Erfahrungen aus dem VKU</h2><p>Lorena Bienz beschreibt den Zuger Unterricht als spannend. Andere Teilnehmende heben die Gruppenübungen und die verständlichen Erklärungen hervor.</p><div class="inline-links"><a href="https://drivelab.ch/vku/zug/">Originalbewertungen bei DriveLab lesen</a></div></div></section>
   <!-- Image Gallery -->
   <section id="galerie" class="py-12 max-w-6xl mx-auto px-4">
     <h2 class="text-3xl font-bold mb-8 text-center">Unser VKU Zentrum</h2>
@@ -336,15 +271,11 @@ const testimonials = [
         VKU Kursdatum wählen und anmelden
       </h2>
       <p class="text-center text-gray-700 mb-8">
-        Wähle unten deinen passenden Termin für den <strong
+        Wähle deinen passenden Termin für den <strong
           >Verkehrskundeunterricht Zug</strong
         > aus. Die Anmeldung ist verbindlich.
       </p>
-      <CourseIframe
-        src="https://iframe.vku-pgs.asa.ch/de/public/coursegroup/all/VktVXzU3NzQ=/0/vku/"
-        title="VKU Kursanmeldung"
-        height="600px"
-      />
+      <div class="text-center"><a class="action" href="/kurstermine">Kursblock zur Anmeldung wählen</a></div>
       <div class="mt-8 text-center">
         <p class="mb-4 text-gray-600">Hast du noch Fragen vor der Buchung?</p>
         <a
@@ -356,7 +287,7 @@ const testimonials = [
     </div>
   </section>
 
-  <!-- FAQ Preview -->
+<section class="wrap plan-section"><h2>Du planst deinen Kurs für 2027?</h2><p>Ab Januar 2027 verteilen sich die acht Stunden auf vier separate Tage. Im neuen Ausbildungsweg besuchst du sie vor der Basistheorieprüfung.</p><div class="inline-links"><a href="/vorbereitung">Unterlagen und Vorbereitung</a></div></section>  <!-- FAQ Preview -->
   <section class="py-12 max-w-6xl mx-auto px-4">
     <h2 class="text-3xl font-bold mb-8">Häufig gestellte Fragen</h2>
     <div class="space-y-4">

@@ -1,115 +1,123 @@
 {
-    "site": {
-        "title": "VKU Zug – Traffic Theory Course in Canton Zug",
-        "description": "Book your VKU course in Zug now: 8 hours of traffic theory, central location, incl. materials. Secure your spot!",
-        "lang": "en-CH",
-        "domain": "vku-kurs-zug.ch"
-    },
-    "course": {
-        "name": "Traffic Theory Course (VKU) Zug",
-        "price": "CHF 230.-",
-        "duration": "8 hours",
-        "duration_days": "2 days",
-        "location_main": "Industriestrasse 50, 6300 Zug",
-        "location_detail": "Approx. 9 minutes walk from Zug train station.",
-        "parking": "GIBZ parking garage opposite (also for motorcycles)",
-        "cancellation_policy": "Free cancellation up to 48 hours before course start",
-        "inclusions": [
-            "Learning materials",
-            "Certificate",
-            "Drinks",
-            "Fruit"
-        ],
-        "modules": [
-            {
-                "title": "Traffic Vision",
-                "description": "Training to recognize traffic situations early and react correctly. Focus on sensorimotor skills and methods for successful driver training."
-            },
-            {
-                "title": "Traffic Environment",
-                "description": "Adapting speed to the current situation. Using 360-degree videos from Zug to teach appropriate driving behavior. Assessing pedestrians, roads, and visibility conditions."
-            },
-            {
-                "title": "Traffic Dynamics",
-                "description": "Basic rules of driving physics. Covering electronic assistance systems and vehicle maintenance (using Tesla and combustion engines as examples)."
-            },
-            {
-                "title": "Traffic Tactics",
-                "description": "Strategies for safe driving. Examining the influence of fatigue, distraction, drugs, and medication. Risk prevention is the priority."
-            }
-        ],
-        "faq": [
-            {
-                "question": "When should I attend the traffic theory course?",
-                "answer": "Immediately after passing the theory exam. The VKU is valid indefinitely and allows you to register for the practical driving test (if no annual deadline applies)."
-            },
-            {
-                "question": "What is traffic theory instruction?",
-                "answer": "The VKU is a two-day course that bridges the gap between theory and practical driving lessons to increase traffic safety. It focuses on developing traffic sense and driving school didactics."
-            },
-            {
-                "question": "When must I attend the VKU?",
-                "answer": "The VKU is mandatory for everyone obtaining a category B (car) or category A1/A (motorcycle) license for the first time. A valid learner's permit is required for registration."
-            },
-            {
-                "question": "How long does the VKU take?",
-                "answer": "The VKU lasts 8 hours, at DriveLab intensively over two days."
-            },
-            {
-                "question": "How much does a VKU cost?",
-                "answer": "The VKU in Zug costs CHF 230.-. This includes all costs such as learning materials, certificate, drinks, and fruit."
-            },
-            {
-                "question": "How long is the traffic theory valid?",
-                "answer": "Forever. A completed VKU remains valid indefinitely."
-            },
-            {
-                "question": "What do I need to bring to the VKU?",
-                "answer": "Just your mobile phone, as some content is available online. Learning materials, drinks, fruit, writing instruments, and note material are provided and included in the price."
-            }
-        ]
-    },
-    "locations": [
-        {
-            "slug": "zug-hauptbahnhof",
-            "name": "Zug Main Station",
-            "description": "Description of VKU classroom Zug HB, arrival by public transport, special features."
-        },
-        {
-            "slug": "baar",
-            "name": "Baar (Canton Zug)",
-            "description": "VKU in Baar in Canton Zug."
-        },
-        {
-            "slug": "steinhausen",
-            "name": "Steinhausen",
-            "description": "VKU in Steinhausen (Canton Zug)."
-        }
+  "site": {
+    "title": "VKU Zug – Traffic Theory Course in Canton Zug",
+    "description": "Book your VKU course in Zug now: 8 hours of traffic theory, central location, incl. materials. Secure your spot!",
+    "lang": "en-CH",
+    "domain": "vku-kurs-zug.ch"
+  },
+  "course": {
+    "name": "Traffic Theory Course (VKU) Zug",
+    "price": "CHF 230 (2026)",
+    "duration": "8 hours",
+    "duration_days": "Two days in 2026, four days from 2027",
+    "location_main": "Industriestrasse 50, 6300 Zug",
+    "location_detail": "Approx. 9 minutes walk from Zug train station.",
+    "parking": "GIBZ parking garage opposite (also for motorcycles)",
+    "cancellation_policy": "Free up to six days before the course under DriveLab’s terms",
+    "inclusions": [
+      "Learning materials",
+      "Certificate",
+      "Drinks",
+      "Fruit"
     ],
-    "external_links": [
-        {
-            "text": "Federal Roads Office (FEDRO)",
-            "url": "https://www.astra.admin.ch/astra/en/home.html"
-        },
-        {
-            "text": "Cantonal Road Traffic Office Zug",
-            "url": "https://www.zg.ch/behoerden/sicherheitsdirektion/strassenverkehrsamt"
-        },
-        {
-            "text": "DriveLab Driving Lessons",
-            "url": "https://drivelab.ch/fahrstunden"
-        },
-        {
-            "text": "DriveLab Intensive Course",
-            "url": "https://drivelab.ch/intensivkurs"
-        },
-        {
-            "text": "DriveLab Motorcycle",
-            "url": "https://drivelab.ch/motorrad"
-        },
-        {
-            "text": "First Aid Course Zurich",
-            "url": "https://www.nothelferkurs-zuerich.ch/"
-        }
+    "modules": [
+      {
+        "title": "Traffic Vision",
+        "description": "Training to recognize traffic situations early and react correctly. Focus on sensorimotor skills and methods for successful driver training."
+      },
+      {
+        "title": "Traffic Environment",
+        "description": "Adapting speed to the current situation. Using 360-degree videos from Zug to teach appropriate driving behavior. Assessing pedestrians, roads, and visibility conditions."
+      },
+      {
+        "title": "Traffic Dynamics",
+        "description": "Basic rules of driving physics. Covering electronic assistance systems and vehicle maintenance (using Tesla and combustion engines as examples)."
+      },
+      {
+        "title": "Traffic Tactics",
+        "description": "Strategies for safe driving. Examining the influence of fatigue, distraction, drugs, and medication. Risk prevention is the priority."
+      }
+    ],
+    "faq": [
+      {
+        "question": "When should I attend the traffic theory course?",
+        "answer": "Under the 2026 rules, you can attend after passing theory and receiving your learner’s permit. Under the new rules from January 2027, take the VKU before the basic theory test."
+      },
+      {
+        "question": "What is traffic theory instruction?",
+        "answer": "Traffic theory is an in-person course on recognising hazards, anticipating the actions of others and adjusting your speed, space and attention."
+      },
+      {
+        "question": "When must I attend the VKU?",
+        "answer": "The complete course is part of first-time training for categories A, A1, B and B1. If you passed basic theory before 2027, you need proof before the practical test."
+      },
+      {
+        "question": "How long does the VKU take?",
+        "answer": "Eight hours in total. The 2026 Zug groups run on two days. From 2027 the four sessions take place on four separate days."
+      },
+      {
+        "question": "How much does a VKU cost?",
+        "answer": "The advertised 2026 Zug course costs CHF 230 for the whole group of sessions, including materials, attendance confirmation, drinks and fruit. Check the group price before booking."
+      },
+      {
+        "question": "How long is the traffic theory valid?",
+        "answer": "Forever. A completed VKU remains valid indefinitely."
+      },
+      {
+        "question": "What do I need to bring to the VKU?",
+        "answer": "For a 2026 course, bring your learner’s permit and a charged phone. Writing supplies, materials and drinks are available. For 2027, check the FABER PIN requirements in your confirmation."
+      },
+      {
+        "question": "Is the Zug course taught in English?",
+        "answer": "Check the teaching-language filter on the dates page. When no English group is available in Zug, you can compare English groups in Zurich or view the German groups here."
+      },
+      {
+        "question": "How do I change a booking?",
+        "answer": "DriveLab allows free changes or cancellation up to six days before the course. Section 6 of the provider’s terms covers later changes."
+      }
     ]
+  },
+  "locations": [
+    {
+      "slug": "zug-hauptbahnhof",
+      "name": "Zug Main Station",
+      "description": "About a nine-minute walk from the station to Industriestrasse 50."
+    },
+    {
+      "slug": "baar",
+      "name": "Baar (Canton Zug)",
+      "description": "From Baar station, take the bus to Zug, Göbli or travel by train to Zug."
+    },
+    {
+      "slug": "steinhausen",
+      "name": "Steinhausen",
+      "description": "Plan the trip from Steinhausen to Zug, then walk to the classroom."
+    }
+  ],
+  "external_links": [
+    {
+      "text": "Federal Roads Office (FEDRO)",
+      "url": "https://www.astra.admin.ch/astra/en/home.html"
+    },
+    {
+      "text": "Cantonal Road Traffic Office Zug",
+      "url": "https://www.zg.ch/behoerden/sicherheitsdirektion/strassenverkehrsamt"
+    },
+    {
+      "text": "DriveLab Driving Lessons",
+      "url": "https://drivelab.ch/fahrstunden"
+    },
+    {
+      "text": "DriveLab Intensive Course",
+      "url": "https://drivelab.ch/intensivkurs"
+    },
+    {
+      "text": "DriveLab Motorcycle",
+      "url": "https://drivelab.ch/motorrad"
+    },
+    {
+      "text": "First Aid Course Zurich",
+      "url": "https://www.nothelferkurs-zuerich.ch/"
+    }
+  ]
 }

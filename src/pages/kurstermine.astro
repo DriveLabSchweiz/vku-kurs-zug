@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CourseList from '../components/CourseList.astro';
+---
+<BaseLayout lang="de" title="VKU Zug Termine – freie Kursblöcke nach Zeitfenster" description="Finde einen vollständigen VKU-Kurs nach Unterrichtszeit und Sprache. Vergleiche alle Daten im Block und buche direkt bei DriveLab Zug." robots={Astro.url.search ? "noindex, follow" : "index, follow"}>
+ <header class="page-top"><div class="wrap"><p class="overline">DriveLab · Zug</p><h1>VKU Zug Termine – welcher Block passt?</h1><p>Wähle dein Zeitfenster. Zu jedem buchbaren Block siehst du alle Unterrichtstage, die Kurssprache und den Gesamtpreis.</p></div></header>
+
+ <section class="plan-section wrap"><h2>Freie Kursblöcke in Zug</h2>
+ <p>Kursort · Industriestrasse 50, 6300 Zug</p>
+ <CourseList lang="de" filters /></section>
+ <section class="plan-section" style="background:var(--warm)"><div class="wrap split-plan"><div>
+ <h2>So planst du die ganze Serie</h2>
+ <p>Bei «Nur Abendkurse» beginnen alle Einheiten ab 17 Uhr. «Mit Wochenende» zeigt Gruppen mit mindestens einem Samstag oder Sonntag. Ein Kurs kann also einen Werkabend und einen Samstag enthalten.</p>
+ <p>Gleiche Anfang und Ende jedes Kurstags mit deinem Dienstplan ab. Ab Bahnhof Zug kommen rund neun Minuten Fussweg dazu. Nach der Auswahl öffnet sich genau diese Gruppe bei DriveLab. Dort stehen der aktuelle Platzbestand und die Zahlungsoptionen.</p></div>
+ <aside><h3>Vor der Anmeldung</h3><a href="/ort/baar">Anfahrt ab Baar →</a><a href="/vorbereitung">Vorbereitung und Unterlagen →</a><a href="https://drivelab.ch/kontakt/">Kursfrage an DriveLab ↗</a></aside></div></section>
+</BaseLayout>

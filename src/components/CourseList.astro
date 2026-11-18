@@ -1,153 +1,31 @@
 ---
-import courses from "../data/courses.json";
-
-interface Props {
-    lang?: "de" | "en";
-}
-
-const { lang = "de" } = Astro.props;
-const isEn = lang === "en";
-
-const labels = {
-    date: isEn ? "Date" : "Datum",
-    time: isEn ? "Time" : "Zeit",
-    location: isEn ? "Location" : "Ort",
-    price: isEn ? "Price" : "Preis",
-    availability: isEn ? "Availability" : "Verfügbarkeit",
-    book: isEn ? "Book Now" : "Jetzt anmelden",
-    waitlist: isEn ? "Waitlist" : "Warteliste",
-    fewSpots: isEn ? "Few spots left" : "Wenige Plätze",
-    available: isEn ? "Available" : "Verfügbar",
-};
-
-function getAvailabilityLabel(status: string) {
-    if (status === "Waitlist") return labels.waitlist;
-    if (status === "Few spots left") return labels.fewSpots;
-    return labels.available;
-}
-
-function getAvailabilityColor(status: string) {
-    if (status === "Waitlist") return "text-red-600 bg-red-50";
-    if (status === "Few spots left") return "text-orange-600 bg-orange-50";
-    return "text-green-600 bg-green-50";
-}
+import { getCourses, bookingLink, provider, type Language } from '../lib/amelia';
+const {lang = 'de', filters = false} = Astro.props as {lang?:Language;filters?:boolean};
+const en = lang === 'en';
+const path = en ? '/en/course-dates' : '/kurstermine';
+const periods = en ? ['All times','Evenings only','Includes a weekend'] : ['Alle Zeiten','Nur Abendkurse','Mit Wochenende'];
+const windows = ['all','evening','weekend'];
+const selected = filters && windows.includes(Astro.url.searchParams.get('zeit') ?? '') ? Astro.url.searchParams.get('zeit')! : 'all';
+const requestedLang = filters ? Astro.url.searchParams.get('sprache') : null;
+const language = ['de','en','all'].includes(requestedLang ?? '') ? requestedLang : en ? 'en' : 'all';
+const data = await getCourses();
+const courses = (data ?? []).filter(c => (language==='all'||c.language===language) && (selected==='all'||(selected==='evening'?c.evening:c.weekend)));
+const date = (day:string) => new Intl.DateTimeFormat(en?'en-GB':'de-CH',{weekday:'long',month:'long',day:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(day+'T12:00:00Z'));
+const other = en ? '/en/course-dates?sprache=all' : '/kurstermine?sprache=all';
 ---
-
-<div class="overflow-x-auto">
-    <table
-        class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm"
-    >
-        <thead class="bg-gray-50">
-            <tr>
-                <th class="py-3 px-4 text-left font-semibold text-gray-700"
-                    >{labels.date}</th
-                >
-                <th class="py-3 px-4 text-left font-semibold text-gray-700"
-                    >{labels.time}</th
-                >
-                <th class="py-3 px-4 text-left font-semibold text-gray-700"
-                    >{labels.location}</th
-                >
-                <th class="py-3 px-4 text-left font-semibold text-gray-700"
-                    >{labels.price}</th
-                >
-                <th class="py-3 px-4 text-left font-semibold text-gray-700"
-                    >{labels.availability}</th
-                >
-                <th class="py-3 px-4 text-left font-semibold text-gray-700"
-                ></th>
-            </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-200">
-            {
-                courses.map((course) => (
-                    <tr
-                        class={
-                            course.availability === "Waitlist"
-                                ? "opacity-75"
-                                : ""
-                        }
-                    >
-                        <td class="py-4 px-4 whitespace-nowrap">
-                            {course.date}
-                        </td>
-                        <td class="py-4 px-4 whitespace-nowrap">
-                            {course.time}
-                        </td>
-                        <td class="py-4 px-4 whitespace-nowrap">
-                            {course.location}
-                        </td>
-                        <td class="py-4 px-4 whitespace-nowrap font-bold">
-                            {course.price}
-                        </td>
-                        <td class="py-4 px-4 whitespace-nowrap">
-                            <span
-                                class={`px-2 py-1 rounded-full text-xs font-semibold ${getAvailabilityColor(course.availability)}`}
-                            >
-                                {getAvailabilityLabel(course.availability)}
-                            </span>
-                        </td>
-                        <td class="py-4 px-4 whitespace-nowrap text-right">
-                            {course.availability !== "Waitlist" ? (
-                                <a
-                                    href={course.link}
-                                    class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm font-bold transition"
-                                >
-                                    {labels.book}
-                                </a>
-                            ) : (
-                                <span class="text-gray-500 text-sm font-semibold">
-                                    {labels.waitlist}
-                                </span>
-                            )}
-                        </td>
-                    </tr>
-                ))
-            }
-        </tbody>
-    </table>
-</div>
-
-<!-- Event Schema -->
-<script
-    type="application/ld+json"
-    is:inline
-    set:html={JSON.stringify(
-        courses.map((course) => ({
-            "@context": "https://schema.org",
-            "@type": "Event",
-            name: `VKU Kurs ${course.location}`,
-            startDate: course.startDate,
-            endDate: course.endDate,
-            eventAttendanceMode:
-                "https://schema.org/OfflineEventAttendanceMode",
-            eventStatus: "https://schema.org/EventScheduled",
-            location: {
-                "@type": "Place",
-                name: course.location,
-                address: {
-                    "@type": "PostalAddress",
-                    streetAddress: course.address,
-                    addressLocality: course.location,
-                    postalCode: "6300",
-                    addressCountry: "CH",
-                },
-            },
-            offers: {
-                "@type": "Offer",
-                price: course.price.replace("CHF ", ""),
-                priceCurrency: "CHF",
-                availability:
-                    course.availability === "Waitlist"
-                        ? "https://schema.org/SoldOut"
-                        : "https://schema.org/InStock",
-                url: "https://vku-kurs-zug.ch/#booking",
-            },
-            organizer: {
-                "@type": "Organization",
-                name: "VKU Zug",
-                url: "https://vku-kurs-zug.ch",
-            },
-        })),
-    )}
-/>
+{filters && <form class="course-filter" method="get" action={path}>
+ <label>{en?'When can you attend?':'Wann hast du Zeit?'}<select name="zeit">{windows.map((v,i)=><option value={v} selected={v===selected}>{periods[i]}</option>)}</select></label>
+ <label>{en?'Teaching language':'Kurssprache'}<select name="sprache">{['all','de','en'].map((v,i)=><option value={v} selected={v===language}>{(en?['All languages','German','English']:['Alle Sprachen','Deutsch','Englisch'])[i]}</option>)}</select></label>
+ <button class="action" type="submit">{en?'Show courses':'Kurse anzeigen'}</button>
+</form>}
+{courses.map(c=><article class="course-card">
+ <div class="course-head"><p class="overline">{en?'Course in '+(c.language==='de'?'German':'English'):'Kurs auf '+(c.language==='de'?'Deutsch':'Englisch')}</p><strong>CHF {c.price}</strong></div>
+ <h3>{c.evening?(en?'Evening course in Zug':'Abendkurs in Zug'):(en?'VKU in Zug':'Verkehrskunde in Zug')}</h3>
+ <ul class="session-list">{c.sessions.map(s=><li><time datetime={s.day}>{date(s.day)}</time><b>{s.start} – {s.end}</b></li>)}</ul>
+ <p>Industriestrasse 50, 6300 Zug{c.organizer && <><br />{en?'Course provider':'Kursanbieter'} · {c.organizer}</>}</p>
+ <a class="action" href={bookingLink(c,lang)}>{en?'Book this group at DriveLab':'Diesen Kurs bei DriveLab buchen'} <span aria-hidden="true">↗</span></a>
+</article>)}
+{!courses.length && <div class="course-card empty"><h3>{data===null?(en?'Check dates with DriveLab':'Termine direkt bei DriveLab prüfen'):en?'No matching course in Zug':'Kein passender Kurs in Zug'}</h3>
+ <p>{data===null?(en?'The live schedule is temporarily unavailable. The official list shows the current options.':'Der Kursplan lässt sich momentan nicht laden. Die aktuelle Auswahl findest du in der offiziellen Anmeldung.'):en?'There is currently no bookable Zug group for this selection. You can check other times or compare English courses at Zurich HB.':'Für diese Auswahl ist zurzeit keine vollständige Zuger Gruppe buchbar. Prüfe andere Zeitfenster oder die nächsten Ausschreibungen bei DriveLab.'}</p>
+ <div class="inline-links"><a href={other}>{en?'All Zug dates':'Alle Zuger Termine'}</a><a href={provider}>{en?'DriveLab schedule':'Angebot bei DriveLab'}</a>{en && <a href="https://english-vku-zurich.ch/">English courses in Zurich</a>}</div>
+</div>}

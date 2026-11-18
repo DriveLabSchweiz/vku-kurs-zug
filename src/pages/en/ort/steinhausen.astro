@@ -9,25 +9,22 @@ const otherLocations = locations.filter((l) => l.slug !== "steinhausen");
 ---
 
 <BaseLayout
-  title="VKU Steinhausen ZG – Traffic Theory in Zug Area"
-  description="VKU Course in Steinhausen ZG: Traffic theory instruction for student drivers from Steinhausen and surroundings. Short distances, practical instruction, official confirmation included."
+  title="VKU from Steinhausen – getting to class"
+  description="Your destination is Industriestrasse 50 in Zug. Plan your trip by train, bus or car and choose your course dates."
   canonical="https://vku-kurs-zug.ch/en/ort/steinhausen"
   lang="en"
 >
   <!-- Hero Section -->
   <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
     <div class="max-w-6xl mx-auto px-4">
-      <h1 class="text-4xl font-bold mb-4">VKU Steinhausen</h1>
-      <p class="text-xl">
-        Traffic theory instruction in Steinhausen, Canton Zug
-      </p>
+      <h1 class="text-4xl font-bold mb-4">VKU from Steinhausen – getting to class</h1><p class="text-xl">Your destination is Industriestrasse 50 in Zug.</p>
     </div>
   </section>
 
   <!-- Breadcrumb -->
   <nav class="bg-gray-50 py-4">
     <div class="max-w-6xl mx-auto px-4">
-      <a href="/en" class="text-blue-600 hover:underline">Home</a> >
+      <a href="/en/" class="text-blue-600 hover:underline">Home</a> >
       <a href="/en/#standorte" class="text-blue-600 hover:underline"
         >Locations</a
       > >
@@ -41,44 +38,19 @@ const otherLocations = locations.filter((l) => l.slug !== "steinhausen");
       <div>
         <OptimizedImage
           src="/vku-klassenzimmer-u-form.webp"
-          alt="VKU classroom in Steinhausen in U-shape with modern tables and chairs"
+          alt="Classroom in Zug"
           width={600}
           height={400}
           class="rounded-lg shadow-lg mb-6 w-full object-cover"
           loading="eager"
         />
-        <h2 class="text-3xl font-bold mb-6">VKU in Steinhausen</h2>
-        <p class="text-lg text-gray-700 mb-4">
-          Steinhausen is a growing municipality in Canton Zug with good
-          infrastructure. Our Steinhausen location offers you a comfortable
-          environment for your traffic theory instruction.
-        </p>
-        <p class="text-lg text-gray-700 mb-4">
-          With modern learning materials and experienced instructors, we prepare
-          you optimally for your driving test. The location is easily accessible
-          and offers good transport connections.
-        </p>
-        <p class="text-lg text-gray-700 mb-6">
-          As at all our locations, drinks and fruit are included in the course
-          price.
-        </p>
-
-        <h3 class="text-2xl font-bold mb-4">Arrival</h3>
-        <ul class="text-gray-700 space-y-2 mb-6">
-          <li><strong>By car:</strong> Central location with parking</li>
-          <li><strong>By bus:</strong> Good bus connection</li>
-          <li><strong>By train:</strong> Steinhausen station nearby</li>
-        </ul>
-
-        <h3 class="text-2xl font-bold mb-4">Address</h3>
-        <p class="text-gray-700 mb-6">
-          Steinhausen<br />
-          Canton Zug<br />
-          Switzerland
-        </p>
-
-        <a
-          href="/en/kontakt"
+        <h2 class="text-3xl font-bold mb-4">From Steinhausen to the classroom</h2><p class="mb-4">Travel from Steinhausen station to Zug. Allow about nine minutes to walk to the classroom, plus time to find the entrance.</p>
+       <h3 class="text-xl font-bold">By bus</h3><p class="mb-4">Compare services from your stop to Zug, Göbli and to Zug station. A different return route may suit a late finish.</p>
+       <h3 class="text-xl font-bold">By car or motorcycle</h3><p class="mb-4">The GIBZ car park is opposite the venue. Drinks, fruit and course materials are provided in class.</p>
+       <h3 class="text-xl font-bold">Address and timetable</h3><p>Industriestrasse 50, 6300 Zug</p>
+       <p class="inline-links mb-6"><a href="https://www.sbb.ch/en">Check SBB connections</a></p>
+       <a
+          href="/en/course-dates"
           class="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 inline-block"
         >
           Register Now
@@ -120,7 +92,7 @@ const otherLocations = locations.filter((l) => l.slug !== "steinhausen");
 
     <!-- Weitere Standorte -->
     <div class="mt-12">
-      <h2 class="text-3xl font-bold mb-8">Other VKU Locations in Zug</h2>
+      <h2 class="text-3xl font-bold mb-8">Other routes to the classroom</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {
           otherLocations.map((location) => (
@@ -142,7 +114,7 @@ const otherLocations = locations.filter((l) => l.slug !== "steinhausen");
     <!-- CTA -->
     <div class="mt-12 text-center">
       <a
-        href="/en"
+        href="/en/"
         class="bg-blue-600 text-white px-8 py-3 rounded font-bold hover:bg-blue-700 inline-block"
         >Back to Home</a
       >

@@ -2,30 +2,29 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import vkuData from "../../data/vku_data_en.json";
 import OptimizedImage from "../../components/OptimizedImage.astro";
-import CourseIframe from "../../components/CourseIframe.astro";
 import CourseList from "../../components/CourseList.astro";
 
 const { course, locations } = vkuData;
 
 const galleryImages = [
   {
-    src: "/vku-lokal-aussenansicht-neu.jpg",
+    src: "/images/eingang.webp",
     alt: "Exterior view of the VKU location at Industriestrasse 50 in Zug",
   },
   {
-    src: "/vku-klassenzimmer-1.jpg",
+    src: "/images/kursraum.webp",
     alt: "Modern VKU classroom in Zug with U-shaped seating",
   },
   {
-    src: "/vku-klassenzimmer-2.jpg",
+    src: "/images/vku-klassenzimmer-2.webp",
     alt: "VKU classroom with whiteboard and projector",
   },
   {
-    src: "/vku-klassenzimmer-3.jpg",
+    src: "/images/vku-klassenzimmer-3.webp",
     alt: "VKU training room with modern equipment",
   },
   {
-    src: "/vku-whiteboard-programm.jpg",
+    src: "/images/vku-whiteboard-programm.webp",
     alt: "VKU lesson program on whiteboard with learning objectives",
   },
   {
@@ -34,56 +33,30 @@ const galleryImages = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Sarah M.",
-    text: "Great course! The 8 hours flew by. Very practical and clearly explained.",
-    role: "Student Driver",
-  },
-  {
-    name: "Luca B.",
-    text: "Great atmosphere and cool instructors. I can only recommend it for the VKU in Zug.",
-    role: "Student Driver",
-  },
-  {
-    name: "Jana K.",
-    text: "Centrally located and well organized. The snacks were a nice extra!",
-    role: "Student Driver",
-  },
-];
 ---
 
 <BaseLayout
-  title="VKU Course Zug – Traffic Theory Course in 2 Days | vku-kurs-zug.ch"
-  description="Book your VKU in Zug and complete the traffic theory course in just 2 days. Central in Zug, incl. materials and confirmation. Choose course date and register online now."
+  title="VKU Zug – find course dates and teaching languages"
+  description="Compare VKU groups in Zug by teaching language, session times and price. Plan the journey from Baar and book the complete course directly with DriveLab."
   canonical="https://vku-kurs-zug.ch/en/"
   lang="en"
 >
-  <!-- Hero Section with Background Image -->
-  <section
-    class="relative h-96 md:h-[500px] bg-cover bg-center"
-    style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/vku-lokal-aussenansicht-neu.jpg'); background-size: cover; background-position: center;"
-  >
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="text-center text-white px-4">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">
-          VKU Course Zug – Traffic Theory
-        </h1>
-        <p class="text-xl md:text-2xl mb-8">
-          Your way to the driver's license: 8 hours intensive course in the
-          center of Zug
-        </p>
-        <a
-          href="#booking"
-          class="bg-white text-blue-600 px-8 py-3 rounded font-bold hover:bg-gray-100 inline-block transition transform hover:scale-105"
-          >Choose Course Date Now</a
-        >
-      </div>
-    </div>
+  <section class="zug-hero">
+    <div class="hero-copy"><p class="overline">DriveLab · Traffic theory</p>
+      <h1>VKU Zug – find your course dates.</h1>
+      <p>Choose a teaching language, compare complete course groups and plan your journey to the classroom in Zug.</p>
+      <a class="action sun" href="/en/course-dates">Compare course dates <span aria-hidden="true">→</span></a>
+    </div><div class="hero-photo" role="img" aria-label="Outside the course venue" style="background-image:url('/images/eingang.webp')"><span>Industriestrasse 50 · Zug</span></div>
   </section>
-
+  <section id="termine" class="plan-section wrap split-plan">
+    <div><h2>Upcoming course dates</h2><CourseList lang="en" /></div>
+    <aside><h2>Plan your visit</h2>
+    <a href="/en/course-dates?zeit=evening&amp;sprache=all">Evening course groups →</a>
+    <a href="/en/ort/baar">Getting here from Baar →</a>
+    <a href="/en/preparation">What should I bring? →</a></aside>
+  </section>
   <!-- Table of Contents -->
-  <nav class="bg-gray-50 py-4 sticky top-20 z-40 shadow-sm">
+  <nav class="bg-gray-50 py-4 border-y border-gray-200">
     <div class="max-w-6xl mx-auto px-4">
       <p class="text-sm font-semibold text-gray-600 mb-2">On this page:</p>
       <ul class="flex flex-wrap gap-4 text-sm">
@@ -139,7 +112,7 @@ const testimonials = [
       The prices are <strong>all inclusive</strong>. So you can leave your
       wallet at home for the VKU. Drinks and fruit are also on us. We offer you
       a modern <strong>VKU intensive course</strong>, which you can comfortably
-      complete on two evenings.
+      complete on two evenings in the 2026 schedule.
     </p>
   </section>
 
@@ -183,9 +156,9 @@ const testimonials = [
         <div
           class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
         >
-          <p class="text-4xl font-bold text-blue-600 mb-2">48h</p>
+          <p class="text-4xl font-bold text-blue-600 mb-2">6 days</p>
           <p class="text-gray-700 font-semibold">Cancellation</p>
-          <p class="text-sm text-gray-500 mt-2">Free up to 48h before course start</p>
+          <p class="text-sm text-gray-500 mt-2">Free cancellation up to 6 days before the course</p>
         </div>
         <div
           class="bg-white p-6 rounded shadow text-center hover:shadow-md transition"
@@ -196,16 +169,6 @@ const testimonials = [
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Upcoming Courses List -->
-  <section id="termine" class="py-12 max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-8">Upcoming Course Dates</h2>
-    <p class="text-lg text-gray-700 mb-6">
-      Secure your spot for the next <strong>VKU Course in Zug</strong> now. Our courses
-      are often booked out quickly.
-    </p>
-    <CourseList lang="en" />
   </section>
 
   <!-- Module -->
@@ -239,13 +202,7 @@ const testimonials = [
 
   <!-- Standorte -->
   <section id="standorte" class="py-12 max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-8 text-center">VKU Locations in Zug</h2>
-    <p class="text-center text-gray-700 mb-8 max-w-2xl mx-auto">
-      We offer our courses at various central locations so that you can easily
-      reach <strong>VKU Zug</strong>, <strong>VKU Baar</strong> or <strong
-        >VKU Steinhausen</strong
-      >.
-    </p>
+    <h2 class="text-3xl font-bold mb-8 text-center">Getting to the course in Zug</h2><p class="text-center mb-8">The classroom is at Industriestrasse 50 in Zug. Choose your starting point for directions.</p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
         locations.map((location) => (
@@ -278,29 +235,7 @@ const testimonials = [
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section id="testimonials" class="bg-blue-600 py-12 text-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-10 text-center">
-        What our participants say
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {
-          testimonials.map((t) => (
-            <div class="bg-blue-700 p-6 rounded-lg shadow-lg">
-              <div class="flex items-center mb-4">
-                <div class="text-yellow-400 flex">{"★".repeat(5)}</div>
-              </div>
-              <p class="italic mb-4">"{t.text}"</p>
-              <p class="font-bold">{t.name}</p>
-              <p class="text-blue-200 text-sm">{t.role}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
+  <section id="testimonials" class="plan-section bg-gray-50"><div class="wrap"><h2>What participants say</h2><p>Lorena Bienz describes the Zug course as engaging. Other participants mention the group exercises and how clearly the instructors explain the material.</p><div class="inline-links"><a href="https://drivelab.ch/vku/zug/">Read the original reviews at DriveLab</a></div></div></section>
   <!-- Image Gallery -->
   <section id="galerie" class="py-12 max-w-6xl mx-auto px-4">
     <h2 class="text-3xl font-bold mb-8 text-center">Our VKU Center</h2>
@@ -331,13 +266,9 @@ const testimonials = [
       <p class="text-center text-gray-700 mb-8">
         Choose your suitable date for the <strong
           >Traffic Theory Instruction Zug</strong
-        > below. Registration is binding.
+        >. Registration takes place at DriveLab.
       </p>
-      <CourseIframe
-        src="https://iframe.vku-pgs.asa.ch/de/public/coursegroup/all/VktVXzU3NzQ=/0/vku/"
-        title="VKU Course Registration"
-        height="600px"
-      />
+      <div class="text-center"><a class="action" href="/en/course-dates">Choose a group to register</a></div>
       <div class="mt-8 text-center">
         <p class="mb-4 text-gray-600">
           Do you have any questions before booking?
@@ -351,7 +282,7 @@ const testimonials = [
     </div>
   </section>
 
-  <!-- FAQ Preview -->
+<section class="wrap plan-section"><h2>Planning a later course?</h2><p>From January 2027, the eight hours take place on four separate days. In the new training pathway you complete them before the basic theory test.</p><div class="inline-links"><a href="/en/preparation">Documents and course preparation</a></div></section>  <!-- FAQ Preview -->
   <section class="py-12 max-w-6xl mx-auto px-4">
     <h2 class="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
     <div class="space-y-4">

@@ -15,15 +15,14 @@ const includedItems = [
 
 const competitorComparison = [
   { name: "VKU Zug (DriveLab)", price: "CHF 230", included: "Alle Inklusivleistungen", location: "Zentral in Zug" },
-  { name: "Verkehrsschule Zug", price: "CHF 260", included: "Material inkl., Getränke teilweise", location: "Zug" },
-  { name: "BLINK Fahrschule", price: "CHF 240-280", included: "Grundausstattung", location: "Zug" },
-  { name: "VKU am Bahnhof", price: "CHF 250", included: "Standard", location: "Zug HB" },
+  { name: "VKU Baar", price: "CHF 240", included: "Lehrmaterial, Mineralwasser, Bestätigung", location: "Leihgasse 4, Baar" },
+  { name: "VKU am Bahnhof", price: "CHF 260", included: "Kurshefte", location: "Zug HB" },
 ];
 
 const faqs = [
   {
-    question: "Warum kostet der VKU bei euch nur CHF 230?",
-    answer: "Wir haben effiziente Prozesse und günstige Räumlichkeiten, ohne Kompromisse bei der Qualität. Die Einsparungen geben wir direkt an dich weiter."
+    question: "Wofür gelten die CHF 230?",
+    answer: "Das ist der ausgeschriebene Gesamtpreis der Zuger Kursgruppe 2026. Prüfe bei späteren Gruppen den Preis beim gewählten Termin."
   },
   {
     question: "Gibt es versteckte Kosten?",
@@ -31,17 +30,17 @@ const faqs = [
   },
   {
     question: "Kann ich in Raten zahlen?",
-    answer: "Der VKU muss vor Kursbeginn vollständig bezahlt werden. Bei finanziellen Problemen sprich uns an – wir finden eine Lösung."
+    answer: "Der VKU muss vor Kursbeginn vollständig bezahlt werden. Die verfügbaren Zahlungsarten siehst du in der Anmeldung."
   },
   {
     question: "Was ist die Stornierungsbedingung?",
-    answer: "Bis 48 Stunden vor Kursbeginn kannst du kostenlos stornieren. Danach fällt die volle Gebühr an."
+    answer: "Bis sechs Tage vor Kursbeginn sind Stornierung und Umbuchung kostenlos. Spätere Änderungen regelt Ziffer 6 der DriveLab-AGB."
   }
 ];
 ---
 
 <BaseLayout
-  title="VKU Zug Preis 2025 – CHF 230 inkl. allem | Günstig & Zentral"
+  title="VKU Zug Preis – CHF 230 inklusive Kursmaterial (2026)"
   description="VKU Zug ab CHF 230: Inkl. Material, Zertifikat, Getränke & Snacks. Keine versteckten Kosten. Jetzt online buchen und sparen!"
   canonical="https://vku-kurs-zug.ch/vku-preis/"
   lang="de"
@@ -66,7 +65,7 @@ const faqs = [
       "description": "8-stündiger Verkehrskundeunterricht in Zug inkl. aller Leistungen",
       "price": "230",
       "priceCurrency": "CHF",
-      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2026-12-31",
       "url": "https://vku-kurs-zug.ch/vku-preis/"
     }
   </script>
@@ -85,7 +84,7 @@ const faqs = [
         <p class="text-blue-200 text-lg mb-2">Verkehrskundeunterricht Zug</p>
         <h1 class="text-5xl md:text-6xl font-bold mb-4">CHF 230</h1>
         <p class="text-xl text-blue-100 mb-8">All inclusive – Keine versteckten Kosten</p>
-        <a href="/#booking" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition inline-block">
+        <a href="/kurstermine" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition inline-block">
           Jetzt VKU buchen
         </a>
       </div>
@@ -117,7 +116,7 @@ const faqs = [
 
     <!-- Price Comparison -->
     <section class="mb-16">
-      <h2 class="text-3xl font-bold mb-8 text-center">Preisvergleich VKU Zug 2025</h2>
+      <h2 class="text-3xl font-bold mb-8 text-center">VKU-Preise in Zug und Baar</h2>
       
       
       <div class="overflow-x-auto">
@@ -143,7 +142,7 @@ const faqs = [
         </table>
       </div>
       
-      <p class="text-sm text-gray-500 mt-4">* Preise und Leistungen ohne Gewähr, Stand Februar 2025</p>
+      <p class="text-sm text-gray-500 mt-4">* Angaben der Anbieter vom 18. November 2026. <a href="https://www.vkuambahnhof.ch/zug">VKU am Bahnhof</a> · <a href="https://www.vku-baar.ch/">VKU Baar</a></p>
     </section>
 
     <!-- Why Choose Us -->
@@ -156,8 +155,8 @@ const faqs = [
           <div class="flex items-start gap-4">
             <span class="text-2xl">💰</span>
             <div>
-              <h4 class="font-bold">Bester Preis</h4>
-              <p class="text-gray-700">Mit CHF 230 bieten wir einen der günstigsten VKU-Kurse in Zug – bei vollem Leistungsumfang.</p>
+              <h4 class="font-bold">Gesamtpreis</h4>
+              <p class="text-gray-700">Der ausgeschriebene Zuger Kurs 2026 kostet CHF 230 für alle acht Stunden.</p>
             </div>
           </div>
           
@@ -173,7 +172,7 @@ const faqs = [
             <span class="text-2xl">⚡</span>
             <div>
               <h4 class="font-bold">Intensivformat</h4>
-              <p class="text-gray-700">8 Stunden an 2 Tagen – effizient und praxisnah. Keine langwierigen Abendkurse.</p>
+              <p class="text-gray-700">2026 sind acht Stunden auf zwei Tage verteilt, ab 2027 auf vier Tage.</p>
             </div>
           </div>
         </div>
@@ -191,7 +190,7 @@ const faqs = [
             <span class="text-2xl">🌐</span>
             <div>
               <h4 class="font-bold">Deutsch & Englisch</h4>
-              <p class="text-gray-700">Wir bieten den VKU in beiden Sprachen an – perfekt für internationale Fahrschüler.</p>
+              <p class="text-gray-700">Die Kurssprache steht beim Termin. Im Planer kannst du gezielt nach deutsch- oder englischsprachigen Gruppen suchen.</p>
             </div>
           </div>
           
@@ -199,7 +198,7 @@ const faqs = [
             <span class="text-2xl">⭐</span>
             <div>
               <h4 class="font-bold">Top Bewertungen</h4>
-              <p class="text-gray-700">Unsere Teilnehmer bewerten uns durchschnittlich mit 4.8/5 Sternen.</p>
+              <p class="text-gray-700">Im Zuger Kursangebot von DriveLab kannst du die veröffentlichten Erfahrungsberichte nachlesen.</p>
             </div>
           </div>
         </div>
@@ -208,11 +207,11 @@ const faqs = [
 
     <!-- Total Cost Overview -->
     <section class="mb-16 bg-gray-50 p-8 rounded-lg">
-      <h2 class="text-3xl font-bold mb-8 text-center">Gesamtkosten Führerschein Schweiz 2025</h2>
+      <h2 class="text-3xl font-bold mb-8 text-center">Gesamtkosten für den Führerausweis</h2>
       
       
       <p class="text-gray-700 mb-6 text-center">
-        Der VKU ist nur ein Teil der Gesamtkosten für den Führerschein. Hier eine Übersicht:
+        Der VKU ist nur ein Teil der Gesamtkosten für den Führerschein. Die folgenden Richtwerte aus der Kostenübersicht 2025 helfen beim Budgetieren. Aktuelle Gebühren bestätigt dein Strassenverkehrsamt.
       </p>
 
       <div class="max-w-2xl mx-auto">
@@ -254,7 +253,7 @@ const faqs = [
       <p class="text-blue-100 mb-2">All inclusive • Zentral gelegen • Erfahrene Lehrer</p>
       <p class="text-4xl font-bold my-6">CHF 230</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/#booking" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
+        <a href="/kurstermine" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
           Jetzt online buchen
         </a>
         <a href="/kontakt" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition">
